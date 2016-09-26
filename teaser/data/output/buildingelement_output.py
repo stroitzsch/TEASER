@@ -310,6 +310,143 @@ def delete_type_element(element, path=None, file_name=None):
 
     out_file.write(xml_parse.toDOM().toprettyxml())
 
+def modify_type_element(element, path=None, file_name=None, old_wall=None):
+    '''Modify typical element.
+
+    Modifies typical building element according to their construction
+    year and their construction type in the the XML file. If the Project parent
+    is set, it automatically saves it to the file given in Project.data.
+    Alternatively you can specify a path to a file of TypeBuildingElements.
+
+    Parameters
+    ----------
+
+    element : BuildingElement()
+        Instance of BuildingElement or inherited Element of TEASER
+
+    path : str
+        path where unique file should be stored
+    name : strt
+        name of of unique file
+
+    '''
+
+    if element.parent is not None:
+        path = element.parent.parent.parent.data.path_tb
+        xml_parse = element.parent.parent.parent.data.element_bind
+    else:
+        path = path + "/" + file_name + ".xml"
+        try:
+            xml_file = open(utilitis.get_full_path(path))
+            xml_parse = tb_bind.CreateFromDocument(xml_file.read())
+        except:
+            xml_parse = tb_bind.TypeBuildingElements()
+
+    if type(element).__name__ == "OuterWall":
+        for check in xml_parse.OuterWall:
+            if check.building_age_group == old_wall.building_age_group and\
+               check.construction_type == old_wall.construction_type and\
+               check.inner_convection == old_wall.inner_convection and\
+               check.inner_radiation == old_wall.inner_radiation:
+                check.construction_type = element.construction_type
+                check.building_age_group = element.building_age_group
+                check.inner_convection = element.inner_convection 
+                check.inner_radiation = element.inner_radiation
+                check.outer_convection = element.outer_convection
+                check.outer_radiation = element.outer_radiation
+                break
+
+    elif type(element).__name__ == 'InnerWall':
+
+        for check in xml_parse.InnerWall:
+            if check.building_age_group == old_wall.building_age_group and\
+               check.construction_type == old_wall.construction_type and\
+               check.inner_convection == old_wall.inner_convection and\
+               check.inner_radiation == old_wall.inner_radiation:
+                check.construction_type = element.construction_type
+                check.building_age_group = element.building_age_group
+                check.inner_convection = element.inner_convection 
+                check.inner_radiation = element.inner_radiation
+                break
+
+    elif type(element).__name__ == 'Ceiling':
+
+        for check in xml_parse.Ceiling:
+            if check.building_age_group == old_wall.building_age_group and\
+               check.construction_type == old_wall.construction_type and\
+               check.inner_convection == old_wall.inner_convection and\
+               check.inner_radiation == old_wall.inner_radiation:
+                check.construction_type = element.construction_type
+                check.building_age_group = element.building_age_group
+                check.inner_convection = element.inner_convection 
+                check.inner_radiation = element.inner_radiation
+                check.outer_convection = element.outer_convection
+                check.outer_radiation = element.outer_radiation
+                break
+
+    elif type(element).__name__ == 'Floor':
+
+        for check in xml_parse.Floor:
+            if check.building_age_group == old_wall.building_age_group and\
+               check.construction_type == old_wall.construction_type and\
+               check.inner_convection == old_wall.inner_convection and\
+               check.inner_radiation == old_wall.inner_radiation:
+                check.construction_type = element.construction_type
+                check.building_age_group = element.building_age_group
+                check.inner_convection = element.inner_convection 
+                check.inner_radiation = element.inner_radiation
+                check.outer_convection = element.outer_convection
+                check.outer_radiation = element.outer_radiation
+                break
+
+    elif type(old_wall).__name__ == 'GroundFloor':
+
+        for check in xml_parse.GroundFloor:
+            if check.building_age_group == old_wall.building_age_group and\
+               check.construction_type == old_wall.construction_type and\
+               check.inner_convection == old_wall.inner_convection and\
+               check.inner_radiation == old_wall.inner_radiation:
+                check.construction_type = element.construction_type
+                check.building_age_group = element.building_age_group
+                check.inner_convection = element.inner_convection 
+                check.inner_radiation = element.inner_radiation
+                break
+
+    elif type(old_wall).__name__ == 'Rooftop':
+
+        for check in xml_parse.Rooftop:
+            if check.building_age_group == old_wall.building_age_group and\
+               check.construction_type == old_wall.construction_type and\
+               check.inner_convection == old_wall.inner_convection and\
+               check.inner_radiation == old_wall.inner_radiation:
+                check.construction_type = element.construction_type
+                check.building_age_group = element.building_age_group
+                check.inner_convection = element.inner_convection 
+                check.inner_radiation = element.inner_radiation
+                check.outer_convection = element.outer_convection
+                check.outer_radiation = element.outer_radiation
+                break
+
+    elif type(element).__name__ == 'Window':
+
+        for check in xml_parse.Window:
+            if check.building_age_group == old_wall.building_age_group and\
+               check.construction_type == old_wall.construction_type and\
+               check.inner_convection == old_wall.inner_convection and\
+               check.inner_radiation == old_wall.inner_radiation:
+                check.construction_type = element.construction_type
+                check.building_age_group = element.building_age_group
+                check.inner_convection = element.inner_convection 
+                check.inner_radiation = element.inner_radiation
+                check.outer_convection = element.outer_convection
+                check.outer_radiation = element.outer_radiation
+                break
+
+    out_file = open(utilitis.get_full_path(path),"w")
+
+    out_file.write(xml_parse.toDOM().toprettyxml())
+
+
 def _set_basic_data_pyxb(element, pyxb_class):
     '''Helper function for save_type_element to set the layer data.
 

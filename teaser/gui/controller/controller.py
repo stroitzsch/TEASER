@@ -965,3 +965,10 @@ class Controller():
     def delete_element_in_xml(self, element, path):
         prefix_path, suffix_path = utilitis.split_path(path)
         element.delete_type_element(prefix_path, suffix_path)
+
+    @classmethod
+    def modify_element_in_xml(self, old_element, element, path):
+        prefix_path, suffix_path = utilitis.split_path(path)
+        element.modify_type_element(prefix_path, suffix_path, old_element)
+
+

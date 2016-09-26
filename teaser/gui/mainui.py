@@ -2955,8 +2955,7 @@ class MainUI(QDialog):
                                             building_age_group, inner_con,
                                             outer_con, inner_rad, outer_rad,
                                             layer_set)
-        Controller.delete_element_in_xml(self.selected_wall, path)
-        Controller.add_element_to_xml(element, path)
+        Controller.modify_element_in_xml(self.selected_wall, element, path)
         self.project.data = self.project.instantiate_data_class()
         self.thermalZoneFromXML = Controller.get_elements_from_file(
                                                 self.project)

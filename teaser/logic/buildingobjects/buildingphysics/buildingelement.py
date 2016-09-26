@@ -321,7 +321,35 @@ class BuildingElement(object):
 
         buildingelement_output.delete_type_element(element=self,
                                                    path=path,
-                                                   file_name=file_name)
+                                                   file_name=file_name) 
+        
+    def modify_type_element(self, path=None, file_name=None , old_wall=None):
+        '''Deletes typical element.
+
+        Deletes typical building elements according to their construction
+        year and their construction type in the the XML file for type buidling
+        elements. If the Project parent is set, it automatically saves it to
+        the file given in Project.data. Alternatively you can specify a path to
+        a file of TypeBuildingElements. If this file does not exist,
+        a new file is created.
+
+        Parameters
+        ----------
+
+        path : str
+            path where unique file should be stored
+        name : strt
+            name of of unique file
+
+        '''
+
+        import teaser.data.output.buildingelement_output as \
+            buildingelement_output
+
+        buildingelement_output.modify_type_element(element=self,
+                                                   path=path,
+                                                   file_name=file_name,
+                                                   old_wall=old_wall)
 
     def set_calc_default(self):
         '''Sets all calculated values of the Building Element to zero
