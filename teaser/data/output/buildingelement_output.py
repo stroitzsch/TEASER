@@ -369,7 +369,7 @@ def modify_type_element(element, path=None, file_name=None, old_wall=None):
                 check.inner_radiation = element.inner_radiation
                 for layer_new in element.layer:
                     for layer in check.Layers.layer:
-                        if layer.id == layer_new.id:
+                        if layer.id == layer_new.id+1:
                             layer.thickness = layer_new.thickness
                 break
 
