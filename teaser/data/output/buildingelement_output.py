@@ -367,6 +367,10 @@ def modify_type_element(element, path=None, file_name=None, old_wall=None):
                 check.building_age_group = element.building_age_group
                 check.inner_convection = element.inner_convection 
                 check.inner_radiation = element.inner_radiation
+                for layer_new in element.layer:
+                    for layer in check.Layers.layer:
+                        if layer.id == layer_new.id:
+                            layer.thickness = layer_new.thickness
                 break
 
     elif type(element).__name__ == 'Ceiling':
