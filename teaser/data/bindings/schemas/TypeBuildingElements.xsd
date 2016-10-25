@@ -28,11 +28,13 @@
       <xs:element type="xs:int" name="year_of_construction" minOccurs="0"/>
 	  <xs:element type="integerList" name="building_age_group"/>
       <xs:element type="xs:string" name="construction_type"/>
-      <xs:element type="xs:float" name="inner_convection"/>
+	  <xs:element type="xs:float" name="surface_area"/>
+	  <xs:element type="xs:float" name="u_value"/>
+      <xs:element type="xs:float" name="inner_convection"/> 
       <xs:element type="xs:float" name="inner_radiation"/>
       <xs:element type="xs:float" name="outer_convection"/>
       <xs:element type="xs:float" name="outer_radiation"/>
-      <xs:element type="LayersType" name="Layers"/>
+	  <xs:element type="LayersType" name="Layers"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="InnerWallType">
@@ -40,6 +42,8 @@
       <xs:element type="xs:int" name="year_of_construction" minOccurs="0"/>
 	  <xs:element type="integerList" name="building_age_group"/>
       <xs:element type="xs:string" name="construction_type"/>
+	  <xs:element type="xs:float" name="surface_area"/>
+	  <xs:element type="xs:float" name="u_value"/>
       <xs:element type="xs:float" name="inner_convection"/>
       <xs:element type="xs:float" name="inner_radiation"/>
       <xs:element type="LayersType" name="Layers"/>
@@ -50,6 +54,8 @@
       <xs:element type="xs:int" name="year_of_construction" minOccurs="0"/>
 	  <xs:element type="integerList" name="building_age_group"/>
       <xs:element type="xs:string" name="construction_type"/>
+	  <xs:element type="xs:float" name="surface_area"/>
+	  <xs:element type="xs:float" name="u_value"/>
       <xs:element type="xs:float" name="inner_convection"/>
       <xs:element type="xs:float" name="inner_radiation"/>
       <xs:element type="xs:float" name="outer_convection"/>
@@ -61,6 +67,8 @@
     <xs:sequence>
       <xs:element type="xs:int" name="year_of_construction" minOccurs="0"/>
 	  <xs:element type="integerList" name="building_age_group"/>
+	  <xs:element type="xs:float" name="surface_area"/>
+	  <xs:element type="xs:float" name="u_value"/>
       <xs:element type="xs:string" name="construction_type"/>
       <xs:element type="xs:float" name="inner_convection"/>
       <xs:element type="xs:float" name="inner_radiation"/>
@@ -72,6 +80,8 @@
       <xs:element type="xs:int" name="year_of_construction" minOccurs="0"/>
 	  <xs:element type="integerList" name="building_age_group"/>
       <xs:element type="xs:string" name="construction_type"/>
+	  <xs:element type="xs:float" name="surface_area"/>
+	  <xs:element type="xs:float" name="u_value"/>
       <xs:element type="xs:float" name="inner_convection"/>
       <xs:element type="xs:float" name="inner_radiation"/>
       <xs:element type="xs:float" name="outer_convection"/>
@@ -88,6 +98,8 @@
       <xs:element type="xs:int" name="year_of_construction" minOccurs="0"/>
 	  <xs:element type="integerList" name="building_age_group"/>
       <xs:element type="xs:string" name="construction_type"/>
+	  <xs:element type="xs:float" name="surface_area"/>
+	  <xs:element type="xs:float" name="u_value"/>
       <xs:element type="xs:float" name="inner_convection"/>
       <xs:element type="xs:float" name="inner_radiation"/>
       <xs:element type="LayersType" name="Layers"/>
@@ -98,6 +110,8 @@
       <xs:element type="xs:int" name="year_of_construction" minOccurs="0"/>
 	  <xs:element type="integerList" name="building_age_group"/>
       <xs:element type="xs:string" name="construction_type"/>
+	  <xs:element type="xs:float" name="surface_area"/>
+	  <xs:element type="xs:float" name="u_value"/>
       <xs:element type="xs:float" name="inner_convection"/>
       <xs:element type="xs:float" name="inner_radiation"/>
       <xs:element type="LayersType" name="Layers"/>
