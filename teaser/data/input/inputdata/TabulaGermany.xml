@@ -1,0 +1,213 @@
+<?xml version="1.0" ?>
+<elements:TypeBuildingElements version="0.4" xmlns:elements="http://teaser.elements">
+	<elements:OuterWall>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_standard</elements:construction_type>
+		<elements:surface_area>305.4</elements:surface_area>
+		<elements:u_value>1.7</elements:u_value>
+		<elements:inner_convection>2.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44cf9068-9f5f-11e6-8de6-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:OuterWall>
+	<elements:OuterWall>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_refurbished</elements:construction_type>
+		<elements:surface_area>305.4</elements:surface_area>
+		<elements:u_value>0.34</elements:u_value>
+		<elements:inner_convection>2.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44cf9068-9f5f-11e6-8de6-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:OuterWall>
+	<elements:OuterWall>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_advanced_refurbished</elements:construction_type>
+		<elements:surface_area>305.4</elements:surface_area>
+		<elements:u_value>0.13</elements:u_value>
+		<elements:inner_convection>2.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44cf9068-9f5f-11e6-8de6-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:OuterWall>
+	<elements:Rooftop>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_standard</elements:construction_type>
+		<elements:surface_area>231.8</elements:surface_area>
+		<elements:u_value>1.3</elements:u_value>
+		<elements:inner_convection>1.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44cacda8-9f5f-11e6-821e-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Rooftop>
+	<elements:Rooftop>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_refurbished</elements:construction_type>
+		<elements:surface_area>231.8</elements:surface_area>
+		<elements:u_value>0.41</elements:u_value>
+		<elements:inner_convection>1.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44cacda8-9f5f-11e6-821e-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Rooftop>
+	<elements:Rooftop>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_advanced_refurbished</elements:construction_type>
+		<elements:surface_area>231.8</elements:surface_area>
+		<elements:u_value>0.14</elements:u_value>
+		<elements:inner_convection>1.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44cacda8-9f5f-11e6-821e-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Rooftop>
+	<elements:Window>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_standard</elements:construction_type>
+		<elements:surface_area>136.2</elements:surface_area>
+		<elements:u_value>2.8</elements:u_value>
+		<elements:inner_convection>2.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:g_value>0.0</elements:g_value>
+		<elements:a_conv>0.0</elements:a_conv>
+		<elements:shading_g_total>0.0</elements:shading_g_total>
+		<elements:shading_max_irr>0.0</elements:shading_max_irr>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44e29b5e-9f5f-11e6-b83c-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Window>
+	<elements:Window>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_refurbished</elements:construction_type>
+		<elements:surface_area>136.2</elements:surface_area>
+		<elements:u_value>1.6</elements:u_value>
+		<elements:inner_convection>2.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:g_value>0.0</elements:g_value>
+		<elements:a_conv>0.0</elements:a_conv>
+		<elements:shading_g_total>0.0</elements:shading_g_total>
+		<elements:shading_max_irr>0.0</elements:shading_max_irr>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44e29b5e-9f5f-11e6-b83c-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Window>
+	<elements:Window>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_advanced_refurbished</elements:construction_type>
+		<elements:surface_area>136.2</elements:surface_area>
+		<elements:u_value>0.8</elements:u_value>
+		<elements:inner_convection>2.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:outer_convection>20.0</elements:outer_convection>
+		<elements:outer_radiation>5.0</elements:outer_radiation>
+		<elements:g_value>0.0</elements:g_value>
+		<elements:a_conv>0.0</elements:a_conv>
+		<elements:shading_g_total>0.0</elements:shading_g_total>
+		<elements:shading_max_irr>0.0</elements:shading_max_irr>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44e29b5e-9f5f-11e6-b83c-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Window>
+	<elements:Floor>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_standard</elements:construction_type>
+		<elements:surface_area>163.7</elements:surface_area>
+		<elements:u_value>0.88</elements:u_value>
+		<elements:inner_convection>1.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44d915ec-9f5f-11e6-82ec-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Floor>
+	<elements:Floor>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_refurbished</elements:construction_type>
+		<elements:surface_area>163.7</elements:surface_area>
+		<elements:u_value>0.29</elements:u_value>
+		<elements:inner_convection>1.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44d915ec-9f5f-11e6-82ec-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Floor>
+	<elements:Floor>
+		<elements:building_age_group>1860 1918</elements:building_age_group>
+		<elements:construction_type>tabula_advanced_refurbished</elements:construction_type>
+		<elements:surface_area>163.7</elements:surface_area>
+		<elements:u_value>0.22</elements:u_value>
+		<elements:inner_convection>1.7</elements:inner_convection>
+		<elements:inner_radiation>5.0</elements:inner_radiation>
+		<elements:Layers>
+			<elements:layer>
+				<elements:id>1</elements:id>
+				<elements:thickness>99.0</elements:thickness>
+				<elements:material material_id="44d915ec-9f5f-11e6-82ec-001999caeaa7"></elements:material>
+			</elements:layer>
+		</elements:Layers>
+	</elements:Floor>
+</elements:TypeBuildingElements>
