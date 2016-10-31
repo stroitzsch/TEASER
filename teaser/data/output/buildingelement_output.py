@@ -283,6 +283,8 @@ def _set_basic_data_pyxb(element, pyxb_class):
 
     pyxb_class.building_age_group = element.building_age_group
     pyxb_class.construction_type = element.construction_type
+    pyxb_class.surface_area = element.surface_area
+    pyxb_class.u_value = element.u_value
 
     pyxb_class.inner_radiation = element.inner_radiation
     pyxb_class.inner_convection = element.inner_convection
