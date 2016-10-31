@@ -1,0 +1,118 @@
+startDocument
+1860...1918
+Roof 1
+surface area
+231.8
+231.8
+231.8
+type of construction
+/
+refurbishment measure
+tilted roof with clay/straw filling between rafters
+Steildach mit Holzsparren, Lehmschlag
+insulate cavity between rafters (heighten rafters and clear interspace if necessary), total insulation thickness 12 cm
+Dämmung im Sparren-Zwischenraum (WLS 035), Dämmstärke insgesamt 12 cm
+insulate cavity between rafters + insulation layer, total insulation thickness 30 cm
+Dämmung im Sparren-Zwischenraum (WLS 035) + zusätzliche Dämmlage, Dämmstärke insgesamt 30 cm
+picture
+tilted roof with clay/straw filling between rafters
+insulate cavity between rafters (heighten rafters and clear interspace if necessary), total insulation thickness {ActualCM} cm
+insulate cavity between rafters + insulation layer, total insulation thickness {ActualCM} cm
+U-value
+
+1.30
+0.41
+0.14
+Wall 1
+surface area
+305.4
+305.4
+305.4
+type of construction
+/
+refurbishment measure
+brickwork
+Vollziegel-Mauerwerk
+add 8 cm of insulation on inner surface (air-tight cladding, water pipes must not be conducted in outer brickwork)
+Innendämmung 8 cm (WLS 035), luftdichte innere Verkleidung, im Außen-Mauerwerk dürfen keine Wasserleitungen liegen
+if external insulation is possible: add 24 cm of insulation, creation of historical facade appearance (e.g. wooden shingles, plaster, strip tiles, ...)
+wenn Dämmung von außen möglich: 24 cm Dämmstärke (WLS 035), Herstellung einer historischen Fassadenansicht (z.B. Holzschindeln, Verputz, Verklinkerung, ...)
+picture
+brickwork
+add {ActualCM} cm of insulation on inner surface (air-tight cladding, water pipes must not be conducted in outer brickwork)
+if external insulation is possible: add {ActualCM} cm of insulation, creation of historical facade appearance (e.g. wooden shingles, plaster, strip tiles, ...)
+U-value
+
+1.70 
+0.34 
+0.13 
+Floor 1
+surface area
+163.7
+163.7 
+163.7
+type of construction
+/
+refurbishment measure
+vault ceiling
+Kappendecke
+add 8 cm of insulation below / alternatively: on top of ceiling (in case of floor renovation)
+Dämmung 8 cm (WLS 035) unter der Decke / alternativ: auf der Decke (im Fall einer Fußbodensanierung)
+add 12 cm insulation below (in case of sufficient cellar height) / alternatively: on top of ceiling (in case of floor renovation) or combination of both
+Dämmung 12 cm (WLS 035) unter der Decke (bei ausreichender Kellerraumhöhe) / alternativ: auf der Decke (im Fall einer Fußb.-sanierung) oder Kombin. unter/auf
+picture
+vault ceiling
+add {ActualCM} cm of insulation below / alternatively: on top of ceiling (in case of floor renovation)
+add {ActualCM} cm insulation below (in case of sufficient cellar height) / alternatively: on top of ceiling (in case of floor renovation) or combination of both
+U-value
+
+0.88 
+0.29 
+0.22 
+Window 1
+surface area
+136.2
+136.2 
+136.2
+type of construction
+/
+refurbishment measure
+wooden window with dual-pane glazing
+Holzfenster mit Zweischeiben-Isolierverglasung
+windows with double glazing, argon filled, low-E, historical impression (divisions)
+Fenster mit 2-Scheiben-Wärmeschutz-Verglasung, historische Ansicht (Teilungen)
+windows with triple glazing, argon filled, low-E, insulated frame, historical impression (divisions)
+Fenster mit 3-Scheiben-Wärmeschutz-Verglasung und gedämmtem Rahmen, historische Ansicht (Teilungen)
+picture
+wooden window with dual-pane glazing
+windows with double glazing, argon filled, low-E, historical impression (divisions)
+windows with triple glazing, argon filled, low-E, insulated frame, historical impression (divisions)
+U-value
+
+2.80 
+1.60 
+0.80 
+Door 1
+surface area
+2.0
+2.0 
+2.0
+type of construction
+/
+refurbishment measure
+wooden door
+Holztür
+entry door with insulation layer (U = 1,6 W/(m²K))
+Haustür mit Dämmkern (U = 1,6 W/(m²K))
+mount new door with insulation layer (U = 0,8 W/(m²K))
+Haustür mit Dämmkern (U = 0,8 W/(m²K))
+picture
+wooden door
+entry door with insulation layer (U = 1,6 W/(m²K))
+mount new door with insulation layer (U = 0,8 W/(m²K))
+U-value
+
+3.00 
+1.60 
+0.80 
+DocumentEnd
