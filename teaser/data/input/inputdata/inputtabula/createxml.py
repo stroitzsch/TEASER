@@ -27,6 +27,10 @@ def check(line):
 			string += i
 	return string
 
+def tabula():
+	dictLayer = {"brickwork" : 1,  "insulation + plaster" : 2 }
+	
+	
 class createXml:
 	"""Creates a new xml file named tabula with given Building data in 
 	a txt document"""
@@ -138,6 +142,7 @@ class createXml:
 			wall1.u_value = f.readline()
 			wall2.u_value = f.readline()
 			
+			tabula()
 			path = utilitis.get_full_path("Data\Input\InputData\TabulaGermany.xml")
 			dc = DataClass
 			dc.path_tb = path
@@ -145,6 +150,15 @@ class createXml:
 			wall0.save_type_element(dc)
 			wall1.save_type_element(dc)
 			wall2.save_type_element(dc)
+			
+			"""
+			pathMat = utilitis.get_full_path("Data\Input\InputData\MaterialTemplates2.xml")
+			dcMat = DataClass
+			dcMat.path_mat = pathMat
+			dcMat.load_mat_binding(dcMat)
+			mat.save_material_template(dcMat)
+			"""
+			
 
 			index += 22
 			if(index > num_lines):
