@@ -5,6 +5,7 @@
 import sys
 from PyQt4.QtGui import QApplication
 from teaser.gui.mainui import MainUI
+from teaser.data.input.inputdata.inputtabula.createxml import createXml
 
 
 def startGUI():
@@ -19,4 +20,6 @@ def startGUI():
     window.show()
     app.exec_()
 if __name__ == '__main__':
-    startGUI()
+    #startGUI()
+
+    createXml.create("")
