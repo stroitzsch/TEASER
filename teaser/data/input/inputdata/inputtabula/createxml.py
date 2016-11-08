@@ -61,7 +61,91 @@ def checkMat(wall, materialName):
                  "entry door with insulation layer ":
                  [1, dummyString],
                  "mount new door with insulation layer ":
+                 [1, dummyString],
+                 "wooden beam ceiling":
+                 [1, dummyString],
+                 "add 12 cm insulation above + flooring if necessary)":
+                 [1, dummyString],
+                 "add 30 cm insulation above + flooring if necessary)":
+                 [1, dummyString],
+                 "brickwork, two layers":
+                 [2, dummyString],
+                 "add 12 cm of insulation + plaster external insulated render system), alternative: curtain wall e.g. cellulose between timbers)":
+                 [1, dummyString],
+                 "add 24 cm of insulation + plaster external insulated render system), alternative: curtain wall":
+                 [1, dummyString],
+                 "concrete ceiling with steel beams and wooden flooring":
+                 [1, dummyString],
+                 "add 8 cm of insulation below / alternatively: on top of ceiling in case of floor renovation)":
+                 [1, dummyString],
+                 "add 12 cm insulation below in case of sufficient cellar height) / alternatively: on top of ceiling in case of floor renovation) or combination of both":
+                 [1, dummyString],
+                 "wooden door":
+                 [1, dummyString],
+                 "entry door with insulation layer":
+                 [1, dummyString],
+                 "mount new door with insulation layer ":
+                 [1, dummyString],
+                 "plastic frame window with dual-pane glazing":
+                 [1, dummyString],
+                 "windows with double glazing, argon filled, low-E":
+                 [1, dummyString],
+                 "windows with triple glazing, argon filled, low-E, insulated frame":
+                 [1, dummyString],
+                 "brickwork, two layers":
+                 [1, dummyString],
+                 "concrete ceiling":
+                 [1, dummyString],
+                 "masonry of hollow blocks or honeycomb bricks":
+                 [1, dummyString],
+                 "cavity blocks ceiling":
+                 [1, dummyString],
+                 "concrete ceiling with 1 cm insulation":
+                 [1, dummyString],
+                 "concrete ceiling with 5 cm insulation":
+                 [1, dummyString],
+                 "12 cm insulation on ceiling + roofing":
+                 [1, dummyString],
+                 "30 cm insulation on ceiling + roofing":
+                 [1, dummyString],
+                 "concrete panels":
+                 [1, dummyString],
+                 "add 12 cm of insulation + plaster external insulated render system), alternative: curtain wall e.g. cellulose between timbers)":
+                 [1, dummyString],
+                 "add 24 cm of insulation + plaster external insulated render system), alternative: curtain wall":
+                 [1, dummyString],
+                 "concrete ceiling with 2 cm insulation":
+                 [1, dummyString],
+                 "add 8 cm of insulation below / alternatively: on top of ceiling in case of floor renovation)":
+                 [1, dummyString],
+                 "add 12 cm insulation below in case of sufficient cellar height) / alternatively: on top of ceiling in case of floor renovation) or combination of both":
+                 [1, dummyString],
+                 "metal door":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
+                 [1, dummyString],
+                 "":
                  [1, dummyString]
+                                
+                 
                  }
 
     try:
