@@ -4,11 +4,12 @@
 
 import sys
 import inspect
-from PyQt5 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.Qt import QDialog, QStandardItemModel
 from PyQt5.Qt import Qt
 from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtGui import QStandardItem, QTabWidget, QPixmap
+from PyQt5.QtWidgets import QTabWidget
+from PyQt5.QtGui import QStandardItem, QPixmap
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as\
     FigureCanvas
 import matplotlib.pyplot as plt
@@ -33,13 +34,13 @@ except AttributeError:
         return s
 
 try:
-    _encoding = QtGui.QApplication.UnicodeUTF8
+    _encoding = QtWidgets.QApplication.UnicodeUTF8
 
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 
 class MainUI(QDialog):
@@ -111,15 +112,15 @@ class MainUI(QDialog):
         self.setWindowIcon(self.teaser_icon)
         teaserVersion = "0.5"
         self.setWindowTitle("TEASER Version %s" % teaserVersion)
-        self.central_widget = QtGui.QWidget(self)
+        self.central_widget = QtWidgets.QWidget(self)
         self.central_widget.setObjectName(_fromUtf8("central_widget"))
-        self.ribbon_widget = QtGui.QTabWidget(self.central_widget)
+        self.ribbon_widget = QtWidgets.QTabWidget(self.central_widget)
         self.ribbon_widget.setGeometry(QtCore.QRect(1, 1, 899, 109))
-        self.side_bar_widget = QtGui.QTabWidget(self.central_widget)
+        self.side_bar_widget = QtWidgets.QTabWidget(self.central_widget)
         self.side_bar_widget.setGeometry(QtCore.QRect(1, 110, 210, 590))
-        self.main_widget = QtGui.QTabWidget(self.central_widget)
+        self.main_widget = QtWidgets.QTabWidget(self.central_widget)
         self.main_widget.setGeometry(QtCore.QRect(211, 110, 689, 490))
-        self.standard_view_group_box = QtGui.QGroupBox(self.main_widget)
+        self.standard_view_group_box = QtWidgets.QGroupBox(self.main_widget)
         self.standard_view_group_box.setGeometry(QtCore.QRect(0, 0, 689, 590))
         self.standard_view_group_box.setVisible(True)
         self.standard_view_group_box.setAutoFillBackground(True)
@@ -127,7 +128,7 @@ class MainUI(QDialog):
         palette.setColor(self.standard_view_group_box.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.standard_view_group_box.setPalette(palette)
-        self.side_bar_group_box = QtGui.QGroupBox(self.side_bar_widget)
+        self.side_bar_group_box = QtWidgets.QGroupBox(self.side_bar_widget)
         self.side_bar_group_box.setGeometry(QtCore.QRect(0, 0, 210, 590))
         self.side_bar_group_box.setVisible(True)
         self.side_bar_group_box.setAutoFillBackground(True)
@@ -135,7 +136,7 @@ class MainUI(QDialog):
         palette.setColor(self.side_bar_group_box.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.side_bar_group_box.setPalette(palette)
-        self.ribbon_group_box = QtGui.QGroupBox(self.ribbon_widget)
+        self.ribbon_group_box = QtWidgets.QGroupBox(self.ribbon_widget)
         self.ribbon_group_box.setGeometry(QtCore.QRect(0, 0, 899, 109))
         self.ribbon_group_box.setVisible(True)
         self.ribbon_group_box.setAutoFillBackground(True)
@@ -143,35 +144,35 @@ class MainUI(QDialog):
         palette.setColor(self.ribbon_group_box.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.ribbon_group_box.setPalette(palette)
-        self.bottom_group_box = QtGui.QGroupBox(self)
+        self.bottom_group_box = QtWidgets.QGroupBox(self)
         self.bottom_group_box.setGeometry(QtCore.QRect(0, 600, 900, 100))
-        self.text_edit = QtGui.QTextEdit(self.bottom_group_box)
+        self.text_edit = QtWidgets.QTextEdit(self.bottom_group_box)
         self.text_edit.setGeometry(QtCore.QRect(0, 0, 900, 100))
 
         """ All controls in the main frame """
 
-        self.mask_label_0 = QtGui.QLabel(self.main_widget)
+        self.mask_label_0 = QtWidgets.QLabel(self.main_widget)
         self.mask_label_0.setGeometry(QtCore.QRect(240, 100, 250, 100))
         self.mask_label_0.setVisible(False)
         self.mask_label_0.setStyleSheet("background-color:\
                                         rgba(255,255,255,255)")
-        self.mask_label_5 = QtGui.QLabel(self.main_widget)
+        self.mask_label_5 = QtWidgets.QLabel(self.main_widget)
         self.mask_label_5.setGeometry(QtCore.QRect(0, 0, 900, 100))
         self.mask_label_5.setVisible(False)
         self.mask_label_5.setStyleSheet("background-color:rgba(0,0,0,80)")
-        self.mask_label_6 = QtGui.QLabel(self.main_widget)
+        self.mask_label_6 = QtWidgets.QLabel(self.main_widget)
         self.mask_label_6.setGeometry(QtCore.QRect(0, 100, 240, 490))
         self.mask_label_6.setVisible(False)
         self.mask_label_6.setStyleSheet("background-color:rgba(0,0,0,80)")
-        self.mask_label_7 = QtGui.QLabel(self.main_widget)
+        self.mask_label_7 = QtWidgets.QLabel(self.main_widget)
         self.mask_label_7.setGeometry(QtCore.QRect(490, 100, 410, 490))
         self.mask_label_7.setVisible(False)
         self.mask_label_7.setStyleSheet("background-color:rgba(0,0,0,80)")
-        self.mask_label_8 = QtGui.QLabel(self.main_widget)
+        self.mask_label_8 = QtWidgets.QLabel(self.main_widget)
         self.mask_label_8.setGeometry(QtCore.QRect(240, 200, 250, 390))
         self.mask_label_8.setVisible(False)
         self.mask_label_8.setStyleSheet("background-color:rgba(0,0,0,80)")
-        self.mask_label_9 = QtGui.QLabel(self.main_widget)
+        self.mask_label_9 = QtWidgets.QLabel(self.main_widget)
         self.mask_label_9.setGeometry(QtCore.QRect(255, 105, 220, 35))
         self.mask_label_9.setVisible(False)
         self.mask_label_9.setText("Press Save to exit edit-mode with\nchanges"
@@ -180,21 +181,21 @@ class MainUI(QDialog):
                                         "rgba(255,255,255,255)")
         f = QtGui.QFont("Arial", 11)
         self.mask_label_9.setFont(f)
-        self.zones_list_label = QtGui.QLabel(self.standard_view_group_box)
+        self.zones_list_label = QtWidgets.QLabel(self.standard_view_group_box)
         self.zones_list_label.setGeometry(QtCore.QRect(165, 5, 50, 20))
         self.zones_list_label.setText("Zones")
-        self.zones_list_view = QtGui.QListView(self.standard_view_group_box)
+        self.zones_list_view = QtWidgets.QListView(self.standard_view_group_box)
         self.zones_list_view.setGeometry(QtCore.QRect(35, 30, 311, 558))
         self.zones_list_view.setObjectName(_fromUtf8("zones_list_view"))
         self.zones_list_view.setModel(self.zone_model)
         self.zones_list_view.setItemDelegate(self.lVZF)
         self.zones_list_view.doubleClicked.connect(self.change_zone_values_ui)
         self.zones_list_view.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
-        self.envelopes_list_label = QtGui.QLabel(self.standard_view_group_box)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.envelopes_list_label = QtWidgets.QLabel(self.standard_view_group_box)
         self.envelopes_list_label.setGeometry(QtCore.QRect(480, 5, 50, 20))
         self.envelopes_list_label.setText("Envelopes")
-        self.envelopes_list_view = QtGui.QListView(
+        self.envelopes_list_view = QtWidgets.QListView(
             self.standard_view_group_box)
         self.envelopes_list_view.setGeometry(QtCore.QRect(350, 30, 311, 558))
         self.envelopes_list_view.setObjectName(
@@ -204,11 +205,11 @@ class MainUI(QDialog):
         self.envelopes_list_view.doubleClicked.connect(
             self.change_envelopes_values_ui)
         self.envelopes_list_view.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
 
         """ All controls for creating a new thermal zone """
 
-        self.create_new_zone_groupbox = QtGui.QGroupBox(self.main_widget)
+        self.create_new_zone_groupbox = QtWidgets.QGroupBox(self.main_widget)
         self.create_new_zone_groupbox.setGeometry(QtCore.QRect(0, 0, 900, 590))
         self.create_new_zone_groupbox.setVisible(False)
         self.create_new_zone_groupbox.setAutoFillBackground(True)
@@ -216,7 +217,7 @@ class MainUI(QDialog):
         palette.setColor(self.create_new_zone_groupbox.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.create_new_zone_groupbox.setPalette(palette)
-        self.new_zone_gen_inf_groupbox = QtGui.QGroupBox(
+        self.new_zone_gen_inf_groupbox = QtWidgets.QGroupBox(
             self.create_new_zone_groupbox)
         self.new_zone_gen_inf_groupbox.setGeometry(
             QtCore.QRect(5, 1, 210, 584))
@@ -226,36 +227,36 @@ class MainUI(QDialog):
         palette.setColor(self.new_zone_gen_inf_groupbox.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.new_zone_gen_inf_groupbox.setPalette(palette)
-        self.new_zone_name_label = QtGui.QLabel(self.new_zone_gen_inf_groupbox)
+        self.new_zone_name_label = QtWidgets.QLabel(self.new_zone_gen_inf_groupbox)
         self.new_zone_name_label.setGeometry(QtCore.QRect(10, 60, 90, 25))
         self.new_zone_name_label.setText("Name:")
-        self.new_zone_name_line_edit = QtGui.QLineEdit(
+        self.new_zone_name_line_edit = QtWidgets.QLineEdit(
             self.new_zone_gen_inf_groupbox)
         self.new_zone_name_line_edit.setGeometry(QtCore.QRect(110, 60, 90, 25))
-        self.new_zone_area_label = QtGui.QLabel(self.new_zone_gen_inf_groupbox)
+        self.new_zone_area_label = QtWidgets.QLabel(self.new_zone_gen_inf_groupbox)
         self.new_zone_area_label.setGeometry(QtCore.QRect(10, 95, 90, 25))
         self.new_zone_area_label.setText("Area:")
-        self.new_zone_area_line_edit = QtGui.QLineEdit(
+        self.new_zone_area_line_edit = QtWidgets.QLineEdit(
             self.new_zone_gen_inf_groupbox)
         self.new_zone_area_line_edit.setGeometry(QtCore.QRect(110, 95, 90, 25))
-        self.new_zone_usage_label = QtGui.QLabel(
+        self.new_zone_usage_label = QtWidgets.QLabel(
             self.new_zone_gen_inf_groupbox)
         self.new_zone_usage_label.setGeometry(QtCore.QRect(10, 130, 90, 25))
         self.new_zone_usage_label.setText("Usage type:")
-        self.new_zone_usage_line_edit = QtGui.QLineEdit(
+        self.new_zone_usage_line_edit = QtWidgets.QLineEdit(
             self.new_zone_gen_inf_groupbox)
         self.new_zone_usage_line_edit.setGeometry(
             QtCore.QRect(110, 130, 90, 25))
-        self.new_zone_save_button = QtGui.QPushButton(
+        self.new_zone_save_button = QtWidgets.QPushButton(
             self.new_zone_gen_inf_groupbox)
         self.new_zone_save_button.setGeometry(QtCore.QRect(10, 305, 90, 25))
         self.new_zone_save_button.setText("Save")
         self.new_zone_save_button.clicked.connect(self.check_inputs_new_zone)
-        self.new_zone_cancel_button = QtGui.QPushButton(
+        self.new_zone_cancel_button = QtWidgets.QPushButton(
             self.new_zone_gen_inf_groupbox)
         self.new_zone_cancel_button.setGeometry(QtCore.QRect(110, 305, 90, 25))
         self.new_zone_cancel_button.setText("Cancel")
-        self.new_zone_failed_label = QtGui.QLabel(
+        self.new_zone_failed_label = QtWidgets.QLabel(
             self.new_zone_gen_inf_groupbox)
         self.new_zone_failed_label.setGeometry(QtCore.QRect(10, 340, 180, 50))
         self.new_zone_failed_label.setText(
@@ -264,7 +265,7 @@ class MainUI(QDialog):
 
         """ All controls for editing a thermal zone """
 
-        self.edit_zone_groupbox = QtGui.QGroupBox(self.main_widget)
+        self.edit_zone_groupbox = QtWidgets.QGroupBox(self.main_widget)
         self.edit_zone_groupbox.setGeometry(QtCore.QRect(0, 0, 900, 590))
         self.edit_zone_groupbox.setVisible(False)
         self.edit_zone_groupbox.setAutoFillBackground(True)
@@ -272,209 +273,209 @@ class MainUI(QDialog):
         palette.setColor(self.edit_zone_groupbox.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.edit_zone_groupbox.setPalette(palette)
-        self.edit_gen_inf_groupbox = QtGui.QGroupBox(self.edit_zone_groupbox)
+        self.edit_gen_inf_groupbox = QtWidgets.QGroupBox(self.edit_zone_groupbox)
         self.edit_gen_inf_groupbox.setGeometry(QtCore.QRect(5, 1, 210, 584))
         self.edit_gen_inf_groupbox.setTitle("General Zone Information")
         self.edit_gen_inf_groupbox.setVisible(False)
-        self.edit_gen_inf_tab_widget = QtGui.QTabWidget(
+        self.edit_gen_inf_tab_widget = QtWidgets.QTabWidget(
             self.edit_gen_inf_groupbox)
         self.edit_gen_inf_tab_widget.setGeometry(QtCore.QRect(0, 20, 210, 484))
-        self.edit_gen_inf_tab_widget.setTabShape(QtGui.QTabWidget.Rounded)
-        self.edit_gen_inf_tab = QtGui.QWidget()
-        self.edit_usage_tab = QtGui.QWidget()
+        self.edit_gen_inf_tab_widget.setTabShape(QtWidgets.QTabWidget.Rounded)
+        self.edit_gen_inf_tab = QtWidgets.QWidget()
+        self.edit_usage_tab = QtWidgets.QWidget()
         self.edit_gen_inf_tab_widget.addTab(
             self.edit_gen_inf_tab, _fromUtf8(""))
         self.edit_gen_inf_tab_widget.addTab(self.edit_usage_tab, _fromUtf8(""))
         self.edit_gen_inf_tab_widget.setTabText(
             self.edit_gen_inf_tab_widget.indexOf(
-                self.edit_gen_inf_tab), QtGui.QApplication.translate(
+                self.edit_gen_inf_tab), QtWidgets.QApplication.translate(
                 "MainWindow", "General Info", None))
         self.edit_gen_inf_tab_widget.setTabText(
             self.edit_gen_inf_tab_widget.indexOf(self.edit_usage_tab),
             _translate("MainWindow", "Usage", None))
-        self.edit_zone_name_label = QtGui.QLabel(self.edit_gen_inf_tab)
+        self.edit_zone_name_label = QtWidgets.QLabel(self.edit_gen_inf_tab)
         self.edit_zone_name_label.setGeometry(QtCore.QRect(10, 30, 90, 25))
         self.edit_zone_name_label.setText("Name:")
-        self.edit_zone_name_line_edit = QtGui.QLineEdit(self.edit_gen_inf_tab)
+        self.edit_zone_name_line_edit = QtWidgets.QLineEdit(self.edit_gen_inf_tab)
         self.edit_zone_name_line_edit.setGeometry(
             QtCore.QRect(110, 30, 90, 25))
-        self.edit_zone_area_label = QtGui.QLabel(self.edit_gen_inf_tab)
+        self.edit_zone_area_label = QtWidgets.QLabel(self.edit_gen_inf_tab)
         self.edit_zone_area_label.setGeometry(QtCore.QRect(10, 65, 90, 25))
         self.edit_zone_area_label.setText("Area:")
-        self.edit_zone_area_line_edit = QtGui.QLineEdit(self.edit_gen_inf_tab)
+        self.edit_zone_area_line_edit = QtWidgets.QLineEdit(self.edit_gen_inf_tab)
         self.edit_zone_area_line_edit.setGeometry(
             QtCore.QRect(110, 65, 90, 25))
-        self.edit_zone_area_inner_wall_label = QtGui.QLabel(
+        self.edit_zone_area_inner_wall_label = QtWidgets.QLabel(
             self.edit_gen_inf_tab)
         self.edit_zone_area_inner_wall_label.setGeometry(
             QtCore.QRect(10, 100, 90, 25))
         self.edit_zone_area_inner_wall_label.setText("Inner Wall Area:")
-        self.edit_zone_area_inner_wall_line_edit = QtGui.QLineEdit(
+        self.edit_zone_area_inner_wall_line_edit = QtWidgets.QLineEdit(
             self.edit_gen_inf_tab)
         self.edit_zone_area_inner_wall_line_edit.setGeometry(
             QtCore.QRect(110, 100, 90, 25))
-        self.edit_zone_area_ceiling_label = QtGui.QLabel(self.edit_gen_inf_tab)
+        self.edit_zone_area_ceiling_label = QtWidgets.QLabel(self.edit_gen_inf_tab)
         self.edit_zone_area_ceiling_label.setGeometry(
             QtCore.QRect(10, 135, 90, 25))
         self.edit_zone_area_ceiling_label.setText("Ceiling Area:")
-        self.edit_zone_area_ceiling_line_edit = QtGui.QLineEdit(
+        self.edit_zone_area_ceiling_line_edit = QtWidgets.QLineEdit(
             self.edit_gen_inf_tab)
         self.edit_zone_area_ceiling_line_edit.setGeometry(
             QtCore.QRect(110, 135, 90, 25))
-        self.edit_zone_area_floor_label = QtGui.QLabel(self.edit_gen_inf_tab)
+        self.edit_zone_area_floor_label = QtWidgets.QLabel(self.edit_gen_inf_tab)
         self.edit_zone_area_floor_label.setGeometry(
             QtCore.QRect(10, 170, 90, 25))
         self.edit_zone_area_floor_label.setText("Floor Area:")
-        self.edit_zone_area_floor_line_edit = QtGui.QLineEdit(
+        self.edit_zone_area_floor_line_edit = QtWidgets.QLineEdit(
             self.edit_gen_inf_tab)
         self.edit_zone_area_floor_line_edit.setGeometry(
             QtCore.QRect(110, 170, 90, 25))
-        self.edit_zone_volume_label = QtGui.QLabel(self.edit_gen_inf_tab)
+        self.edit_zone_volume_label = QtWidgets.QLabel(self.edit_gen_inf_tab)
         self.edit_zone_volume_label.setGeometry(QtCore.QRect(10, 205, 90, 25))
         self.edit_zone_volume_label.setText("Volume:")
-        self.edit_zone_volume_line_edit = QtGui.QLineEdit(
+        self.edit_zone_volume_line_edit = QtWidgets.QLineEdit(
             self.edit_gen_inf_tab)
         self.edit_zone_volume_line_edit.setGeometry(
             QtCore.QRect(110, 205, 90, 25))
 
-        self.edit_usage_infiltration_rate_label = QtGui.QLabel(
+        self.edit_usage_infiltration_rate_label = QtWidgets.QLabel(
             self.edit_usage_tab)
         self.edit_usage_infiltration_rate_label.setGeometry(
             QtCore.QRect(10, 20, 90, 25))
         self.edit_usage_infiltration_rate_label.setText("Infiltration Rate:")
-        self.edit_usage_infiltration_rate_line_edit = QtGui.QLineEdit(
+        self.edit_usage_infiltration_rate_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_infiltration_rate_line_edit.setGeometry(
             QtCore.QRect(110, 20, 90, 25))
-        self.edit_usage_cooling_time_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_cooling_time_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_cooling_time_label.setGeometry(
             QtCore.QRect(5, 55, 50, 25))
         self.edit_usage_cooling_time_label.setText("Cooling:")
-        self.edit_usage_cooling_time_line_edit = QtGui.QLineEdit(
+        self.edit_usage_cooling_time_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_cooling_time_line_edit.setGeometry(
             QtCore.QRect(65, 55, 40, 25))
-        self.edit_usage_heating_time_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_heating_time_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_heating_time_label.setGeometry(
             QtCore.QRect(110, 55, 50, 25))
         self.edit_usage_heating_time_label.setText("Heating:")
-        self.edit_usage_heating_time_line_edit = QtGui.QLineEdit(
+        self.edit_usage_heating_time_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_heating_time_line_edit.setGeometry(
             QtCore.QRect(165, 55, 40, 25))
-        self.edit_usage_set_temp_heat_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_set_temp_heat_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_set_temp_heat_label.setGeometry(
             QtCore.QRect(5, 90, 50, 25))
         self.edit_usage_set_temp_heat_label.setText("TempHeat:")
-        self.edit_usage_set_temp_heat_line_edit = QtGui.QLineEdit(
+        self.edit_usage_set_temp_heat_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_set_temp_heat_line_edit.setGeometry(
             QtCore.QRect(65, 90, 40, 25))
-        self.edit_usage_set_temp_cool_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_set_temp_cool_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_set_temp_cool_label.setGeometry(
             QtCore.QRect(110, 90, 50, 25))
         self.edit_usage_set_temp_cool_label.setText("TempCool:")
-        self.edit_usage_set_temp_cool_line_edit = QtGui.QLineEdit(
+        self.edit_usage_set_temp_cool_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_set_temp_cool_line_edit.setGeometry(
             QtCore.QRect(165, 90, 40, 25))
-        self.edit_usage_temp_set_back_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_temp_set_back_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_temp_set_back_label.setGeometry(
             QtCore.QRect(10, 125, 90, 25))
         self.edit_usage_temp_set_back_label.setText("Temp set back:")
-        self.edit_usage_temp_set_back_line_edit = QtGui.QLineEdit(
+        self.edit_usage_temp_set_back_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_temp_set_back_line_edit.setGeometry(
             QtCore.QRect(110, 125, 90, 25))
-        self.edit_usage_min_air_exchange_label = QtGui.QLabel(
+        self.edit_usage_min_air_exchange_label = QtWidgets.QLabel(
             self.edit_usage_tab)
         self.edit_usage_min_air_exchange_label.setGeometry(
             QtCore.QRect(10, 160, 90, 25))
         self.edit_usage_min_air_exchange_label.setText("Min Air Exchange:")
-        self.edit_usage_min_air_exchange_line_edit = QtGui.QLineEdit(
+        self.edit_usage_min_air_exchange_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_min_air_exchange_line_edit.setGeometry(
             QtCore.QRect(110, 160, 90, 25))
-        self.edit_usage_min_ahu_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_min_ahu_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_min_ahu_label.setGeometry(QtCore.QRect(5, 195, 50, 25))
         self.edit_usage_min_ahu_label.setText("Min AHU:")
-        self.edit_usage_min_ahu_line_edit = QtGui.QLineEdit(
+        self.edit_usage_min_ahu_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_min_ahu_line_edit.setGeometry(
             QtCore.QRect(65, 195, 40, 25))
-        self.edit_usage_max_ahu_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_max_ahu_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_max_ahu_label.setGeometry(
             QtCore.QRect(110, 195, 50, 25))
         self.edit_usage_max_ahu_label.setText("Max AHU:")
-        self.edit_usage_max_ahu_line_edit = QtGui.QLineEdit(
+        self.edit_usage_max_ahu_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_max_ahu_line_edit.setGeometry(
             QtCore.QRect(165, 195, 40, 25))
-        self.edit_usage_with_ahu_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_with_ahu_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_with_ahu_label.setGeometry(
             QtCore.QRect(10, 230, 90, 25))
         self.edit_usage_with_ahu_label.setText("With AHU:")
-        self.edit_usage_with_ahu_line_edit = QtGui.QLineEdit(
+        self.edit_usage_with_ahu_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_with_ahu_line_edit.setGeometry(
             QtCore.QRect(110, 230, 90, 25))
-        self.edit_usage_rel_humidity_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_rel_humidity_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_rel_humidity_label.setGeometry(
             QtCore.QRect(10, 265, 90, 25))
         self.edit_usage_rel_humidity_label.setText("Rel Humidity:")
-        self.edit_usage_rel_humidity_line_edit = QtGui.QLineEdit(
+        self.edit_usage_rel_humidity_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_rel_humidity_line_edit.setGeometry(
             QtCore.QRect(110, 265, 90, 25))
-        self.edit_usage_persons_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_persons_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_persons_label.setGeometry(
             QtCore.QRect(10, 300, 90, 25))
         self.edit_usage_persons_label.setText("Persons:")
-        self.edit_usage_persons_line_edit = QtGui.QLineEdit(
+        self.edit_usage_persons_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_persons_line_edit.setGeometry(
             QtCore.QRect(110, 300, 90, 25))
-        self.edit_usage_machines_label = QtGui.QLabel(self.edit_usage_tab)
+        self.edit_usage_machines_label = QtWidgets.QLabel(self.edit_usage_tab)
         self.edit_usage_machines_label.setGeometry(
             QtCore.QRect(10, 335, 90, 25))
         self.edit_usage_machines_label.setText("Machines:")
-        self.edit_usage_machines_line_edit = QtGui.QLineEdit(
+        self.edit_usage_machines_line_edit = QtWidgets.QLineEdit(
             self.edit_usage_tab)
         self.edit_usage_machines_line_edit.setGeometry(
             QtCore.QRect(110, 335, 90, 25))
 
-        self.edit_zone_save_button = QtGui.QPushButton(
+        self.edit_zone_save_button = QtWidgets.QPushButton(
             self.edit_gen_inf_groupbox)
         self.edit_zone_save_button.setGeometry(QtCore.QRect(10, 509, 90, 25))
         self.edit_zone_save_button.setText("Save")
         self.edit_zone_save_button.clicked.connect(self.check_inputs_edit_zone)
-        self.edit_zone_cancel_button = QtGui.QPushButton(
+        self.edit_zone_cancel_button = QtWidgets.QPushButton(
             self.edit_gen_inf_groupbox)
         self.edit_zone_cancel_button.setGeometry(
             QtCore.QRect(110, 509, 90, 25))
         self.edit_zone_cancel_button.setText("Cancel")
-        self.edit_zone_failed_label = QtGui.QLabel(self.edit_gen_inf_groupbox)
+        self.edit_zone_failed_label = QtWidgets.QLabel(self.edit_gen_inf_groupbox)
         self.edit_zone_failed_label.setGeometry(QtCore.QRect(40, 524, 180, 50))
         self.edit_zone_failed_label.setText(
             "Please insert values for Name, \nnet leased area and usage.")
         self.edit_zone_failed_label.setVisible(False)
-        self.edit_zone_list_label = QtGui.QLabel(self.edit_zone_groupbox)
+        self.edit_zone_list_label = QtWidgets.QLabel(self.edit_zone_groupbox)
         self.edit_zone_list_label.setGeometry(QtCore.QRect(350, 5, 50, 20))
         self.edit_zone_list_label.setText("Zones")
-        self.edit_zone_list = QtGui.QListView(self.edit_zone_groupbox)
+        self.edit_zone_list = QtWidgets.QListView(self.edit_zone_groupbox)
         self.edit_zone_list.setGeometry(QtCore.QRect(220, 30, 311, 558))
         self.edit_zone_list.setObjectName(_fromUtf8("zones_list_view"))
         self.edit_zone_list.setModel(self.zone_model)
         self.edit_zone_list.setItemDelegate(self.lVZF)
         self.edit_zone_list.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
         self.edit_zone_list.clicked.connect(self.switch_current_zone)
-        self.edit_zone_objects_list_label = QtGui.QLabel(
+        self.edit_zone_objects_list_label = QtWidgets.QLabel(
             self.edit_zone_groupbox)
         self.edit_zone_objects_list_label.setGeometry(
             QtCore.QRect(671, 5, 50, 20))
         self.edit_zone_objects_list_label.setText("Elements")
-        self.edit_zone_objects_list = QtGui.QListView(self.edit_zone_groupbox)
+        self.edit_zone_objects_list = QtWidgets.QListView(self.edit_zone_groupbox)
         self.edit_zone_objects_list.setGeometry(
             QtCore.QRect(541, 30, 311, 558))
         self.edit_zone_objects_list.setObjectName(
@@ -482,11 +483,11 @@ class MainUI(QDialog):
         self.edit_zone_objects_list.setModel(self.element_model)
         self.edit_zone_objects_list.setItemDelegate(self.lVZF)
         self.edit_zone_objects_list.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
 
         """ All controls to edit a layer """
 
-        self.edit_layer_group_box = QtGui.QGroupBox(self.main_widget)
+        self.edit_layer_group_box = QtWidgets.QGroupBox(self.main_widget)
         self.edit_layer_group_box.setGeometry(QtCore.QRect(0, 0, 900, 590))
         self.edit_layer_group_box.setVisible(False)
         self.edit_layer_group_box.setAutoFillBackground(True)
@@ -494,13 +495,13 @@ class MainUI(QDialog):
         palette.setColor(self.edit_layer_group_box.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.edit_layer_group_box.setPalette(palette)
-        self.edit_current_layer_list_label = QtGui.QLabel(
+        self.edit_current_layer_list_label = QtWidgets.QLabel(
             self.edit_layer_group_box)
         self.edit_current_layer_list_label.setGeometry(
             QtCore.QRect(350, 5, 50, 20))
         self.edit_current_layer_list_label.setText("Layer")
 
-        self.edit_current_layer_list = QtGui.QListView(
+        self.edit_current_layer_list = QtWidgets.QListView(
             self.edit_layer_group_box)
         self.edit_current_layer_list.setGeometry(
             QtCore.QRect(220, 30, 311, 558))
@@ -509,10 +510,10 @@ class MainUI(QDialog):
         self.edit_current_layer_list.setModel(self.layer_model)
         self.edit_current_layer_list.setItemDelegate(self.lVZF)
         self.edit_current_layer_list.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
         self.edit_current_layer_list.clicked.connect(self.switch_current_layer)
 
-        self.edit_layer_general_information_group_box = QtGui.QGroupBox(
+        self.edit_layer_general_information_group_box = QtWidgets.QGroupBox(
             self.edit_layer_group_box)
         self.edit_layer_general_information_group_box.setGeometry(
             QtCore.QRect(5, 1, 210, 584))
@@ -525,102 +526,102 @@ class MainUI(QDialog):
             self.edit_layer_general_information_group_box.backgroundRole(),
             QtGui.QColor(100, 100, 100, 20))
         self.edit_layer_general_information_group_box.setPalette(palette)
-        self.edit_layer_name_label = QtGui.QLabel(
+        self.edit_layer_name_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_name_label.setGeometry(QtCore.QRect(10, 60, 90, 25))
         self.edit_layer_name_label.setText("Name:")
-        self.edit_layer_name_line_edit = QtGui.QLineEdit(
+        self.edit_layer_name_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_name_line_edit.setGeometry(
             QtCore.QRect(110, 60, 90, 25))
-        self.edit_layer_thickness_label = QtGui.QLabel(
+        self.edit_layer_thickness_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_thickness_label.setGeometry(
             QtCore.QRect(10, 95, 90, 25))
         self.edit_layer_thickness_label.setText("Thickness:")
-        self.edit_layer_thickness_line_edit = QtGui.QLineEdit(
+        self.edit_layer_thickness_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_thickness_line_edit.setGeometry(
             QtCore.QRect(110, 95, 90, 25))
-        self.horizontal_line = QtGui.QFrame(
+        self.horizontal_line = QtWidgets.QFrame(
             self.edit_layer_general_information_group_box)
-        self.horizontal_line.setFrameShape(QtGui.QFrame.HLine)
-        self.horizontal_line.setFrameShadow(QtGui.QFrame.Sunken)
+        self.horizontal_line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.horizontal_line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.horizontal_line.setGeometry(QtCore.QRect(10, 125, 180, 5))
-        self.edit_layer_material_name_label = QtGui.QLabel(
+        self.edit_layer_material_name_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_material_name_label.setGeometry(
             QtCore.QRect(10, 135, 90, 25))
         self.edit_layer_material_name_label.setText("Material:")
-        self.edit_layer_material_name_line_edit = QtGui.QLineEdit(
+        self.edit_layer_material_name_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_material_name_line_edit.setGeometry(
             QtCore.QRect(110, 135, 90, 25))
-        self.edit_layer_density_label = QtGui.QLabel(
+        self.edit_layer_density_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_density_label.setGeometry(
             QtCore.QRect(10, 170, 90, 25))
         self.edit_layer_density_label.setText("Density:")
-        self.edit_layer_density_line_edit = QtGui.QLineEdit(
+        self.edit_layer_density_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_density_line_edit.setGeometry(
             QtCore.QRect(110, 170, 90, 25))
-        self.edit_layer_thermal_conduct_label = QtGui.QLabel(
+        self.edit_layer_thermal_conduct_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_thermal_conduct_label.setGeometry(
             QtCore.QRect(10, 205, 90, 25))
         self.edit_layer_thermal_conduct_label.setText("Thermal Conduct:")
-        self.edit_layer_thermal_conduct_line_edit = QtGui.QLineEdit(
+        self.edit_layer_thermal_conduct_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_thermal_conduct_line_edit.setGeometry(
             QtCore.QRect(110, 205, 90, 25))
-        self.edit_layer_heat_capacity_label = QtGui.QLabel(
+        self.edit_layer_heat_capacity_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_heat_capacity_label.setGeometry(
             QtCore.QRect(10, 240, 90, 25))
         self.edit_layer_heat_capacity_label.setText("Heat Capacity:")
-        self.edit_layer_heat_capacity_line_edit = QtGui.QLineEdit(
+        self.edit_layer_heat_capacity_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_heat_capacity_line_edit.setGeometry(
             QtCore.QRect(110, 240, 90, 25))
-        self.edit_layer_solar_absorp_label = QtGui.QLabel(
+        self.edit_layer_solar_absorp_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_solar_absorp_label.setGeometry(
             QtCore.QRect(10, 275, 90, 25))
         self.edit_layer_solar_absorp_label.setText("Solar Absorption:")
-        self.edit_layer_solar_absorp_line_edit = QtGui.QLineEdit(
+        self.edit_layer_solar_absorp_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_solar_absorp_line_edit.setGeometry(
             QtCore.QRect(110, 275, 90, 25))
-        self.edit_layer_ir_emissivity_label = QtGui.QLabel(
+        self.edit_layer_ir_emissivity_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_ir_emissivity_label.setGeometry(
             QtCore.QRect(10, 310, 90, 25))
         self.edit_layer_ir_emissivity_label.setText("IR Emissivity:")
-        self.edit_layer_ir_emissivity_line_edit = QtGui.QLineEdit(
+        self.edit_layer_ir_emissivity_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_ir_emissivity_line_edit.setGeometry(
             QtCore.QRect(110, 310, 90, 25))
-        self.edit_layer_transmittance_label = QtGui.QLabel(
+        self.edit_layer_transmittance_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_transmittance_label.setGeometry(
             QtCore.QRect(10, 345, 90, 25))
         self.edit_layer_transmittance_label.setText("Transmittance:")
-        self.edit_layer_transmittance_line_edit = QtGui.QLineEdit(
+        self.edit_layer_transmittance_line_edit = QtWidgets.QLineEdit(
             self.edit_layer_general_information_group_box)
         self.edit_layer_transmittance_line_edit.setGeometry(
             QtCore.QRect(110, 345, 90, 25))
-        self.edit_layer_save_button = QtGui.QPushButton(
+        self.edit_layer_save_button = QtWidgets.QPushButton(
             self.edit_layer_general_information_group_box)
         self.edit_layer_save_button.setGeometry(QtCore.QRect(10, 380, 90, 25))
         self.edit_layer_save_button.setText("Save")
         self.edit_layer_save_button.clicked.connect(self.check_inputs_new_zone)
-        self.edit_layer_cancel_button = QtGui.QPushButton(
+        self.edit_layer_cancel_button = QtWidgets.QPushButton(
             self.edit_layer_general_information_group_box)
         self.edit_layer_cancel_button.setGeometry(
             QtCore.QRect(110, 380, 90, 25))
         self.edit_layer_cancel_button.setText("Cancel")
-        self.edit_layer_failed_label = QtGui.QLabel(
+        self.edit_layer_failed_label = QtWidgets.QLabel(
             self.edit_layer_general_information_group_box)
         self.edit_layer_failed_label.setGeometry(
             QtCore.QRect(10, 415, 180, 50))
@@ -630,7 +631,7 @@ class MainUI(QDialog):
 
         """ All controls for editing a zone element """
 
-        self.edit_element_groupbox = QtGui.QGroupBox(self.main_widget)
+        self.edit_element_groupbox = QtWidgets.QGroupBox(self.main_widget)
         self.edit_element_groupbox.setGeometry(QtCore.QRect(0, 0, 900, 590))
         self.edit_element_groupbox.setVisible(False)
         self.edit_element_groupbox.setAutoFillBackground(True)
@@ -638,7 +639,7 @@ class MainUI(QDialog):
         palette.setColor(self.edit_element_groupbox.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.edit_element_groupbox.setPalette(palette)
-        self.edit_element_gen_inf_groupbox = QtGui.QGroupBox(
+        self.edit_element_gen_inf_groupbox = QtWidgets.QGroupBox(
             self.edit_element_groupbox)
         self.edit_element_gen_inf_groupbox.setGeometry(
             QtCore.QRect(5, 1, 210, 584))
@@ -650,194 +651,194 @@ class MainUI(QDialog):
         palette.setColor(self.edit_element_gen_inf_groupbox.backgroundRole(),
                          QtGui.QColor(100, 100, 100, 20))
         self.edit_element_gen_inf_groupbox.setPalette(palette)
-        self.edit_element_name_label = QtGui.QLabel(
+        self.edit_element_name_label = QtWidgets.QLabel(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_name_label.setGeometry(QtCore.QRect(10, 60, 90, 25))
         self.edit_element_name_label.setText("Name:")
-        self.edit_element_name_line_edit = QtGui.QLineEdit(
+        self.edit_element_name_line_edit = QtWidgets.QLineEdit(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_name_line_edit.setGeometry(
             QtCore.QRect(110, 60, 90, 25))
-        self.edit_element_type_label = QtGui.QLabel(
+        self.edit_element_type_label = QtWidgets.QLabel(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_type_label.setGeometry(QtCore.QRect(10, 95, 90, 25))
         self.edit_element_type_label.setText("Construction Type:")
-        self.edit_element_type_line_edit = QtGui.QLineEdit(
+        self.edit_element_type_line_edit = QtWidgets.QLineEdit(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_type_line_edit.setGeometry(
             QtCore.QRect(110, 95, 90, 25))
-        self.edit_element_area_label = QtGui.QLabel(
+        self.edit_element_area_label = QtWidgets.QLabel(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_area_label.setGeometry(QtCore.QRect(10, 130, 90, 25))
         self.edit_element_area_label.setText("Area:")
-        self.edit_element_area_line_edit = QtGui.QLineEdit(
+        self.edit_element_area_line_edit = QtWidgets.QLineEdit(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_area_line_edit.setGeometry(
             QtCore.QRect(110, 130, 90, 25))
-        self.edit_element_save_button = QtGui.QPushButton(
+        self.edit_element_save_button = QtWidgets.QPushButton(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_save_button.setGeometry(
             QtCore.QRect(10, 305, 90, 25))
         self.edit_element_save_button.setText("Save")
         self.edit_element_save_button.clicked.connect(
             self.check_inputs_edit_element)
-        self.edit_element_cancel_button = QtGui.QPushButton(
+        self.edit_element_cancel_button = QtWidgets.QPushButton(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_cancel_button.setGeometry(
             QtCore.QRect(110, 305, 90, 25))
         self.edit_element_cancel_button.setText("Cancel")
-        self.edit_element_failed_label = QtGui.QLabel(
+        self.edit_element_failed_label = QtWidgets.QLabel(
             self.edit_element_gen_inf_groupbox)
         self.edit_element_failed_label.setGeometry(
             QtCore.QRect(10, 340, 180, 50))
         self.edit_element_failed_label.setText(
             "Please insert a value for Name.")
         self.edit_element_failed_label.setVisible(False)
-        self.edit_element_list_label = QtGui.QLabel(self.edit_element_groupbox)
+        self.edit_element_list_label = QtWidgets.QLabel(self.edit_element_groupbox)
         self.edit_element_list_label.setGeometry(QtCore.QRect(350, 5, 50, 20))
         self.edit_element_list_label.setText("Elements")
-        self.edit_element_list = QtGui.QListView(self.edit_element_groupbox)
+        self.edit_element_list = QtWidgets.QListView(self.edit_element_groupbox)
         self.edit_element_list.setGeometry(QtCore.QRect(220, 30, 311, 558))
         self.edit_element_list.setObjectName(_fromUtf8("zones_list_view"))
         self.edit_element_list.setModel(self.element_model)
         self.edit_element_list.setItemDelegate(self.lVZF)
         self.edit_element_list.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
         self.edit_element_list.clicked.connect(self.switch_current_element)
-        self.edit_layer_list_label = QtGui.QLabel(self.edit_element_groupbox)
+        self.edit_layer_list_label = QtWidgets.QLabel(self.edit_element_groupbox)
         self.edit_layer_list_label.setGeometry(QtCore.QRect(671, 5, 50, 20))
         self.edit_layer_list_label.setText("Layer")
-        self.edit_layer_list = QtGui.QListView(self.edit_element_groupbox)
+        self.edit_layer_list = QtWidgets.QListView(self.edit_element_groupbox)
         self.edit_layer_list.setGeometry(QtCore.QRect(541, 30, 311, 558))
         self.edit_layer_list.setObjectName(_fromUtf8("objects_list_view"))
         self.edit_layer_list.setModel(self.layer_model)
         self.edit_layer_list.setItemDelegate(self.lVZF)
         self.edit_layer_list.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
 
         """ All controls in the sidebar """
 
-        self.mask_label_1 = QtGui.QLabel(self.side_bar_group_box)
+        self.mask_label_1 = QtWidgets.QLabel(self.side_bar_group_box)
         self.mask_label_1.setGeometry(QtCore.QRect(0, 0, 210, 55))
         self.mask_label_1.setVisible(False)
         self.mask_label_1.setStyleSheet("background-color:rgba(0,0,0,80)")
-        self.mask_label_2 = QtGui.QLabel(self.side_bar_group_box)
+        self.mask_label_2 = QtWidgets.QLabel(self.side_bar_group_box)
         self.mask_label_2.setGeometry(QtCore.QRect(200, 55, 10, 245))
         self.mask_label_2.setVisible(False)
         self.mask_label_2.setStyleSheet("background-color:rgba(0,0,0,80)")
-        self.mask_label_3 = QtGui.QLabel(self.side_bar_group_box)
+        self.mask_label_3 = QtWidgets.QLabel(self.side_bar_group_box)
         self.mask_label_3.setGeometry(QtCore.QRect(0, 300, 210, 290))
         self.mask_label_3.setVisible(False)
         self.mask_label_3.setStyleSheet("background-color:rgba(0,0,0,80)")
         self.image_1 = QtGui.QPixmap()
         self.image_1.load(utilitis.get_full_path("gui/guiimages/Bild1.png"))
-        self.pix_label_1 = QtGui.QLabel(self.side_bar_group_box)
+        self.pix_label_1 = QtWidgets.QLabel(self.side_bar_group_box)
         self.pix_label_1.setPixmap(self.image_1)
         self.pix_label_1.setGeometry(QtCore.QRect(5, 500, 210, 137))
         self.pix_label_1.setObjectName(_fromUtf8("label"))
-        self.side_bar_building_label = QtGui.QLabel(self.side_bar_group_box)
+        self.side_bar_building_label = QtWidgets.QLabel(self.side_bar_group_box)
         self.side_bar_building_label.setGeometry(QtCore.QRect(5, 25, 60, 30))
         self.side_bar_building_label.setText("Building")
         self.buildings_combo_box_model = QStandardItemModel()
         self.buildings_combo_box_model.removeColumn(0)
         self.buildings_combo_box_model.insertColumn(0)
         self.buildings_combo_box_model.insertColumn(1)
-        self.side_bar_buildings_combo_box = QtGui.QComboBox(
+        self.side_bar_buildings_combo_box = QtWidgets.QComboBox(
             self.side_bar_group_box)
         self.side_bar_buildings_combo_box.setGeometry(
             QtCore.QRect(75, 25, 120, 30))
         self.side_bar_buildings_combo_box.setModel(
             self.buildings_combo_box_model)
         self.side_bar_buildings_combo_box.setModelColumn(0)
-        self.connect(self.side_bar_buildings_combo_box, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_buildings_combo_box, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_building)
-        self.side_bar_id_label = QtGui.QLabel(self.side_bar_group_box)
+        self.side_bar_id_label = QtWidgets.QLabel(self.side_bar_group_box)
         self.side_bar_id_label.setGeometry(QtCore.QRect(5, 60, 90, 25))
         self.side_bar_id_label.setText("Name:")
-        self.side_bar_id_line_edit = QtGui.QLineEdit(self.side_bar_group_box)
+        self.side_bar_id_line_edit = QtWidgets.QLineEdit(self.side_bar_group_box)
         self.side_bar_id_line_edit.setGeometry(QtCore.QRect(105, 60, 90, 25))
-        self.connect(self.side_bar_id_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_id_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_id_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_id_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
-        self.side_bar_street_label = QtGui.QLabel(self.side_bar_group_box)
+        self.side_bar_street_label = QtWidgets.QLabel(self.side_bar_group_box)
         self.side_bar_street_label.setGeometry(QtCore.QRect(5, 95, 90, 25))
         self.side_bar_street_label.setText("Street/Nr.:")
-        self.side_bar_street_line_edit = QtGui.QLineEdit(
+        self.side_bar_street_line_edit = QtWidgets.QLineEdit(
             self.side_bar_group_box)
         self.side_bar_street_line_edit.setGeometry(
             QtCore.QRect(105, 95, 90, 25))
-        self.connect(self.side_bar_street_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_street_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_street_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_street_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
-        self.side_bar_location_label = QtGui.QLabel(self.side_bar_group_box)
+        self.side_bar_location_label = QtWidgets.QLabel(self.side_bar_group_box)
         self.side_bar_location_label.setGeometry(QtCore.QRect(5, 130, 90, 25))
         self.side_bar_location_label.setText("ZIP/City:")
-        self.side_bar_location_line_edit = QtGui.QLineEdit(
+        self.side_bar_location_line_edit = QtWidgets.QLineEdit(
             self.side_bar_group_box)
         self.side_bar_location_line_edit.setGeometry(
             QtCore.QRect(105, 130, 90, 25))
-        self.connect(self.side_bar_location_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_location_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_location_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_location_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
-        self.side_bar_construction_year_label = QtGui.QLabel(
+        self.side_bar_construction_year_label = QtWidgets.QLabel(
             self.side_bar_group_box)
         self.side_bar_construction_year_label.setGeometry(
             QtCore.QRect(5, 165, 90, 25))
         self.side_bar_construction_year_label.setText("Construction Year:")
-        self.side_bar_construction_year_line_edit = QtGui.QLineEdit(
+        self.side_bar_construction_year_line_edit = QtWidgets.QLineEdit(
             self.side_bar_group_box)
         self.side_bar_construction_year_line_edit.setGeometry(
             QtCore.QRect(105, 165, 90, 25))
-        self.connect(self.side_bar_construction_year_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_construction_year_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_construction_year_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_construction_year_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
-        self.side_bar_number_of_floors_label = QtGui.QLabel(
+        self.side_bar_number_of_floors_label = QtWidgets.QLabel(
             self.side_bar_group_box)
         self.side_bar_number_of_floors_label.setGeometry(
             QtCore.QRect(5, 200, 90, 25))
         self.side_bar_number_of_floors_label.setText("Number of Floors:")
-        self.side_bar_number_of_floors_line_edit = QtGui.QLineEdit(
+        self.side_bar_number_of_floors_line_edit = QtWidgets.QLineEdit(
             self.side_bar_group_box)
         self.side_bar_number_of_floors_line_edit.setGeometry(
             QtCore.QRect(105, 200, 90, 25))
-        self.connect(self.side_bar_number_of_floors_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_number_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_number_of_floors_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_number_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
-        self.side_bar_height_of_floors_label = QtGui.QLabel(
+        self.side_bar_height_of_floors_label = QtWidgets.QLabel(
             self.side_bar_group_box)
         self.side_bar_height_of_floors_label.setGeometry(
             QtCore.QRect(5, 235, 90, 25))
         self.side_bar_height_of_floors_label.setText("Height of Floors:")
-        self.side_bar_height_of_floors_line_edit = QtGui.QLineEdit(
+        self.side_bar_height_of_floors_line_edit = QtWidgets.QLineEdit(
             self.side_bar_group_box)
         self.side_bar_height_of_floors_line_edit.setGeometry(
             QtCore.QRect(105, 235, 90, 25))
-        self.connect(self.side_bar_height_of_floors_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_height_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_height_of_floors_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_height_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
-        self.side_bar_net_leased_area_label = QtGui.QLabel(
+        self.side_bar_net_leased_area_label = QtWidgets.QLabel(
             self.side_bar_group_box)
         self.side_bar_net_leased_area_label.setGeometry(
             QtCore.QRect(5, 270, 90, 25))
         self.side_bar_net_leased_area_label.setText("Net leased Area:")
-        self.side_bar_net_leased_area_line_edit = QtGui.QLineEdit(
+        self.side_bar_net_leased_area_line_edit = QtWidgets.QLineEdit(
             self.side_bar_group_box)
         self.side_bar_net_leased_area_line_edit.setGeometry(
             QtCore.QRect(105, 270, 90, 25))
-        self.connect(self.side_bar_net_leased_area_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_net_leased_area_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_net_leased_area_line_edit, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.side_bar_net_leased_area_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
 
         """ All controls in the ribbon """
 
-        self.mask_label_4 = QtGui.QLabel(self.ribbon_group_box)
+        self.mask_label_4 = QtWidgets.QLabel(self.ribbon_group_box)
         self.mask_label_4.setGeometry(QtCore.QRect(0, 0, 899, 109))
         self.mask_label_4.setVisible(False)
         self.mask_label_4.setStyleSheet("background-color:rgba(0,0,0,80)")
@@ -850,7 +851,7 @@ class MainUI(QDialog):
             self.generate_type_building_ui)
         self.new_type_building_button.setToolTip(
             "Create a new typebuilding")
-        self.new_type_building_label = QtGui.QLabel(self.ribbon_group_box)
+        self.new_type_building_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.new_type_building_label.setGeometry(
             QtCore.QRect(265, 80, 70, 25))
         self.new_type_building_label.setText("Create \nType-Building")
@@ -864,7 +865,7 @@ class MainUI(QDialog):
             self.create_new_building_ui)
         self.new_empty_building_button.setToolTip(
             "Creates a new building without any zones or values")
-        self.new_building_label = QtGui.QLabel(self.ribbon_group_box)
+        self.new_building_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.new_building_label.setGeometry(QtCore.QRect(350, 80, 70, 25))
         self.new_building_label.setText("Create \nBuilding")
         self.new_building_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -876,7 +877,7 @@ class MainUI(QDialog):
         self.add_zone_button.setToolTip(
             "Creates a new thermal zone for the current "
             "building")
-        self.add_zone_label = QtGui.QLabel(self.ribbon_group_box)
+        self.add_zone_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.add_zone_label.setGeometry(QtCore.QRect(520, 80, 70, 25))
         self.add_zone_label.setText("Create \n Zone")
         self.add_zone_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -887,7 +888,7 @@ class MainUI(QDialog):
         self.delete_zone_button.clicked.connect(self.delete_thermal_zone)
         self.delete_zone_button.setToolTip(
             "Deletes the selected zone of the current building")
-        self.delete_label = QtGui.QLabel(self.ribbon_group_box)
+        self.delete_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.delete_label.setGeometry(QtCore.QRect(605, 80, 70, 25))
         self.delete_label.setText("Delete \nZone")
         self.delete_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -899,7 +900,7 @@ class MainUI(QDialog):
             self.warning_delete_building)
         self.delete_building_button.setToolTip(
             "Deletes current building")
-        self.delete_label = QtGui.QLabel(self.ribbon_group_box)
+        self.delete_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.delete_label.setGeometry(QtCore.QRect(435, 80, 70, 25))
         self.delete_label.setText("Delete\nBuilding")
         self.delete_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -909,7 +910,7 @@ class MainUI(QDialog):
         self.load_button.setGeometry(QtCore.QRect(95, 5, 70, 70))
         self.load_button.clicked.connect(self.load_building_button)
         self.load_button.setToolTip("Loads a project from an .teaserxml file")
-        self.load_label = QtGui.QLabel(self.ribbon_group_box)
+        self.load_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.load_label.setGeometry(QtCore.QRect(95, 80, 70, 25))
         self.load_label.setText("Load\nProject")
         self.load_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -919,7 +920,7 @@ class MainUI(QDialog):
         self.new_project_button.setGeometry(QtCore.QRect(10, 5, 70, 70))
         self.new_project_button.clicked.connect(self.create_new_project_ui)
         self.new_project_button.setToolTip("Creates a new project")
-        self.new_project_label = QtGui.QLabel(self.ribbon_group_box)
+        self.new_project_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.new_project_label.setGeometry(QtCore.QRect(10, 80, 70, 25))
         self.new_project_label.setText("Create \nProject")
         self.new_project_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -930,7 +931,7 @@ class MainUI(QDialog):
         self.open_simulation_button.clicked.connect(
             self.show_simulation_window)
         self.open_simulation_button.setToolTip("Opens simulation tab")
-        self.open_simulation_label = QtGui.QLabel(self.ribbon_group_box)
+        self.open_simulation_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.open_simulation_label.setGeometry(QtCore.QRect(685, 80, 70, 25))
         self.open_simulation_label.setText("Simulation\nSetup")
         self.open_simulation_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -941,7 +942,7 @@ class MainUI(QDialog):
         self.open_export_button.clicked.connect(
             self.show_export_window)
         self.open_export_button.setToolTip("Opens export tab")
-        self.open_export_label = QtGui.QLabel(self.ribbon_group_box)
+        self.open_export_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.open_export_label.setGeometry(QtCore.QRect(765, 80, 70, 25))
         self.open_export_label.setText("Model \nExport")
         self.open_export_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -952,7 +953,7 @@ class MainUI(QDialog):
         self.save_project_button.clicked.connect(
             self.click_save_current_project)
         self.save_project_button.setToolTip("Saves the current project")
-        self.save_project_label = QtGui.QLabel(self.ribbon_group_box)
+        self.save_project_label = QtWidgets.QLabel(self.ribbon_group_box)
         self.save_project_label.setGeometry(QtCore.QRect(180, 80, 70, 25))
         self.save_project_label.setText("Save \n Project")
         self.save_project_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -1016,7 +1017,7 @@ class MainUI(QDialog):
         creates the window to set the project to default.
         '''
 
-        self.create_new_project_ui_page = QtGui.QWizardPage()
+        self.create_new_project_ui_page = QtWidgets.QWizardPage()
         self.create_new_project_ui_page.setAttribute(
             QtCore.Qt.WA_DeleteOnClose)
         self.create_new_project_ui_page.setWindowTitle("Empty Project")
@@ -1025,20 +1026,20 @@ class MainUI(QDialog):
         self.create_new_project_window_layout = QtGui.QGridLayout()
         self.create_new_project_ui_page.setLayout(
             self.create_new_project_window_layout)
-        self.warning_message_create_empty_prj_label = QtGui.QLabel()
+        self.warning_message_create_empty_prj_label = QtWidgets.QLabel()
         self.warning_message_create_empty_prj_label.setText(
             "When creating a new project, all Values in Teaser will be " +
             "removed.")
-        self.create_new_project_clear_button = QtGui.QPushButton()
+        self.create_new_project_clear_button = QtWidgets.QPushButton()
         self.create_new_project_clear_button.setText("Clear")
-        self.connect(self.create_new_project_clear_button,
+        self.lineedit.returnPressed.connect(self.create_new_project_clear_button,
                      pyqtSignal("clicked()"), self.create_new_project)
-        self.connect(self.create_new_project_clear_button,
+        self.lineedit.returnPressed.connect(self.create_new_project_clear_button,
                      pyqtSignal("clicked()"), self.create_new_project_ui_page,
                      QtCore.SLOT("close()"))
-        self.create_new_project_cancel_button = QtGui.QPushButton()
+        self.create_new_project_cancel_button = QtWidgets.QPushButton()
         self.create_new_project_cancel_button.setText("Cancel")
-        self.connect(self.create_new_project_cancel_button,
+        self.lineedit.returnPressed.connect(self.create_new_project_cancel_button,
                      pyqtSignal("clicked()"), self.create_new_project_ui_page,
                      QtCore.SLOT("close()"))
 
@@ -1057,7 +1058,7 @@ class MainUI(QDialog):
         opens the create new building window.
         '''
 
-        self.generate_new_building_ui_page = QtGui.QWizardPage()
+        self.generate_new_building_ui_page = QtWidgets.QWizardPage()
         self.generate_new_building_ui_page.setWindowIcon(self.teaser_icon)
         self.generate_new_building_ui_page.setAttribute(
             QtCore.Qt.WA_DeleteOnClose)
@@ -1071,67 +1072,67 @@ class MainUI(QDialog):
 
         validator = QtGui.QDoubleValidator()
 
-        self.generate_new_building_name_label = QtGui.QLabel("Name: ")
-        self.generate_new_building_name_line_edit = QtGui.QLineEdit()
+        self.generate_new_building_name_label = QtWidgets.QLabel("Name: ")
+        self.generate_new_building_name_line_edit = QtWidgets.QLineEdit()
         self.generate_new_building_name_line_edit.setObjectName(
             "generate_new_building_name_line_edit")
 
-        self.generate_new_building_street_label = QtGui.QLabel("Street/Nr: ")
-        self.generate_new_building_street_line_edit = QtGui.QLineEdit()
+        self.generate_new_building_street_label = QtWidgets.QLabel("Street/Nr: ")
+        self.generate_new_building_street_line_edit = QtWidgets.QLineEdit()
         self.generate_new_building_street_line_edit.setObjectName(
             "generate_new_building_street_line_edit")
 
-        self.generate_new_building_city_label = QtGui.QLabel("ZIP/City: ")
-        self.generate_new_building_city_line_edit = QtGui.QLineEdit()
+        self.generate_new_building_city_label = QtWidgets.QLabel("ZIP/City: ")
+        self.generate_new_building_city_line_edit = QtWidgets.QLineEdit()
         self.generate_new_building_city_line_edit.setObjectName(
             "generate_new_building_city_line_edit")
 
-        self.generate_new_building_constr_year_label = QtGui.QLabel(
+        self.generate_new_building_constr_year_label = QtWidgets.QLabel(
             "Contruction Year: ")
-        self.generate_new_building_constr_year_line_edit = QtGui.QLineEdit()
+        self.generate_new_building_constr_year_line_edit = QtWidgets.QLineEdit()
         self.generate_new_building_constr_year_line_edit.setValidator(
             validator)
         self.generate_new_building_constr_year_line_edit.setObjectName(
             "generate_new_building_constr_year_line_edit")
 
-        self.generate_new_building_number_of_floors_label = QtGui.QLabel(
+        self.generate_new_building_number_of_floors_label = QtWidgets.QLabel(
             "Number of Floors: ")
         self.generate_new_building_number_of_floors_line_edit =\
-            QtGui.QLineEdit()
+            QtWidgets.QLineEdit()
         self.generate_new_building_number_of_floors_line_edit.setValidator(
             validator)
         self.generate_new_building_number_of_floors_line_edit.setObjectName(
             "generate_new_building_number_of_floors_line_edit")
 
-        self.generate_new_building_height_of_floors_label = QtGui.QLabel(
+        self.generate_new_building_height_of_floors_label = QtWidgets.QLabel(
             "Height of Floors: ")
         self.generate_new_building_height_of_floors_line_edit =\
-            QtGui.QLineEdit()
+            QtWidgets.QLineEdit()
         self.generate_new_building_height_of_floors_line_edit.setValidator(
             validator)
         self.generate_new_building_height_of_floors_line_edit.setObjectName(
             "generate_new_building_height_of_floors_line_edit")
 
-        self.generate_new_building_net_leased_area_label = QtGui.QLabel(
+        self.generate_new_building_net_leased_area_label = QtWidgets.QLabel(
             "Net leased Area: ")
         self.generate_new_building_net_leased_area_line_edit =\
-            QtGui.QLineEdit()
+            QtWidgets.QLineEdit()
         self.generate_new_building_net_leased_area_line_edit.setValidator(
             validator)
         self.generate_new_building_net_leased_area_line_edit.setObjectName(
             ".generate_new_building_net_leased_area_line_edit")
 
-        self.generate_new_building_save_button = QtGui.QPushButton()
+        self.generate_new_building_save_button = QtWidgets.QPushButton()
         self.generate_new_building_save_button.setText("Save")
-        self.connect(self.generate_new_building_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_new_building_save_button, pyqtSignal(
             "clicked()"), self.check_new_building_inputs)
-        self.connect(self.generate_new_building_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_new_building_save_button, pyqtSignal(
             "clicked()"), self.generate_new_building_ui_page,
             QtCore.SLOT("close()"))
 
-        self.generate_new_building_cancel_button = QtGui.QPushButton()
+        self.generate_new_building_cancel_button = QtWidgets.QPushButton()
         self.generate_new_building_cancel_button.setText("Cancel")
-        self.connect(self.generate_new_building_cancel_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_new_building_cancel_button, pyqtSignal(
             "clicked()"), self.generate_new_building_ui_page,
             QtCore.SLOT("close()"))
 
@@ -1177,7 +1178,7 @@ class MainUI(QDialog):
         opens the window to create a new element.
         '''
 
-        self.create_new_element_ui_page = QtGui.QWizardPage()
+        self.create_new_element_ui_page = QtWidgets.QWizardPage()
         self.create_new_element_ui_page.setWindowIcon(self.teaser_icon)
         self.create_new_element_ui_page.setAttribute(
             QtCore.Qt.WA_DeleteOnClose)
@@ -1187,12 +1188,12 @@ class MainUI(QDialog):
         self.generate_new_element_window_layout = QtGui.QGridLayout()
         self.create_new_element_ui_page.setLayout(
             self.generate_new_element_window_layout)
-        self.generate_new_element_name_label = QtGui.QLabel("Id: ")
-        self.generate_new_element_name_line_edit = QtGui.QLineEdit()
+        self.generate_new_element_name_label = QtWidgets.QLabel("Id: ")
+        self.generate_new_element_name_line_edit = QtWidgets.QLineEdit()
         self.generate_new_element_name_line_edit.setObjectName(
             "generate_new_element_name_line_edit")
-        self.generate_new_element_type_label = QtGui.QLabel("Type: ")
-        self.generate_new_element_type_combobox = QtGui.QComboBox()
+        self.generate_new_element_type_label = QtWidgets.QLabel("Type: ")
+        self.generate_new_element_type_combobox = QtWidgets.QComboBox()
         self.generate_new_element_type_combobox.setObjectName(
             "generate_new_element_type_line_edit")
         self.generate_new_element_type_combobox.addItem(
@@ -1209,22 +1210,22 @@ class MainUI(QDialog):
             "Ceiling", userData=None)
         self.generate_new_element_type_combobox.addItem(
             "Floor", userData=None)
-        self.generate_new_element_area_label = QtGui.QLabel("Area: ")
-        self.generate_new_element_area_line_edit = QtGui.QLineEdit()
+        self.generate_new_element_area_label = QtWidgets.QLabel("Area: ")
+        self.generate_new_element_area_line_edit = QtWidgets.QLineEdit()
         self.generate_new_element_area_line_edit.setObjectName(
             "generate_new_element_area_line_edit")
 
-        self.generate_new_element_save_button = QtGui.QPushButton()
+        self.generate_new_element_save_button = QtWidgets.QPushButton()
         self.generate_new_element_save_button.setText("Save")
-        self.connect(self.generate_new_element_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_new_element_save_button, pyqtSignal(
             "clicked()"), self.check_new_element_inputs)
-        self.connect(self.generate_new_element_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_new_element_save_button, pyqtSignal(
             "clicked()"), self.create_new_element_ui_page,
             QtCore.SLOT("close()"))
 
-        self.generate_new_element_cancel_button = QtGui.QPushButton()
+        self.generate_new_element_cancel_button = QtWidgets.QPushButton()
         self.generate_new_element_cancel_button.setText("Cancel")
-        self.connect(self.generate_new_element_cancel_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_new_element_cancel_button, pyqtSignal(
             "clicked()"), self.create_new_element_ui_page,
             QtCore.SLOT("close()"))
 
@@ -1264,14 +1265,14 @@ class MainUI(QDialog):
         self.create__envelope_ui.setLayout(
             self.create__envelope_ui_window_layout)
         self.warning_message_groupbox_layout = QtGui.QGridLayout()
-        self.warning_message_groupbox = QtGui.QGroupBox(
+        self.warning_message_groupbox = QtWidgets.QGroupBox(
             u"Warning")
         self.warning_message_groupbox.setAlignment(0x0004)
         self.warning_message_groupbox.setGeometry(
             QtCore.QRect(0, 0, 60, 60))
         self.warning_message_groupbox.setLayout(
             self.warning_message_groupbox_layout)
-        self.warning_message_label = QtGui.QLabel(
+        self.warning_message_label = QtWidgets.QLabel(
             self.warning_message_groupbox)
         self.warning_message_label.setText(
             "All walls with the current orientation in building will be" +
@@ -1282,86 +1283,86 @@ class MainUI(QDialog):
         self.warning_message_groupbox_layout.addWidget(
             self.warning_message_label, 0, 0)
         self.set_all_constr_element_layout = QtGui.QGridLayout()
-        self.set_all_constr_element_layout_groupBox = QtGui.QGroupBox(
+        self.set_all_constr_element_layout_groupBox = QtWidgets.QGroupBox(
             "Input values")
         self.set_all_constr_element_layout_groupBox.setLayout(
             self.set_all_constr_element_layout)
 
         validator = QtGui.QDoubleValidator()
 
-        self.set_all_constr_element_bldg_label = QtGui.QLabel("Building")
-        self.set_all_constr_element_bldg_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_bldg_label = QtWidgets.QLabel("Building")
+        self.set_all_constr_element_bldg_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_bldg_textbox.setText(
             self.current_building.name)
         self.set_all_constr_element_bldg_textbox.setReadOnly(True)
         self.set_all_constr_element_bldg_textbox.setMaximumHeight(24)
 
-        self.set_all_constr_element_orientation_label = QtGui.QLabel(
+        self.set_all_constr_element_orientation_label = QtWidgets.QLabel(
             "Orientation")
-        self.set_all_constr_element_orientation_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_orientation_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_orientation_textbox.setText(
             self.envelope_orientation_combobox.currentText())
         self.set_all_constr_element_orientation_textbox.setReadOnly(True)
         self.set_all_constr_element_orientation_textbox.setMaximumHeight(24)
 
-        self.set_all_constr_element_type_label = QtGui.QLabel("Type")
-        self.set_all_constr_element_type_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_type_label = QtWidgets.QLabel("Type")
+        self.set_all_constr_element_type_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_type_textbox.setText(
             self.envelope_type_textbox.text())
         self.set_all_constr_element_type_textbox.setReadOnly(True)
         self.set_all_constr_element_type_textbox.setMaximumHeight(24)
 
-        self.set_all_constr_element_tilt_label = QtGui.QLabel("Tilt")
-        self.set_all_constr_element_tilt_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_tilt_label = QtWidgets.QLabel("Tilt")
+        self.set_all_constr_element_tilt_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_tilt_textbox.setValidator(validator)
         self.set_all_constr_element_tilt_textbox.setMaximumHeight(24)
 
-        self.set_all_constr_element_inner_con_label = QtGui.QLabel(
+        self.set_all_constr_element_inner_con_label = QtWidgets.QLabel(
             "Inner Convection")
-        self.set_all_constr_element_inner_con_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_inner_con_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_inner_con_textbox.setValidator(validator)
         self.set_all_constr_element_inner_con_textbox.setMaximumHeight(24)
 
-        self.set_all_constr_element_inner_rad_label = QtGui.QLabel(
+        self.set_all_constr_element_inner_rad_label = QtWidgets.QLabel(
             "Inner Radiation")
-        self.set_all_constr_element_inner_rad_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_inner_rad_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_inner_rad_textbox.setValidator(validator)
         self.set_all_constr_element_inner_rad_textbox.setMaximumHeight(24)
 
-        self.set_all_constr_element_outer_con_label = QtGui.QLabel(
+        self.set_all_constr_element_outer_con_label = QtWidgets.QLabel(
             "Outer Convection")
-        self.set_all_constr_element_outer_con_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_outer_con_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_outer_con_textbox.setValidator(validator)
         self.set_all_constr_element_outer_con_textbox.setMaximumHeight(24)
 
-        self.set_all_constr_element_outer_rad_label = QtGui.QLabel(
+        self.set_all_constr_element_outer_rad_label = QtWidgets.QLabel(
             "Outer Radiation")
-        self.set_all_constr_element_outer_rad_textbox = QtGui.QLineEdit()
+        self.set_all_constr_element_outer_rad_textbox = QtWidgets.QLineEdit()
         self.set_all_constr_element_outer_rad_textbox.setValidator(validator)
         self.set_all_constr_element_outer_rad_textbox.setMaximumHeight(24)
         self.set_all_constr_save_cancel_layout = QtGui.QGridLayout()
-        self.set_all_constr_save_cancel_layout_GroupBox = QtGui.QGroupBox()
+        self.set_all_constr_save_cancel_layout_GroupBox = QtWidgets.QGroupBox()
         self.set_all_constr_save_cancel_layout_GroupBox.setLayout(
             self.set_all_constr_save_cancel_layout)
         self.set_all_constr_save_cancel_layout_GroupBox.setMaximumHeight(48)
 
-        self.set_all_constr_element_add_material_button = QtGui.QPushButton()
+        self.set_all_constr_element_add_material_button = QtWidgets.QPushButton()
         self.set_all_constr_element_add_material_button.setText("Add Layer")
-        self.connect(self.set_all_constr_element_add_material_button,
+        self.lineedit.returnPressed.connect(self.set_all_constr_element_add_material_button,
                      pyqtSignal("clicked()"),
                      lambda check_window="set all construction window":
                      self.create_new_layer_ui(check_window))
 
         self.set_all_constr_element_delete_material_button =\
-            QtGui.QPushButton()
+            QtWidgets.QPushButton()
         self.set_all_constr_element_delete_material_button.setText(
             "Delete Layer")
-        self.connect(self.set_all_constr_element_delete_material_button,
+        self.lineedit.returnPressed.connect(self.set_all_constr_element_delete_material_button,
                      pyqtSignal("clicked()"),
                      self.delete_selected_layer_set_all_constr)
 
-        self.element_material_list_view = QtGui.QListView()
-        self.set_all_constr_element_material_list_view = QtGui.QListView()
+        self.element_material_list_view = QtWidgets.QListView()
+        self.set_all_constr_element_material_list_view = QtWidgets.QListView()
         self.set_all_constr_element_material_list_view.setGeometry(
             QtCore.QRect(10, 200, 170, 300))
         self.set_all_constr_element_material_list_view.setObjectName(
@@ -1371,25 +1372,25 @@ class MainUI(QDialog):
         self.set_all_constr_element_material_list_view.setItemDelegate(
             self.lVZF)
         self.set_all_constr_element_material_list_view.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
         self.set_all_constr_element_material_list_view.doubleClicked.connect(
             self.show_layer_build_ui)
 
-        self.set_all_constr_save_button = QtGui.QPushButton()
+        self.set_all_constr_save_button = QtWidgets.QPushButton()
         self.set_all_constr_save_button.setText("Save")
 
-        self.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
                      self.save_input_values_set_all_constr)
-        self.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
                      self.clear_input_values_set_all_constr)
-        self.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
                      self.create__envelope_ui, QtCore.SLOT("close()"))
 
-        self.set_all_constr_cancel_button = QtGui.QPushButton()
+        self.set_all_constr_cancel_button = QtWidgets.QPushButton()
         self.set_all_constr_cancel_button.setText("Cancel")
-        self.connect(self.set_all_constr_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.set_all_constr_cancel_button, pyqtSignal("clicked()"),
                      self.clear_input_values_set_all_constr)
-        self.connect(self.set_all_constr_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.set_all_constr_cancel_button, pyqtSignal("clicked()"),
                      self.create__envelope_ui, QtCore.SLOT("close()"))
 
         self.set_all_constr_element_layout.addWidget(
@@ -1464,7 +1465,7 @@ class MainUI(QDialog):
             checks in which window this method is called.
         '''
 
-        self.create_layer_ui = QtGui.QWizardPage()
+        self.create_layer_ui = QtWidgets.QWizardPage()
         self.create_layer_ui.setWindowIcon(self.teaser_icon)
         self.create_layer_ui.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.create_layer_ui.setWindowTitle("Layer Details")
@@ -1477,12 +1478,12 @@ class MainUI(QDialog):
 
         self.new_layer_general_layout = QtGui.QGridLayout()
         self.new_layer_general_layout_group_box = \
-            QtGui.QGroupBox("Layer Values")
+            QtWidgets.QGroupBox("Layer Values")
         self.new_layer_general_layout_group_box.setLayout(
             self.new_layer_general_layout)
 
-        self.new_layer_position_label = QtGui.QLabel("Position")
-        self.new_layer_position_combobox = QtGui.QComboBox()
+        self.new_layer_position_label = QtWidgets.QLabel("Position")
+        self.new_layer_position_combobox = QtWidgets.QComboBox()
 
         if check == "Element Details Window":
             num_layers = len(self.current_element.layer) + 1
@@ -1498,48 +1499,48 @@ class MainUI(QDialog):
                 "0", userData=None)
         self.new_layer_position_combobox.setCurrentIndex(num_layers - 1)
 
-        self.new_layer_thickness_label = QtGui.QLabel("Layer Thickness")
-        self.new_layer_thickness_textbox = QtGui.QLineEdit()
+        self.new_layer_thickness_label = QtWidgets.QLabel("Layer Thickness")
+        self.new_layer_thickness_textbox = QtWidgets.QLineEdit()
         self.new_layer_thickness_textbox.setObjectName(
             _fromUtf8("ThicknessTextBox"))
 
-        self.new_layer_material_density_label = QtGui.QLabel("Density")
-        self.new_layer_material_density_textbox = QtGui.QLineEdit()
+        self.new_layer_material_density_label = QtWidgets.QLabel("Density")
+        self.new_layer_material_density_textbox = QtWidgets.QLineEdit()
         self.new_layer_material_density_textbox.setObjectName(
             _fromUtf8("MaterialDensityTextBox"))
 
         self.new_layer_material_thermal_conduc_label = \
-            QtGui.QLabel("ThermalConduc")
-        self.new_layer_material_thermal_conduc_textbox = QtGui.QLineEdit()
+            QtWidgets.QLabel("ThermalConduc")
+        self.new_layer_material_thermal_conduc_textbox = QtWidgets.QLineEdit()
         self.new_layer_material_thermal_conduc_textbox.setObjectName(
             _fromUtf8("MaterialThermalConducTextBox"))
 
-        self.new_layer_material_heat_capac_label = QtGui.QLabel("HeatCapac")
-        self.new_layer_material_heat_capac_textbox = QtGui.QLineEdit()
+        self.new_layer_material_heat_capac_label = QtWidgets.QLabel("HeatCapac")
+        self.new_layer_material_heat_capac_textbox = QtWidgets.QLineEdit()
         self.new_layer_material_heat_capac_textbox.setObjectName(
             _fromUtf8("MaterialHeatCapacTextBox"))
 
         self.new_layer_material_solar_absorp_label = \
-            QtGui.QLabel("SolarAbsorp")
-        self.new_layer_material_solar_absorp_textbox = QtGui.QLineEdit()
+            QtWidgets.QLabel("SolarAbsorp")
+        self.new_layer_material_solar_absorp_textbox = QtWidgets.QLineEdit()
         self.new_layer_material_solar_absorp_textbox.setObjectName(
             _fromUtf8("MaterialSolarAbsorpTextBox"))
 
         self.new_layer_material_ir_emissivity_label = \
-            QtGui.QLabel("IrEmissivity")
-        self.new_layer_material_ir_emissivity_textbox = QtGui.QLineEdit()
+            QtWidgets.QLabel("IrEmissivity")
+        self.new_layer_material_ir_emissivity_textbox = QtWidgets.QLineEdit()
         self.new_layer_material_ir_emissivity_textbox.setObjectName(
             _fromUtf8("MaterialIrEmissivityTextBox"))
 
         self.new_layer_material_transmittance_label = \
-            QtGui.QLabel("Transmittance")
-        self.new_layer_material_transmittance_textbox = QtGui.QLineEdit()
+            QtWidgets.QLabel("Transmittance")
+        self.new_layer_material_transmittance_textbox = QtWidgets.QLineEdit()
         self.new_layer_material_transmittance_textbox.setObjectName(
             _fromUtf8("MaterialTransmittanceTextBox"))
 
-        self.new_layer_material_label = QtGui.QLabel("Material")
-        self.new_layer_material_combobox = QtGui.QComboBox()
-        self.connect(self.new_layer_material_combobox, QtCore.pyqtSignal(
+        self.new_layer_material_label = QtWidgets.QLabel("Material")
+        self.new_layer_material_combobox = QtWidgets.QComboBox()
+        self.lineedit.returnPressed.connect(self.new_layer_material_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.load_material)
         temp_list = []
         for material in self.materials:
@@ -1548,26 +1549,26 @@ class MainUI(QDialog):
         self.new_layer_material_combobox.addItems(sorted(temp_list))
         self.is_switchable = True
 
-        self.new_layer_save_button = QtGui.QPushButton()
+        self.new_layer_save_button = QtWidgets.QPushButton()
         self.new_layer_save_button.setText("Save")
-        self.connect(self.new_layer_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.new_layer_save_button, pyqtSignal(
             "clicked()"), lambda check_window=check:
             self.check_new_layer_inputs(check_window))
 
         if check == "Element Details Window":
-            self.connect(self.new_layer_save_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.new_layer_save_button, pyqtSignal(
                 "clicked()"), self.update_element_details)
 
         elif check == "set all construction window":
-            self.connect(self.new_layer_save_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.new_layer_save_button, pyqtSignal(
                 "clicked()"), self.update_set_all_construction)
 
-        self.connect(self.new_layer_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.new_layer_save_button, pyqtSignal(
             "clicked()"), self.create_layer_ui, QtCore.SLOT("close()"))
 
-        self.new_layer_cancel_button = QtGui.QPushButton()
+        self.new_layer_cancel_button = QtWidgets.QPushButton()
         self.new_layer_cancel_button.setText("Cancel")
-        self.connect(self.new_layer_cancel_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.new_layer_cancel_button, pyqtSignal(
             "clicked()"), self.create_layer_ui, QtCore.SLOT("close()"))
 
         self.new_layer_general_layout.addWidget(
@@ -1622,7 +1623,7 @@ class MainUI(QDialog):
         opens a window to create a new type building.
         '''
 
-        self.popup_window_type_building = QtGui.QWizardPage()
+        self.popup_window_type_building = QtWidgets.QWizardPage()
         self.popup_window_type_building.setWindowIcon(self.teaser_icon)
         self.current_type_building = "Office"
         self.popup_window_type_building.setAttribute(
@@ -1636,103 +1637,103 @@ class MainUI(QDialog):
         self.popup_layout_type_building = QtGui.QGridLayout()
         self.popup_window_type_building.setLayout(
             self.popup_layout_type_building)
-        self.group_box_type_building_sidecontrols = QtGui.QGroupBox(
+        self.group_box_type_building_sidecontrols = QtWidgets.QGroupBox(
             u"General Information")
-        self.group_box_type_building_right_office = QtGui.QGroupBox(
+        self.group_box_type_building_right_office = QtWidgets.QGroupBox(
             u"Specific Type Building Information")
-        self.group_box_type_building_right_residential = QtGui.QGroupBox(
+        self.group_box_type_building_right_residential = QtWidgets.QGroupBox(
             u"Specific Type Building Information")
 
-        self.window_construct_building_type_label = QtGui.QLabel(
+        self.window_construct_building_type_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_type_label.setGeometry(
             QtCore.QRect(10, 25, 90, 25))
         self.window_construct_building_type_label.setText("Type Building:")
-        self.window_construct_building_combo_box = QtGui.QComboBox(
+        self.window_construct_building_combo_box = QtWidgets.QComboBox(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_combo_box.setGeometry(
             QtCore.QRect(110, 25, 120, 25))
         for type_building in self.guiinfo.type_buildings:
             self.window_construct_building_combo_box.addItem(type_building)
-        self.connect(self.window_construct_building_combo_box, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.window_construct_building_combo_box, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_type_building)
-        self.window_construct_building_name_label = QtGui.QLabel(
+        self.window_construct_building_name_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_name_label.setGeometry(
             QtCore.QRect(10, 65, 90, 25))
         self.window_construct_building_name_label.setText("Name:")
-        self.window_construct_building_name_line_edit = QtGui.QLineEdit(
+        self.window_construct_building_name_line_edit = QtWidgets.QLineEdit(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_name_line_edit.setGeometry(
             QtCore.QRect(110, 65, 120, 25))
-        self.window_construct_building_street_label = QtGui.QLabel(
+        self.window_construct_building_street_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_street_label.setGeometry(
             QtCore.QRect(10, 105, 90, 25))
         self.window_construct_building_street_label.setText("Street/Nr.:")
-        self.window_construct_building_street_line_edit = QtGui.QLineEdit(
+        self.window_construct_building_street_line_edit = QtWidgets.QLineEdit(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_street_line_edit.setGeometry(
             QtCore.QRect(110, 105, 120, 25))
-        self.window_construct_building_location_label = QtGui.QLabel(
+        self.window_construct_building_location_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_location_label.setGeometry(
             QtCore.QRect(10, 145, 90, 25))
         self.window_construct_building_location_label.setText("ZIP/City:")
-        self.window_construct_building_location_line_edit = QtGui.QLineEdit(
+        self.window_construct_building_location_line_edit = QtWidgets.QLineEdit(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_location_line_edit.setGeometry(
             QtCore.QRect(110, 145, 120, 25))
-        self.window_construct_building_year_label = QtGui.QLabel(
+        self.window_construct_building_year_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_year_label.setGeometry(
             QtCore.QRect(10, 185, 90, 25))
         self.window_construct_building_year_label.setText("Construction Year:")
-        self.window_construct_building_year_line_edit = QtGui.QLineEdit(
+        self.window_construct_building_year_line_edit = QtWidgets.QLineEdit(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_year_line_edit.setGeometry(
             QtCore.QRect(110, 185, 120, 25))
-        self.window_construct_building_number_of_floors_label = QtGui.QLabel(
+        self.window_construct_building_number_of_floors_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_number_of_floors_label.setGeometry(
             QtCore.QRect(10, 225, 90, 25))
         self.window_construct_building_number_of_floors_label.setText(
             "Number of Floors:")
         self.window_construct_building_number_of_floors_line_edit = \
-            QtGui.QLineEdit(self.group_box_type_building_sidecontrols)
+            QtWidgets.QLineEdit(self.group_box_type_building_sidecontrols)
         self.window_construct_building_number_of_floors_line_edit.setGeometry(
             QtCore.QRect(110, 225, 120, 25))
-        self.window_construct_building_height_of_floors_label = QtGui.QLabel(
+        self.window_construct_building_height_of_floors_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_height_of_floors_label.setGeometry(
             QtCore.QRect(10, 265, 90, 25))
         self.window_construct_building_height_of_floors_label.setText(
             "Height of Floors:")
         self.window_construct_building_height_of_floors_line_edit = \
-            QtGui.QLineEdit(self.group_box_type_building_sidecontrols)
+            QtWidgets.QLineEdit(self.group_box_type_building_sidecontrols)
         self.window_construct_building_height_of_floors_line_edit.setGeometry(
             QtCore.QRect(110, 265, 120, 25))
-        self.window_construct_building_area_label = QtGui.QLabel(
+        self.window_construct_building_area_label = QtWidgets.QLabel(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_area_label.setGeometry(
             QtCore.QRect(10, 305, 90, 25))
         self.window_construct_building_area_label.setText("Net leased Area:")
-        self.window_construct_building_area_line_edit = QtGui.QLineEdit(
+        self.window_construct_building_area_line_edit = QtWidgets.QLineEdit(
             self.group_box_type_building_sidecontrols)
         self.window_construct_building_area_line_edit.setGeometry(
             QtCore.QRect(110, 305, 120, 25))
-        self.test_button = QtGui.QPushButton(
+        self.test_button = QtWidgets.QPushButton(
             self.group_box_type_building_sidecontrols)
         self.test_button.setText("Generate random parameters")
         self.test_button.setGeometry(QtCore.QRect(10, 345, 230, 25))
-        self.connect(self.test_button,
+        self.lineedit.returnPressed.connect(self.test_button,
                      QtCore.pyqtSignal("clicked()"),
                      self.fill_random_parameters)
-        self.fill_button = QtGui.QPushButton(
+        self.fill_button = QtWidgets.QPushButton(
             self.group_box_type_building_sidecontrols)
         self.fill_button.setText("Fill current building Information")
         self.fill_button.setGeometry(QtCore.QRect(10, 375, 230, 25))
-        self.connect(self.fill_button, QtCore.pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.fill_button, QtCore.pyqtSignal("clicked()"),
                      self.fill_building_informations)
 
         # Differentiates between the different types of buildings from combobox
@@ -1740,9 +1741,9 @@ class MainUI(QDialog):
         self.group_box_type_building_right_office.setLayout(
             self.type_building_office_layout)
 
-        self.group_box_office_layout = QtGui.QGroupBox(u"Layout")
-        self.group_box_office_window_area = QtGui.QGroupBox(u"Window Layout")
-        self.group_box_office_architecture = QtGui.QGroupBox(
+        self.group_box_office_layout = QtWidgets.QGroupBox(u"Layout")
+        self.group_box_office_window_area = QtWidgets.QGroupBox(u"Window Layout")
+        self.group_box_office_architecture = QtWidgets.QGroupBox(
             u"Construction Type")
 
         self.office_layout = QtGui.QGridLayout()
@@ -1763,9 +1764,9 @@ class MainUI(QDialog):
             u"Compact")
         self.radio_button_office_layout_1.setChecked(True)
 
-        self.picture_layout_office_1 = QtGui.QLabel()
-        self.picture_layout_office_2 = QtGui.QLabel()
-        self.picture_layout_office_3 = QtGui.QLabel()
+        self.picture_layout_office_1 = QtWidgets.QLabel()
+        self.picture_layout_office_2 = QtWidgets.QLabel()
+        self.picture_layout_office_3 = QtWidgets.QLabel()
         self.picture_layout_office_1.setPixmap(
             QtGui.QPixmap(utilitis.get_full_path(
                 "gui/guiimages/OfficeBuildings/elongated_1floor.png")).scaled(
@@ -1805,9 +1806,9 @@ class MainUI(QDialog):
             u"Full glazing")
         self.radio_button_window_area_office_1.setChecked(True)
 
-        self.picture_window_area_office_2 = QtGui.QLabel()
-        self.picture_window_area_office_3 = QtGui.QLabel()
-        self.picture_window_area_office_4 = QtGui.QLabel()
+        self.picture_window_area_office_2 = QtWidgets.QLabel()
+        self.picture_window_area_office_3 = QtWidgets.QLabel()
+        self.picture_window_area_office_4 = QtWidgets.QLabel()
         self.picture_window_area_office_2.setPixmap(QtGui.QPixmap(
             utilitis.get_full_path(
                 "gui/guiimages/OfficeBuildings/punctuatedFacade.png"))
@@ -1846,32 +1847,32 @@ class MainUI(QDialog):
         self.office_layout_architecture.addWidget(
             self.radio_button_architecture_office_2, 2, 0)
 
-        self.update_building_button = QtGui.QPushButton()
+        self.update_building_button = QtWidgets.QPushButton()
         self.update_building_button.setText("Update current Building")
-        self.connect(self.update_building_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.update_building_button, pyqtSignal(
             "clicked()"), self.update_building)
 
-        self.connect(self.update_building_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.update_building_button, pyqtSignal("clicked()"),
                      self.popup_window_type_building, QtCore.SLOT("close()"))
 
-        self.construct_type_building_button = QtGui.QPushButton(
+        self.construct_type_building_button = QtWidgets.QPushButton(
             u"Generate " + self.current_type_building + " Building")
-        self.connect(self.construct_type_building_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.construct_type_building_button, pyqtSignal(
             "clicked()"), self.check_inputs_typebuilding)
 
-        self.connect(self.construct_type_building_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.construct_type_building_button, pyqtSignal(
             "clicked()"), self.popup_window_type_building,
             QtCore.SLOT("close()"))
         self.type_building_residential_layout = QtGui.QGridLayout()
         self.group_box_type_building_right_residential.setLayout(
             self.type_building_residential_layout)
 
-        self.group_box_residential_neighbour_buildings = QtGui.QGroupBox(
+        self.group_box_residential_neighbour_buildings = QtWidgets.QGroupBox(
             u"Direct neighbour buildings")
-        self.group_box_residential_layout = QtGui.QGroupBox(u"Layout")
-        self.group_box_residential_roof = QtGui.QGroupBox(u"Roof")
-        self.group_box_residential_basement = QtGui.QGroupBox(u"Basement")
-        self.group_box_residential_architecture = QtGui.QGroupBox(
+        self.group_box_residential_layout = QtWidgets.QGroupBox(u"Layout")
+        self.group_box_residential_roof = QtWidgets.QGroupBox(u"Roof")
+        self.group_box_residential_basement = QtWidgets.QGroupBox(u"Basement")
+        self.group_box_residential_architecture = QtWidgets.QGroupBox(
             u"Construction Type")
         self.group_box_residential_architecture.setVisible(False)
 
@@ -1902,9 +1903,9 @@ class MainUI(QDialog):
             u"Two neighbours")
         self.radio_button_neighbour_1.setChecked(True)
 
-        self.picture_neighbour_building_residential_1 = QtGui.QLabel()
-        self.picture_neighbour_building_residential_2 = QtGui.QLabel()
-        self.picture_neighbour_building_residential_3 = QtGui.QLabel()
+        self.picture_neighbour_building_residential_1 = QtWidgets.QLabel()
+        self.picture_neighbour_building_residential_2 = QtWidgets.QLabel()
+        self.picture_neighbour_building_residential_3 = QtWidgets.QLabel()
         self.picture_neighbour_building_residential_1.setPixmap(QPixmap(
             utilitis.get_full_path(
                 "gui/guiimages/Residentials/noNeighbour.png")).scaled(29, 23))
@@ -1938,8 +1939,8 @@ class MainUI(QDialog):
             u"Elongated/Complex")
         self.radio_button_residential_layout_1.setChecked(True)
 
-        self.picture_layout_residential_1 = QtGui.QLabel()
-        self.picture_layout_residential_2 = QtGui.QLabel()
+        self.picture_layout_residential_1 = QtWidgets.QLabel()
+        self.picture_layout_residential_2 = QtWidgets.QLabel()
         self.picture_layout_residential_1.setPixmap(QPixmap(
             utilitis.get_full_path(
                 "gui/guiimages/Residentials/compact.png")).scaled(28, 28))
@@ -1966,15 +1967,15 @@ class MainUI(QDialog):
             u"Heated attic")
         self.radio_button_residential_roof_1.setChecked(True)
 
-        self.h_line_roof = QtGui.QFrame()
-        self.h_line_roof.setFrameShape(QtGui.QFrame.HLine)
-        self.h_line_roof.setFrameShadow(QtGui.QFrame.Sunken)
+        self.h_line_roof = QtWidgets.QFrame()
+        self.h_line_roof.setFrameShape(QtWidgets.QFrame.HLine)
+        self.h_line_roof.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.check_box_button_roof = QtGui.QCheckBox(
             u"Dormer or similar installations")
-        self.picture_roof_residential_1 = QtGui.QLabel()
-        self.picture_roof_residential_2 = QtGui.QLabel()
-        self.picture_roof_residential_3 = QtGui.QLabel()
-        self.picture_roof_residential_4 = QtGui.QLabel()
+        self.picture_roof_residential_1 = QtWidgets.QLabel()
+        self.picture_roof_residential_2 = QtWidgets.QLabel()
+        self.picture_roof_residential_3 = QtWidgets.QLabel()
+        self.picture_roof_residential_4 = QtWidgets.QLabel()
         self.picture_roof_residential_1.setPixmap(QPixmap(
             utilitis.get_full_path(
                 "gui/guiimages/Residentials/flatRoof.png")).scaled(32, 23))
@@ -2029,10 +2030,10 @@ class MainUI(QDialog):
             u"Heated cellar")
         self.radio_button_residential_basement_1.setChecked(True)
 
-        self.picture_residential_basement_1 = QtGui.QLabel()
-        self.picture_residential_basement_2 = QtGui.QLabel()
-        self.picture_residential_basement_3 = QtGui.QLabel()
-        self.picture_residential_basement_4 = QtGui.QLabel()
+        self.picture_residential_basement_1 = QtWidgets.QLabel()
+        self.picture_residential_basement_2 = QtWidgets.QLabel()
+        self.picture_residential_basement_3 = QtWidgets.QLabel()
+        self.picture_residential_basement_4 = QtWidgets.QLabel()
         self.picture_residential_basement_1.setPixmap(QPixmap(
             utilitis.get_full_path(
                 "gui/guiimages/Residentials/noCellar.png")).scaled(32, 28))
@@ -2112,7 +2113,7 @@ class MainUI(QDialog):
         opens a window to create a new zone.
         '''
 
-        self.generate_zone_ui_page = QtGui.QWizardPage()
+        self.generate_zone_ui_page = QtWidgets.QWizardPage()
         self.generate_zone_ui_page.setWindowIcon(self.teaser_icon)
         self.generate_zone_ui_page.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.generate_zone_ui_page.setWindowTitle("Create new Zone")
@@ -2121,33 +2122,33 @@ class MainUI(QDialog):
         self.generate_zone_window_layout = QtGui.QGridLayout()
         self.generate_zone_ui_page.setLayout(self.generate_zone_window_layout)
 
-        self.generate_zone_name_label = QtGui.QLabel("Name: ")
-        self.generate_zone_name_line_edit = QtGui.QLineEdit()
+        self.generate_zone_name_label = QtWidgets.QLabel("Name: ")
+        self.generate_zone_name_line_edit = QtWidgets.QLineEdit()
         self.generate_zone_name_line_edit.setObjectName(
             "generate_zone_name_line_edit")
 
-        self.generate_zone_area_label = QtGui.QLabel("Area: ")
-        self.generate_zone_area_line_edit = QtGui.QLineEdit()
+        self.generate_zone_area_label = QtWidgets.QLabel("Area: ")
+        self.generate_zone_area_line_edit = QtWidgets.QLineEdit()
         self.generate_zone_area_line_edit.setObjectName(
             "generate_zone_area_line_edit")
 
-        self.generate_zone_usage_label = QtGui.QLabel("Type: ")
-        self.generate_zone_usage_combobox = QtGui.QComboBox()
+        self.generate_zone_usage_label = QtWidgets.QLabel("Type: ")
+        self.generate_zone_usage_combobox = QtWidgets.QComboBox()
         self.generate_zone_usage_combobox.setObjectName(
             "generate_zone_usage_combobox")
         for zone_type in self.guiinfo.thermal_zone_types:
             self.generate_zone_usage_combobox.addItem(zone_type)
 
-        self.generate_zone_save_button = QtGui.QPushButton()
+        self.generate_zone_save_button = QtWidgets.QPushButton()
         self.generate_zone_save_button.setText("Save")
-        self.connect(self.generate_zone_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_zone_save_button, pyqtSignal(
             "clicked()"), self.check_inputs_new_zone)
-        self.connect(self.generate_zone_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.generate_zone_save_button, pyqtSignal(
             "clicked()"), self.generate_zone_ui_page, QtCore.SLOT("close()"))
 
-        self.generate_zone_cancel_button = QtGui.QPushButton()
+        self.generate_zone_cancel_button = QtWidgets.QPushButton()
         self.generate_zone_cancel_button.setText("Cancel")
-        self.connect(self.generate_zone_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.generate_zone_cancel_button, pyqtSignal("clicked()"),
                      self.generate_zone_ui_page, QtCore.SLOT("close()"))
 
         self.generate_zone_window_layout.addWidget(
@@ -2886,7 +2887,7 @@ class MainUI(QDialog):
                 self.current_zone = zone
                 self.display_current_zone()
 
-        self.zone_value_window = QtGui.QWizardPage()
+        self.zone_value_window = QtWidgets.QWizardPage()
         self.zone_value_window.setWindowIcon(self.teaser_icon)
         self.zone_value_window.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.zone_value_window.setWindowTitle("Zone Details")
@@ -2895,11 +2896,11 @@ class MainUI(QDialog):
         self.zone_value_window_layout = QtGui.QGridLayout()
         self.zone_value_window.setLayout(self.zone_value_window_layout)
 
-        self.groupbox_general_zone_values_layout = QtGui.QGroupBox(
+        self.groupbox_general_zone_values_layout = QtWidgets.QGroupBox(
             u"General Zone Values")
         self.zone_values_tab = QTabWidget()
-        self.groupbox_save_cancel_buttons = QtGui.QGroupBox()
-        self.groupbox_zone_usage_layout = QtGui.QGroupBox(u"Usage")
+        self.groupbox_save_cancel_buttons = QtWidgets.QGroupBox()
+        self.groupbox_zone_usage_layout = QtWidgets.QGroupBox(u"Usage")
         self.general_zone_values_layout = QtGui.QGridLayout()
         self.element_values_layout = QtGui.QGridLayout()
         self.save_cancel_layout = QtGui.QGridLayout()
@@ -2928,25 +2929,25 @@ class MainUI(QDialog):
         tab_4.setLayout(self.static_heat_layout)
         self.groupbox_save_cancel_buttons.setLayout(self.save_cancel_layout)
 
-        self.zone_type_label = QtGui.QLabel("Zone Type")
+        self.zone_type_label = QtWidgets.QLabel("Zone Type")
 
-        self.zone_type_combobox = QtGui.QComboBox()
+        self.zone_type_combobox = QtWidgets.QComboBox()
         self.zone_type_combobox.setObjectName(_fromUtf8("ZoneTypeGroupBox"))
         for thermal_zone_type in self.guiinfo.thermal_zone_types:
             self.zone_type_combobox.addItem(thermal_zone_type, userData=None)
         self.zone_type_combobox.setCurrentIndex(
             self.zone_type_combobox.findText(
                 str(self.current_zone.use_conditions.usage)))
-        self.connect(self.zone_type_combobox, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.zone_type_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_current_zone_type)
 
-        self.zone_id_label = QtGui.QLabel("Zone Id")
-        self.zone_id_textbox = QtGui.QLineEdit()
+        self.zone_id_label = QtWidgets.QLabel("Zone Id")
+        self.zone_id_textbox = QtWidgets.QLineEdit()
         self.zone_id_textbox.setObjectName(_fromUtf8("ZoneNameTextBox"))
         self.zone_id_textbox.setText(self.current_zone.name)
 
-        self.zone_net_leased_area_label = QtGui.QLabel("Net leased Area")
-        self.zone_net_leased_area_textbox = QtGui.QLineEdit()
+        self.zone_net_leased_area_label = QtWidgets.QLabel("Net leased Area")
+        self.zone_net_leased_area_textbox = QtWidgets.QLineEdit()
         self.zone_net_leased_area_textbox.setObjectName(_fromUtf8(
             "ZoneNetLeasedAreaTextBox"))
         self.zone_net_leased_area_textbox.setText(str(self.current_zone.area))
@@ -2961,7 +2962,7 @@ class MainUI(QDialog):
         self.general_zone_values_layout.addWidget(
             self.zone_net_leased_area_textbox, 3, 1)
 
-        self.zone_element_list_view = QtGui.QListView()
+        self.zone_element_list_view = QtWidgets.QListView()
         self.zone_element_list_view.setObjectName(
             _fromUtf8("zone_element_list_view"))
         self.zone_element_list_view.setModel(self.element_model)
@@ -2969,32 +2970,32 @@ class MainUI(QDialog):
         self.zone_element_list_view.doubleClicked.connect(
             self.show_element_build_ui)
         self.zone_element_list_view.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
-        self.add_element_button = QtGui.QPushButton()
+            QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.add_element_button = QtWidgets.QPushButton()
         self.add_element_button.setText("Add new Element")
-        self.connect(self.add_element_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.add_element_button, pyqtSignal(
             "clicked()"), self.create_new_element_ui)
-        self.delete_element_button = QtGui.QPushButton()
+        self.delete_element_button = QtWidgets.QPushButton()
         self.delete_element_button.setText("Delete Element")
-        self.connect(self.delete_element_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.delete_element_button, pyqtSignal(
             "clicked()"), self.delete_current_element)
         self.element_values_layout.addWidget(self.add_element_button, 0, 0)
         self.element_values_layout.addWidget(self.delete_element_button, 0, 1)
         self.element_values_layout.addWidget(self.zone_element_list_view,
                                              1, 0, 1, 2)
 
-        self.cooling_ahu_start_label = QtGui.QLabel("Cooling AHU Start: ")
-        self.cooling_ahu_end_label = QtGui.QLabel("End: ")
-        self.cooling_ahu_start_dropdown = QtGui.QComboBox()
+        self.cooling_ahu_start_label = QtWidgets.QLabel("Cooling AHU Start: ")
+        self.cooling_ahu_end_label = QtWidgets.QLabel("End: ")
+        self.cooling_ahu_start_dropdown = QtWidgets.QComboBox()
         self.cooling_ahu_start_dropdown.setMaximumWidth(60)
-        self.cooling_ahu_end_dropdown = QtGui.QComboBox()
+        self.cooling_ahu_end_dropdown = QtWidgets.QComboBox()
         self.cooling_ahu_end_dropdown.setMaximumWidth(60)
 
-        self.heating_ahu_start_label = QtGui.QLabel("Heating AHU Start: ")
-        self.heating_ahu_end_label = QtGui.QLabel("End: ")
-        self.heating_ahu_start_dropdown = QtGui.QComboBox()
+        self.heating_ahu_start_label = QtWidgets.QLabel("Heating AHU Start: ")
+        self.heating_ahu_end_label = QtWidgets.QLabel("End: ")
+        self.heating_ahu_start_dropdown = QtWidgets.QComboBox()
         self.heating_ahu_start_dropdown.setMaximumWidth(60)
-        self.heating_ahu_end_dropdown = QtGui.QComboBox()
+        self.heating_ahu_end_dropdown = QtWidgets.QComboBox()
         self.heating_ahu_end_dropdown.setMaximumWidth(60)
 
         for time in self.guiinfo.hoursInADay:
@@ -3039,56 +3040,56 @@ class MainUI(QDialog):
                 self.heating_ahu_end_dropdown.setCurrentIndex(
                     self.guiinfo.hoursInADay.index(time))
 
-        self.zone_element_save_button = QtGui.QPushButton()
+        self.zone_element_save_button = QtWidgets.QPushButton()
         self.zone_element_save_button.setText("Save")
-        self.connect(self.zone_element_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.zone_element_save_button, pyqtSignal(
             "clicked()"), self.save_changed_zone_values)
-        self.connect(self.zone_element_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.zone_element_save_button, pyqtSignal(
             "clicked()"), self.zone_value_window, QtCore.SLOT("close()"))
 
-        self.zone_element_cancel_button = QtGui.QPushButton()
+        self.zone_element_cancel_button = QtWidgets.QPushButton()
         self.zone_element_cancel_button.setText("Cancel")
-        self.connect(self.zone_element_cancel_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.zone_element_cancel_button, pyqtSignal(
             "clicked()"), self.zone_value_window, QtCore.SLOT("close()"))
 
-        self.set_temp_heat_label_1 = QtGui.QLabel("Set Temp Heating: ")
-        self.set_temp_heat_line_edit = QtGui.QLineEdit()
+        self.set_temp_heat_label_1 = QtWidgets.QLabel("Set Temp Heating: ")
+        self.set_temp_heat_line_edit = QtWidgets.QLineEdit()
         self.set_temp_heat_line_edit.setText(str(
             self.current_zone.use_conditions.set_temp_heat))
-        self.set_temp_heat_label_2 = QtGui.QLabel("K")
+        self.set_temp_heat_label_2 = QtWidgets.QLabel("K")
 
-        self.set_temp_cool_label_1 = QtGui.QLabel("Set Temp Cooling: ")
-        self.set_temp_cool_line_edit = QtGui.QLineEdit()
+        self.set_temp_cool_label_1 = QtWidgets.QLabel("Set Temp Cooling: ")
+        self.set_temp_cool_line_edit = QtWidgets.QLineEdit()
         self.set_temp_cool_line_edit.setText(str(
             self.current_zone.use_conditions.set_temp_cool))
-        self.set_temp_cool_label_2 = QtGui.QLabel("K")
+        self.set_temp_cool_label_2 = QtWidgets.QLabel("K")
 
-        self.temp_set_back_label_1 = QtGui.QLabel("Temp Setback: ")
-        self.temp_set_back_line_edit = QtGui.QLineEdit()
+        self.temp_set_back_label_1 = QtWidgets.QLabel("Temp Setback: ")
+        self.temp_set_back_line_edit = QtWidgets.QLineEdit()
         self.temp_set_back_line_edit.setText(str(
             self.current_zone.use_conditions.temp_set_back))
-        self.temp_set_back_label_2 = QtGui.QLabel("K")
+        self.temp_set_back_label_2 = QtWidgets.QLabel("K")
 
-        self.min_air_flow_label_1 = QtGui.QLabel("Minimal Airflow: ")
-        self.min_air_flow_line_edit = QtGui.QLineEdit()
+        self.min_air_flow_label_1 = QtWidgets.QLabel("Minimal Airflow: ")
+        self.min_air_flow_line_edit = QtWidgets.QLineEdit()
         self.min_air_flow_line_edit.setText(str(
             self.current_zone.use_conditions.min_air_exchange))
-        self.min_air_flow_label_2 = QtGui.QLabel("m^3/(h m^2)")
+        self.min_air_flow_label_2 = QtWidgets.QLabel("m^3/(h m^2)")
 
-        self.min_ahu_label_1 = QtGui.QLabel("Minimal AHU: ")
-        self.min_ahu_line_edit = QtGui.QLineEdit()
+        self.min_ahu_label_1 = QtWidgets.QLabel("Minimal AHU: ")
+        self.min_ahu_line_edit = QtWidgets.QLineEdit()
         self.min_ahu_line_edit.setText(str(
             self.current_zone.use_conditions.min_ahu))
-        self.min_ahu_label_2 = QtGui.QLabel("m^3/(h m^2)")
+        self.min_ahu_label_2 = QtWidgets.QLabel("m^3/(h m^2)")
 
-        self.max_ahu_label_1 = QtGui.QLabel("Maximal AHU: ")
-        self.max_ahu_line_edit = QtGui.QLineEdit()
+        self.max_ahu_label_1 = QtWidgets.QLabel("Maximal AHU: ")
+        self.max_ahu_line_edit = QtWidgets.QLineEdit()
         self.max_ahu_line_edit.setText(str(
             self.current_zone.use_conditions.max_ahu))
-        self.max_ahu_label_2 = QtGui.QLabel("m^3/(h m^2)")
+        self.max_ahu_label_2 = QtWidgets.QLabel("m^3/(h m^2)")
 
-        self.with_ahu_label_1 = QtGui.QLabel("With AHU: ")
-        self.with_ahu_combobox = QtGui.QComboBox()
+        self.with_ahu_label_1 = QtWidgets.QLabel("With AHU: ")
+        self.with_ahu_combobox = QtWidgets.QComboBox()
         self.with_ahu_combobox.addItem("False", userData=None)
         self.with_ahu_combobox.addItem("True", userData=None)
         if (self.current_zone.use_conditions.with_ahu == "True"):
@@ -3098,17 +3099,17 @@ class MainUI(QDialog):
             self.with_ahu_combobox.setCurrentIndex(
                 self.with_ahu_combobox.findText("False"))
 
-        self.re_humidity_label_1 = QtGui.QLabel("Relative Humidity: ")
-        self.re_humidity_line_edit = QtGui.QLineEdit()
+        self.re_humidity_label_1 = QtWidgets.QLabel("Relative Humidity: ")
+        self.re_humidity_line_edit = QtWidgets.QLineEdit()
         self.re_humidity_line_edit.setText(str(
             self.current_zone.use_conditions.rel_humidity))
-        self.re_humidity_label_2 = QtGui.QLabel("%")
+        self.re_humidity_label_2 = QtWidgets.QLabel("%")
 
-        self.persons_label_1 = QtGui.QLabel("Persons: ")
-        self.persons_line_edit = QtGui.QLineEdit()
+        self.persons_label_1 = QtWidgets.QLabel("Persons: ")
+        self.persons_line_edit = QtWidgets.QLineEdit()
         self.persons_line_edit.setText(str(
             self.current_zone.use_conditions.persons))
-        self.persons_label_2 = QtGui.QLabel("W/m^2")
+        self.persons_label_2 = QtWidgets.QLabel("W/m^2")
 
         self.figure_profiles = plt.figure()
         self.canvas_profiles = FigureCanvas(self.figure_profiles)
@@ -3136,43 +3137,43 @@ class MainUI(QDialog):
         self.canvas_profiles.draw()
 
         self.usagePicPixMap = QtGui.QPixmap("gui/sheep_PNG2186.png")
-        self.usage_pic_label = QtGui.QLabel()
+        self.usage_pic_label = QtWidgets.QLabel()
         self.usage_pic_label.setPixmap(self.usagePicPixMap)
 
-        self.machines_label_1 = QtGui.QLabel("Machines: ")
-        self.machines_line_edit = QtGui.QLineEdit()
+        self.machines_label_1 = QtWidgets.QLabel("Machines: ")
+        self.machines_line_edit = QtWidgets.QLineEdit()
         self.machines_line_edit.setText(str(
             self.current_zone.use_conditions.machines))
-        self.machines_label_2 = QtGui.QLabel("W/m^2")
+        self.machines_label_2 = QtWidgets.QLabel("W/m^2")
 
-        self.lighting_label_1 = QtGui.QLabel("Lighting: ")
-        self.lighting_line_edit = QtGui.QLineEdit()
+        self.lighting_label_1 = QtWidgets.QLabel("Lighting: ")
+        self.lighting_line_edit = QtWidgets.QLineEdit()
         self.lighting_line_edit.setText(str(
             self.current_zone.use_conditions.maintained_illuminance))
-        self.lighting_label_2 = QtGui.QLabel("W/m^2")
+        self.lighting_label_2 = QtWidgets.QLabel("W/m^2")
 
-        self.mean_temp_out_label_1 = QtGui.QLabel("Mean Outdoor Temp: ")
-        self.mean_temp_outer_line_edit = QtGui.QLineEdit()
+        self.mean_temp_out_label_1 = QtWidgets.QLabel("Mean Outdoor Temp: ")
+        self.mean_temp_outer_line_edit = QtWidgets.QLineEdit()
         self.mean_temp_outer_line_edit.setText(
             str(self.current_zone.t_outside))
-        self.mean_temp_out_label_2 = QtGui.QLabel("K")
+        self.mean_temp_out_label_2 = QtWidgets.QLabel("K")
 
-        self.mean_temp_in_label_1 = QtGui.QLabel("Mean Indoor Temp: ")
-        self.mean_temp_inner_line_edit = QtGui.QLineEdit()
+        self.mean_temp_in_label_1 = QtWidgets.QLabel("Mean Indoor Temp: ")
+        self.mean_temp_inner_line_edit = QtWidgets.QLineEdit()
         self.mean_temp_inner_line_edit.setText(str(self.current_zone.t_inside))
-        self.mean_temp_in_label_2 = QtGui.QLabel("K")
+        self.mean_temp_in_label_2 = QtWidgets.QLabel("K")
 
-        self.infiltration_rate_label_1 = QtGui.QLabel("Infiltration Rate: ")
-        self.infiltration_rate_line_edit = QtGui.QLineEdit()
+        self.infiltration_rate_label_1 = QtWidgets.QLabel("Infiltration Rate: ")
+        self.infiltration_rate_line_edit = QtWidgets.QLineEdit()
         if self.current_zone.infiltration_rate is not None:
             self.infiltration_rate_line_edit.setText(str(
                 self.current_zone.infiltration_rate))
         else:
             self.infiltration_rate_line_edit.setText("1")
-        self.infiltration_rate_label_2 = QtGui.QLabel("1/h")
+        self.infiltration_rate_label_2 = QtWidgets.QLabel("1/h")
 
         # Cheat to group the other controls on top
-        self.space_label = QtGui.QLabel()
+        self.space_label = QtWidgets.QLabel()
 
         self.zone_usage_times_layout.addWidget(
             self.cooling_ahu_start_label, 1, 1)
@@ -3272,7 +3273,7 @@ class MainUI(QDialog):
         envelope.
         '''
 
-        self.envelopes_value_window = QtGui.QWizardPage()
+        self.envelopes_value_window = QtWidgets.QWizardPage()
         self.envelopes_value_window.setWindowIcon(self.teaser_icon)
         self.envelopes_value_window.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.envelopes_value_window.setWindowTitle("Envelopes Details")
@@ -3283,26 +3284,26 @@ class MainUI(QDialog):
             self.envelopes_value_window_layout)
 
         self.general_envelope_values_groupbox =\
-            QtGui.QGroupBox(u"General Envelope Values")
+            QtWidgets.QGroupBox(u"General Envelope Values")
         self.general_envelope_values_groupbox.setGeometry(
             QtCore.QRect(0, 0, 120, 120))
         self.general_envelope_values_layout = QtGui.QGridLayout()
         self.general_envelope_values_groupbox.setLayout(
             self.general_envelope_values_layout)
 
-        self.envelope_type_label = QtGui.QLabel("Type")
-        self.envelope_type_textbox = QtGui.QLineEdit()
+        self.envelope_type_label = QtWidgets.QLabel("Type")
+        self.envelope_type_textbox = QtWidgets.QLineEdit()
         self.envelope_type_textbox.setObjectName(_fromUtf8(
             u"EnvelopeNameTextBox"))
         self.envelope_type_textbox.setReadOnly(True)
 
-        self.envelope_area_label = QtGui.QLabel("Area")
-        self.envelope_area_textbox = QtGui.QLineEdit()
+        self.envelope_area_label = QtWidgets.QLabel("Area")
+        self.envelope_area_textbox = QtWidgets.QLineEdit()
         self.envelope_area_textbox.setObjectName(_fromUtf8(
             u"EnvelopeAreaTextBox"))
 
-        self.envelope_orientation_label = QtGui.QLabel("Orientation")
-        self.envelope_orientation_combobox = QtGui.QComboBox()
+        self.envelope_orientation_label = QtWidgets.QLabel("Orientation")
+        self.envelope_orientation_combobox = QtWidgets.QComboBox()
         self.envelope_orientation_combobox.setObjectName(_fromUtf8(
             "EnvelopeOrientationGroupBox"))
         for orientation in self.guiinfo.orientations:
@@ -3343,26 +3344,26 @@ class MainUI(QDialog):
 
         self.envelope_orientation_before_changing = \
             str(self.envelope_orientation_combobox.currentText())
-        self.groupbox_save_cancel_buttons = QtGui.QGroupBox()
+        self.groupbox_save_cancel_buttons = QtWidgets.QGroupBox()
         self.save_cancel_layout = QtGui.QGridLayout()
         self.groupbox_save_cancel_buttons.setLayout(self.save_cancel_layout)
 
-        self.envelope_element_save_button = QtGui.QPushButton()
+        self.envelope_element_save_button = QtWidgets.QPushButton()
         self.envelope_element_save_button.setText("Save")
 
-        self.envelope_element_cancel_button = QtGui.QPushButton()
+        self.envelope_element_cancel_button = QtWidgets.QPushButton()
         self.envelope_element_cancel_button.setText("Cancel")
 
-        self.envelope_element_set_all_construction_button = QtGui.QPushButton()
+        self.envelope_element_set_all_construction_button = QtWidgets.QPushButton()
         self.envelope_element_set_all_construction_button.setText(
             "Set all construction")
-        self.connect(self.envelope_element_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.envelope_element_save_button, pyqtSignal("clicked()"),
                      self.save_changed_envelopes_values)
-        self.connect(self.envelope_element_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.envelope_element_save_button, pyqtSignal("clicked()"),
                      self.envelopes_value_window, QtCore.SLOT("close()"))
-        self.connect(self.envelope_element_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.envelope_element_cancel_button, pyqtSignal("clicked()"),
                      self.envelopes_value_window, QtCore.SLOT("close()"))
-        self.connect(self.envelope_element_set_all_construction_button,
+        self.lineedit.returnPressed.connect(self.envelope_element_set_all_construction_button,
                      pyqtSignal("clicked()"), self.create_new_envelope_ui)
         self.save_cancel_layout.addWidget(
             self.envelope_element_save_button, 0, 0)
@@ -3386,7 +3387,7 @@ class MainUI(QDialog):
 
         self.general_envelope_values_groupbox.setMaximumHeight(120)
         self.general_envelope_values_groupbox.setMinimumHeight(120)
-        self.envelope_element_list_view = QtGui.QListView()
+        self.envelope_element_list_view = QtWidgets.QListView()
         self.envelope_element_list_view.setObjectName(
             _fromUtf8("envelope_element_list_view"))
         self.envelope_element_list_view.setModel(self.outer_elements_model)
@@ -3597,7 +3598,7 @@ class MainUI(QDialog):
 
     def show_warning_window_ui(self):
 
-        self.warning_window = QtGui.QWizardPage()
+        self.warning_window = QtWidgets.QWizardPage()
         self.warning_window.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.warning_window.setWindowTitle("Warning")
         self.warning_window.setFixedWidth(300)
@@ -3605,30 +3606,30 @@ class MainUI(QDialog):
         self.warning_window_layout = QtGui.QGridLayout()
         self.warning_window.setLayout(self.warning_window_layout)
 
-        self.warning_label = QtGui.QLabel(self.warning_window)
+        self.warning_label = QtWidgets.QLabel(self.warning_window)
         self.warning_label.setGeometry(QtCore.QRect(10, 0, 280, 50))
         self.warning_label.setText("This has no effect on your building" +
                                    " parameters, its just \n" +
                                    "general information.")
-        self.warning_window_save_button = QtGui.QPushButton(
+        self.warning_window_save_button = QtWidgets.QPushButton(
             self.warning_window)
         self.warning_window_save_button.setText("Ok")
         self.warning_window_save_button.setGeometry(
             QtCore.QRect(0, 60, 145, 25))
-        self.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
                      self.warning_window, QtCore.SLOT("close()"))
-        self.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
                      self.click_update_building)
-        self.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
                      self.display_current_building)
-        self.warning_window_cancel_button = QtGui.QPushButton(
+        self.warning_window_cancel_button = QtWidgets.QPushButton(
             self.warning_window)
         self.warning_window_cancel_button.setText("Cancel")
         self.warning_window_cancel_button.setGeometry(
             QtCore.QRect(155, 60, 145, 25))
-        self.connect(self.warning_window_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.warning_window_cancel_button, pyqtSignal("clicked()"),
                      self.warning_window, QtCore.SLOT("close()"))
-        self.connect(self.warning_window_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.warning_window_cancel_button, pyqtSignal("clicked()"),
                      self.display_current_building)
 
         if isinstance(self.current_building, NonResidential) or \
@@ -3637,15 +3638,15 @@ class MainUI(QDialog):
                 QtCore.QRect(0, 60, 100, 25))
             self.warning_window_cancel_button.setGeometry(
                 QtCore.QRect(100, 60, 100, 25))
-            self.warning_window_update_button = QtGui.QPushButton(
+            self.warning_window_update_button = QtWidgets.QPushButton(
                 self.warning_window)
             self.warning_window_update_button.setText("Update Archetype")
             self.warning_window_update_button.setGeometry(
                 QtCore.QRect(200, 60, 100, 25))
-            self.connect(self.warning_window_update_button,
+            self.lineedit.returnPressed.connect(self.warning_window_update_button,
                          pyqtSignal("clicked()"),
                          self.warning_window, QtCore.SLOT("close()"))
-            self.connect(self.warning_window_update_button,
+            self.lineedit.returnPressed.connect(self.warning_window_update_button,
                          pyqtSignal("clicked()"),
                          self.click_update_building)
 
@@ -3659,7 +3660,7 @@ class MainUI(QDialog):
         element.
         '''
 
-        self.element_build_ui = QtGui.QWizardPage()
+        self.element_build_ui = QtWidgets.QWizardPage()
         self.element_build_ui.setWindowIcon(self.teaser_icon)
         self.element_build_ui.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.element_build_ui.setWindowTitle("Element Details")
@@ -3709,27 +3710,27 @@ class MainUI(QDialog):
             self.element_layer_model.appendRow(item)
 
         self.element_general_layout = QtGui.QGridLayout()
-        self.element_general_layout_groupBox = QtGui.QGroupBox(
+        self.element_general_layout_groupBox = QtWidgets.QGroupBox(
             "General Element Values")
         self.element_general_layout_groupBox.setLayout(
             self.element_general_layout)
 
         self.element_save_cancel_layout = QtGui.QGridLayout()
-        self.element_save_cancel_layoutGroupBox = QtGui.QGroupBox()
+        self.element_save_cancel_layoutGroupBox = QtWidgets.QGroupBox()
         self.element_save_cancel_layoutGroupBox.setLayout(
             self.element_save_cancel_layout)
         self.element_save_cancel_layoutGroupBox.setMaximumHeight(48)
 
-        self.element_type_label = QtGui.QLabel("Type")
-        self.element_type_textbox = QtGui.QTextEdit()
+        self.element_type_label = QtWidgets.QLabel("Type")
+        self.element_type_textbox = QtWidgets.QTextEdit()
         self.element_type_textbox.setText(
             type(self.current_element).__name__)
         self.element_type_textbox.setReadOnly(True)
         self.element_type_textbox.setMaximumHeight(24)
 
-        self.element_construction_type_label = QtGui.QLabel(
+        self.element_construction_type_label = QtWidgets.QLabel(
             "Construction Type")
-        self.element_construction_type_combobox = QtGui.QComboBox()
+        self.element_construction_type_combobox = QtWidgets.QComboBox()
         self.element_construction_type_combobox.setObjectName(
             _fromUtf8("ElementConstructionTypeComboBox"))
         self.element_construction_type_combobox.addItem("heavy", userData=None)
@@ -3738,11 +3739,11 @@ class MainUI(QDialog):
             self.element_construction_type_combobox.setCurrentIndex(0)
         if self.current_element.construction_type == "light":
             self.element_construction_type_combobox.setCurrentIndex(1)
-        self.connect(self.element_construction_type_combobox, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.element_construction_type_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_constr_type)
 
-        self.element_orientation_label = QtGui.QLabel("Orientation")
-        self.element_orientation_combobox = QtGui.QComboBox()
+        self.element_orientation_label = QtWidgets.QLabel("Orientation")
+        self.element_orientation_combobox = QtWidgets.QComboBox()
         self.element_orientation_combobox.setObjectName(
             _fromUtf8("ElementOrientationComboBox"))
         for orientation in self.guiinfo.orientations:
@@ -3757,22 +3758,22 @@ class MainUI(QDialog):
         else:
             self.element_orientation_combobox.setCurrentIndex(-1)
 
-        self.element_name_label = QtGui.QLabel("Name")
-        self.element_name_textbox = QtGui.QLineEdit()
+        self.element_name_label = QtWidgets.QLabel("Name")
+        self.element_name_textbox = QtWidgets.QLineEdit()
         self.element_name_textbox.setObjectName(
             _fromUtf8("ElementNameTextBox"))
         self.element_name_textbox.setText(str(self.current_element.name))
 
-        self.element_area_label = QtGui.QLabel("Area")
-        self.element_area_textbox = QtGui.QLineEdit()
+        self.element_area_label = QtWidgets.QLabel("Area")
+        self.element_area_textbox = QtWidgets.QLineEdit()
         self.element_area_textbox.setObjectName(
             _fromUtf8("ElementAreaTextBox"))
         self.element_area_textbox.setText(str(round(
             self.current_element.area, 2)))
 
-        self.element_year_of_construction_label = QtGui.QLabel(
+        self.element_year_of_construction_label = QtWidgets.QLabel(
             "Year Of Construction")
-        self.element_year_of_construction_textbox = QtGui.QLineEdit()
+        self.element_year_of_construction_textbox = QtWidgets.QLineEdit()
         self.element_year_of_construction_textbox.setObjectName(
             _fromUtf8("ElementYearOfConstructionTextBox"))
         if self.current_element.year_of_construction is None:
@@ -3782,9 +3783,9 @@ class MainUI(QDialog):
             self.element_year_of_construction_textbox.setText(
                 str(self.current_element.year_of_construction))
 
-        self.element_year_of_retrofit_label = QtGui.QLabel(
+        self.element_year_of_retrofit_label = QtWidgets.QLabel(
             "Year Of Retrofit")
-        self.element_year_of_retrofit_textbox = QtGui.QLineEdit()
+        self.element_year_of_retrofit_textbox = QtWidgets.QLineEdit()
         self.element_year_of_retrofit_textbox.setObjectName(
             _fromUtf8("ElementYearOfRetrofitTextBox"))
         if self.current_element._year_of_retrofit is None:
@@ -3794,8 +3795,8 @@ class MainUI(QDialog):
             self.element_year_of_retrofit_textbox.setText(
                 str(self.current_element._year_of_retrofit))
 
-        self.element_tilt_label = QtGui.QLabel("Tilt")
-        self.element_tilt_textbox = QtGui.QLineEdit()
+        self.element_tilt_label = QtWidgets.QLabel("Tilt")
+        self.element_tilt_textbox = QtWidgets.QLineEdit()
         self.element_tilt_textbox.setObjectName(
             _fromUtf8("ElementTiltTextBox"))
         if self.current_element.tilt is None:
@@ -3805,8 +3806,8 @@ class MainUI(QDialog):
             self.element_tilt_textbox.setText(
                 str(self.current_element.tilt))
 
-        self.element_inner_convection_label = QtGui.QLabel("Inner Convection")
-        self.element_inner_convection_textbox = QtGui.QLineEdit()
+        self.element_inner_convection_label = QtWidgets.QLabel("Inner Convection")
+        self.element_inner_convection_textbox = QtWidgets.QLineEdit()
         self.element_inner_convection_textbox.setObjectName(
             _fromUtf8("ElementInnerConvectionTextBox"))
         if self.current_element.inner_convection is None:
@@ -3816,8 +3817,8 @@ class MainUI(QDialog):
             self.element_inner_convection_textbox.setText(
                 str(self.current_element.inner_convection))
 
-        self.element_inner_radiation_label = QtGui.QLabel("Inner Radiation")
-        self.element_inner_radiation_textbox = QtGui.QLineEdit()
+        self.element_inner_radiation_label = QtWidgets.QLabel("Inner Radiation")
+        self.element_inner_radiation_textbox = QtWidgets.QLineEdit()
         self.element_inner_radiation_textbox.setObjectName(
             _fromUtf8("ElementInnerRadiationTextBox"))
         if self.current_element.inner_radiation is None:
@@ -3829,43 +3830,43 @@ class MainUI(QDialog):
 
         if not type(self.current_element).__name__ == "InnerWall":
 
-            self.element_outer_convection_label = QtGui.QLabel(
+            self.element_outer_convection_label = QtWidgets.QLabel(
                 "Outer Convection")
-            self.element_outer_convection_textbox = QtGui.QLineEdit()
+            self.element_outer_convection_textbox = QtWidgets.QLineEdit()
             self.element_outer_convection_textbox.setObjectName(
                 _fromUtf8("ElementOuterConvectionTextBox"))
             self.element_outer_convection_textbox.setText(
                 str(self.current_element.outer_convection))
 
-            self.element_outer_radiation_label = QtGui.QLabel(
+            self.element_outer_radiation_label = QtWidgets.QLabel(
                 "Outer Radiation")
-            self.element_outer_radiation_textbox = QtGui.QLineEdit()
+            self.element_outer_radiation_textbox = QtWidgets.QLineEdit()
             self.element_outer_radiation_textbox.setObjectName(
                 _fromUtf8("ElementOuterRadiationTextBox"))
             self.element_outer_radiation_textbox.setText(
                 str(self.current_element.outer_radiation))
 
-        self.element_uvalue_label = QtGui.QLabel("U-Value (W/m2K)")
-        self.element_uvalue_textbox = QtGui.QLineEdit()
+        self.element_uvalue_label = QtWidgets.QLabel("U-Value (W/m2K)")
+        self.element_uvalue_textbox = QtWidgets.QLineEdit()
         self.element_uvalue_textbox.setObjectName(
             _fromUtf8("ElementUValueTextBox"))
         self.element_uvalue_textbox.setText(str(float(
             Controller.get_u_value(self.current_element))))
         self.element_uvalue_textbox.setReadOnly(True)
 
-        self.element_add_material_button = QtGui.QPushButton()
+        self.element_add_material_button = QtWidgets.QPushButton()
         self.element_add_material_button.setText("Add Layer")
-        self.connect(self.element_add_material_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.element_add_material_button, pyqtSignal("clicked()"),
                      lambda check_window="Element Details Window":
                      self.create_new_layer_ui(check_window))
 
-        self.element_delete_material_button = QtGui.QPushButton()
+        self.element_delete_material_button = QtWidgets.QPushButton()
         self.element_delete_material_button.setText("Delete Layer")
-        self.connect(self.element_delete_material_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.element_delete_material_button, pyqtSignal("clicked()"),
                      self.delete_selected_layer)
 
-        self.set_all_constr_element_material_list_view = QtGui.QListView()
-        self.element_material_list_view = QtGui.QListView()
+        self.set_all_constr_element_material_list_view = QtWidgets.QListView()
+        self.element_material_list_view = QtWidgets.QListView()
         self.element_material_list_view.setGeometry(
             QtCore.QRect(10, 200, 170, 300))
         self.element_material_list_view.setObjectName(
@@ -3873,32 +3874,32 @@ class MainUI(QDialog):
         self.element_material_list_view.setModel(self.element_layer_model)
         self.element_material_list_view.setItemDelegate(self.lVZF)
         self.element_material_list_view.setEditTriggers(
-            QtGui.QAbstractItemView.NoEditTriggers)
+            QtWidgets.QAbstractItemView.NoEditTriggers)
         self.element_material_list_view.doubleClicked.connect(
             self.show_layer_build_ui)
-        self.element_material_list_label = QtGui.QLabel()
+        self.element_material_list_label = QtWidgets.QLabel()
         self.element_material_list_label.setGeometry(
             QtCore.QRect(175, 200, 25, 300))
         self.element_material_list_label.setText("From inner\n\n\n\n\n\n\n\n"
                                                  "To Outer")
 
-        self.element_save_button = QtGui.QPushButton()
+        self.element_save_button = QtWidgets.QPushButton()
         self.element_save_button.setText("Save")
 
-        self.connect(self.element_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.load_constr_type)
-        self.connect(self.element_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.save_changed_element_values)
-        self.connect(self.element_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.update_zone_details)
-        self.connect(self.element_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.element_build_ui, QtCore.SLOT("close()"))
-        # self.connect(self.element_save_button, pyqtSignal("clicked()"),
+        # self.lineedit.returnPressed.connect(self.element_save_button, pyqtSignal("clicked()"),
         #              self.zone_value_window, QtCore.SLOT("update()"))
 
-        self.element_cancel_button = QtGui.QPushButton()
+        self.element_cancel_button = QtWidgets.QPushButton()
         self.element_cancel_button.setText("Cancel")
-        self.connect(self.element_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.element_cancel_button, pyqtSignal("clicked()"),
                      self.element_build_ui, QtCore.SLOT("close()"))
 
         if type(self.current_element).__name__ == "InnerWall":
@@ -4041,7 +4042,7 @@ class MainUI(QDialog):
         opens a window that displays the options to export the project.
         '''
 
-        self.export_window_ui = QtGui.QWizardPage()
+        self.export_window_ui = QtWidgets.QWizardPage()
         self.export_window_ui.setWindowIcon(self.teaser_icon)
         self.export_window_ui.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.export_window_ui.setWindowTitle("Export")
@@ -4050,44 +4051,44 @@ class MainUI(QDialog):
         self.export_window_ui_layout = QtGui.QGridLayout()
         self.export_window_ui.setLayout(self.export_window_ui_layout)
 
-        self.export_groupbox = QtGui.QGroupBox("Export")
+        self.export_groupbox = QtWidgets.QGroupBox("Export")
         self.export_groupbox.setGeometry(QtCore.QRect(5, 5, 360, 155))
         self.export_groupbox.setMinimumSize(QtCore.QSize(360, 155))
         self.export_groupbox.setMaximumSize(QtCore.QSize(360, 155))
         self.export_groupbox.setObjectName(_fromUtf8("exportGroupBox"))
 
-        self.aixlib_groupbox = QtGui.QGroupBox()
+        self.aixlib_groupbox = QtWidgets.QGroupBox()
         self.aixlib_groupbox.setGeometry(QtCore.QRect(5, 5, 360, 120))
         self.aixlib_groupbox.setMinimumSize(QtCore.QSize(360, 120))
         self.aixlib_groupbox.setMaximumSize(QtCore.QSize(360, 120))
         self.aixlib_groupbox.setObjectName(_fromUtf8("AixLibGroupBox"))
 
-        self.annex_groupbox = QtGui.QGroupBox("Annex60")
+        self.annex_groupbox = QtWidgets.QGroupBox("Annex60")
         self.annex_groupbox.setGeometry(QtCore.QRect(5, 5, 360, 120))
         self.annex_groupbox.setMinimumSize(QtCore.QSize(360, 120))
         self.annex_groupbox.setMaximumSize(QtCore.QSize(360, 120))
         self.annex_groupbox.setObjectName(_fromUtf8("AnnexGroupBox"))
         self.annex_groupbox.setVisible(False)
 
-        self.export_model_groupbox = QtGui.QGroupBox("")
+        self.export_model_groupbox = QtWidgets.QGroupBox("")
         self.export_model_groupbox.setGeometry(QtCore.QRect(5, 5, 360, 120))
         self.export_model_groupbox.setMinimumSize(QtCore.QSize(360, 120))
         self.export_model_groupbox.setMaximumSize(QtCore.QSize(360, 120))
         self.export_model_groupbox.setObjectName(_fromUtf8("GroupBoxModel"))
 
-        self.export_button = QtGui.QPushButton(self.export_groupbox)
+        self.export_button = QtWidgets.QPushButton(self.export_groupbox)
         self.export_button.setGeometry(QtCore.QRect(5, 20, 305, 25))
         self.export_button.clicked.connect(self.click_export_button)
         self.export_button.setText("Export model for all buildings")
-        self.export_button_one = QtGui.QPushButton(self.export_groupbox)
+        self.export_button_one = QtWidgets.QPushButton(self.export_groupbox)
         self.export_button_one.setGeometry(QtCore.QRect(5, 55, 305, 25))
         self.export_button_one.clicked.connect(self.click_export_button)
         self.export_button_one.setText("Export model for current building")
-        self.export_save_template_label = QtGui.QLabel(self.export_groupbox)
+        self.export_save_template_label = QtWidgets.QLabel(self.export_groupbox)
         self.export_save_template_label.setGeometry(
             QtCore.QRect(5, 90, 110, 25))
         self.export_save_template_label.setText("File path:")
-        self.export_save_template_lineedit = QtGui.QLineEdit(
+        self.export_save_template_lineedit = QtWidgets.QLineEdit(
             self.export_groupbox)
         self.export_save_template_lineedit .setGeometry(
             QtCore.QRect(130, 90, 130, 25))
@@ -4101,39 +4102,39 @@ class MainUI(QDialog):
             self.export_save_template_lineedit.setText(self.file_path)
             utilitis.create_path(
                 str(self.export_save_template_lineedit.text()))
-        self.export_save_template_button = QtGui.QPushButton(
+        self.export_save_template_button = QtWidgets.QPushButton(
             self.export_groupbox)
         self.export_save_template_button.setGeometry(
             QtCore.QRect(265, 90, 80, 25))
         self.export_save_template_button.setText("Browse")
         self.export_save_template_button.clicked.connect(
             self.click_browse_button)
-        self.export_label_library = QtGui.QLabel(self.export_groupbox)
+        self.export_label_library = QtWidgets.QLabel(self.export_groupbox)
         self.export_label_library.setGeometry(
             QtCore.QRect(5, 125, 120, 25))
         self.export_label_library.setText("Library:")
-        self.export_create_library_combobox = QtGui.QComboBox(
+        self.export_create_library_combobox = QtWidgets.QComboBox(
             self.export_groupbox)
         self.export_create_library_combobox.setGeometry(
             QtCore.QRect(130, 125, 215, 25))
 
-        # self.export_template_label_model = QtGui.QLabel(self.aixlib_groupbox)
+        # self.export_template_label_model = QtWidgets.QLabel(self.aixlib_groupbox)
         # self.export_template_label_model.setGeometry(
         #     QtCore.QRect(5, 20, 120, 25))
         # self.export_template_label_model.setText("Model type:")
-        # self.export_create_template_model_combobox = QtGui.QComboBox(
+        # self.export_create_template_model_combobox = QtWidgets.QComboBox(
         #     self.aixlib_groupbox)
         # self.export_create_template_model_combobox.setGeometry(
         #     QtCore.QRect(130, 20, 215, 25))
-        # self.export_template_label_zone = QtGui.QLabel(self.aixlib_groupbox)
+        # self.export_template_label_zone = QtWidgets.QLabel(self.aixlib_groupbox)
         # self.export_template_label_zone.setGeometry(
         #     QtCore.QRect(5, 55, 120, 25))
         # self.export_template_label_zone.setText("Zone type:")
-        # self.export_create_template_zone_combobox = QtGui.QComboBox(
+        # self.export_create_template_zone_combobox = QtWidgets.QComboBox(
         #     self.aixlib_groupbox)
         # self.export_create_template_zone_combobox.setGeometry(
         #     QtCore.QRect(130, 55, 215, 25))
-        # self.export_template_label_corG = QtGui.QLabel(self.aixlib_groupbox)
+        # self.export_template_label_corG = QtWidgets.QLabel(self.aixlib_groupbox)
         # self.export_template_label_corG.setGeometry(
         #     QtCore.QRect(5, 90, 120, 25))
         # self.export_template_label_corG.setText("corG:")
@@ -4145,19 +4146,19 @@ class MainUI(QDialog):
         # self.radio_button_corG_2.setText("without CorG")
         # self.radio_button_corG_1.setChecked(True)
 
-        self.annex_number_of_elements = QtGui.QLabel(self.annex_groupbox)
+        self.annex_number_of_elements = QtWidgets.QLabel(self.annex_groupbox)
         self.annex_number_of_elements.setGeometry(
             QtCore.QRect(5, 20, 120, 25))
         self.annex_number_of_elements.setText("Number of elements:")
-        self.annex_create_number_of_elements_combobox = QtGui.QComboBox(
+        self.annex_create_number_of_elements_combobox = QtWidgets.QComboBox(
             self.annex_groupbox)
         self.annex_create_number_of_elements_combobox.setGeometry(
             QtCore.QRect(130, 20, 215, 25))
-        self.annex_merge_windows = QtGui.QLabel(self.annex_groupbox)
+        self.annex_merge_windows = QtWidgets.QLabel(self.annex_groupbox)
         self.annex_merge_windows.setGeometry(
             QtCore.QRect(5, 55, 120, 25))
         self.annex_merge_windows.setText("Merge windows:")
-        self.annex_create_merge_windows_combobox = QtGui.QComboBox(
+        self.annex_create_merge_windows_combobox = QtWidgets.QComboBox(
             self.annex_groupbox)
         self.annex_create_merge_windows_combobox.setGeometry(
             QtCore.QRect(130, 55, 215, 25))
@@ -4176,7 +4177,7 @@ class MainUI(QDialog):
         self.annex_create_merge_windows_combobox.addItems(
             merging_windows_list)
 
-        self.connect(self.export_create_library_combobox, QtCore.pyqtSignal(
+        self.lineedit.returnPressed.connect(self.export_create_library_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_lib)
 
         self.export_window_ui_layout.addWidget(
@@ -4196,7 +4197,7 @@ class MainUI(QDialog):
         attributes.
         '''
 
-        self.simulation_window_ui = QtGui.QWizardPage()
+        self.simulation_window_ui = QtWidgets.QWizardPage()
         self.simulation_window_ui.setWindowIcon(self.teaser_icon)
         self.simulation_window_ui.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.simulation_window_ui.setWindowTitle("Simulation")
@@ -4205,59 +4206,59 @@ class MainUI(QDialog):
         self.simulation_window_ui_layout = QtGui.QGridLayout()
         self.simulation_window_ui.setLayout(self.simulation_window_ui_layout)
 
-        self.project_name_groupbox = QtGui.QGroupBox("Project")
+        self.project_name_groupbox = QtWidgets.QGroupBox("Project")
         self.project_name_groupbox.setGeometry(QtCore.QRect(10, 10, 315, 40))
         self.project_name_groupbox.setMinimumSize(QtCore.QSize(315, 40))
         self.project_name_groupbox.setMaximumSize(QtCore.QSize(315, 40))
-        self.project_name_label = QtGui.QLabel(self.project_name_groupbox)
+        self.project_name_label = QtWidgets.QLabel(self.project_name_groupbox)
         self.project_name_label.setGeometry(QtCore.QRect(5, 10, 90, 25))
         self.project_name_label.setText("Project Name:")
-        self.project_name_lineedit = QtGui.QLineEdit(
+        self.project_name_lineedit = QtWidgets.QLineEdit(
             self.project_name_groupbox)
         self.project_name_lineedit.setGeometry(QtCore.QRect(100, 10, 180, 25))
         self.project_name_lineedit.setText(str(self.project.name))
 
-        self.simulation_groupbox = QtGui.QGroupBox("Simulation")
+        self.simulation_groupbox = QtWidgets.QGroupBox("Simulation")
         self.simulation_groupbox.setGeometry(QtCore.QRect(380, 85, 315, 160))
         self.simulation_groupbox.setMinimumSize(QtCore.QSize(315, 160))
         self.simulation_groupbox.setMaximumSize(QtCore.QSize(315, 160))
         self.simulation_groupbox.setObjectName(_fromUtf8("simulationGroupBox"))
-        self.simulation_runtime_label_1 = QtGui.QLabel(
+        self.simulation_runtime_label_1 = QtWidgets.QLabel(
             self.simulation_groupbox)
         self.simulation_runtime_label_1.setGeometry(
             QtCore.QRect(5, 20, 90, 25))
         self.simulation_runtime_label_1.setText("Runtime Simulation:")
-        self.simulation_runtime_lineedit = QtGui.QLineEdit(
+        self.simulation_runtime_lineedit = QtWidgets.QLineEdit(
             self.simulation_groupbox)
         self.simulation_runtime_lineedit.setGeometry(
             QtCore.QRect(100, 20, 180, 25))
         self.simulation_runtime_lineedit.setText(
             self.project.modelica_info.runtime_simulation)
-        self.simulation_runtime_label_2 = QtGui.QLabel(
+        self.simulation_runtime_label_2 = QtWidgets.QLabel(
             self.simulation_groupbox)
         self.simulation_runtime_label_2.setGeometry(
             QtCore.QRect(285, 20, 10, 25))
         self.simulation_runtime_label_2.setText("s")
-        self.simulation_interval_output_label_1 = QtGui.QLabel(
+        self.simulation_interval_output_label_1 = QtWidgets.QLabel(
             self.simulation_groupbox)
         self.simulation_interval_output_label_1.setGeometry(
             QtCore.QRect(5, 55, 90, 25))
         self.simulation_interval_output_label_1.setText("Interval Output:")
-        self.simulation_interval_output_lineedit = QtGui.QLineEdit(
+        self.simulation_interval_output_lineedit = QtWidgets.QLineEdit(
             self.simulation_groupbox)
         self.simulation_interval_output_lineedit.setGeometry(
             QtCore.QRect(100, 55, 180, 25))
         self.simulation_interval_output_lineedit.setText(
             self.project.modelica_info.interval_output)
-        self.simulation_interval_output_label_2 = QtGui.QLabel(
+        self.simulation_interval_output_label_2 = QtWidgets.QLabel(
             self.simulation_groupbox)
         self.simulation_interval_output_label_2.setGeometry(
             QtCore.QRect(285, 55, 10, 25))
         self.simulation_interval_output_label_2.setText("s")
-        self.simulation_solver_label = QtGui.QLabel(self.simulation_groupbox)
+        self.simulation_solver_label = QtWidgets.QLabel(self.simulation_groupbox)
         self.simulation_solver_label.setGeometry(QtCore.QRect(5, 90, 90, 25))
         self.simulation_solver_label.setText("Solver:")
-        self.simulation_solver_combobox = QtGui.QComboBox(
+        self.simulation_solver_combobox = QtWidgets.QComboBox(
             self.simulation_groupbox)
         self.simulation_solver_combobox.setGeometry(
             QtCore.QRect(100, 90, 180, 25))
@@ -4275,26 +4276,26 @@ class MainUI(QDialog):
         self.simulation_equidistant_output_checkbox.setText(
             "Equidistant Output")
 
-        self.simulation_save_cancel_groupbox = QtGui.QGroupBox()
+        self.simulation_save_cancel_groupbox = QtWidgets.QGroupBox()
         self.simulation_save_cancel_groupbox.setGeometry(
             QtCore.QRect(10, 530, 315, 35))
         self.simulation_save_cancel_groupbox.setMinimumSize(
             QtCore.QSize(315, 35))
         self.simulation_save_cancel_groupbox.setMaximumSize(
             QtCore.QSize(315, 35))
-        self.simulation_save_button = QtGui.QPushButton(
+        self.simulation_save_button = QtWidgets.QPushButton(
             self.simulation_save_cancel_groupbox)
         self.simulation_save_button.setText("Save")
         self.simulation_save_button.setGeometry(QtCore.QRect(5, 5, 90, 25))
-        self.connect(self.simulation_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.simulation_save_button, pyqtSignal("clicked()"),
                      self.save_changed_simulation_values)
-        self.connect(self.simulation_save_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.simulation_save_button, pyqtSignal("clicked()"),
                      self.simulation_window_ui, QtCore.SLOT("close()"))
-        self.simulation_cancel_button = QtGui.QPushButton(
+        self.simulation_cancel_button = QtWidgets.QPushButton(
             self.simulation_save_cancel_groupbox)
         self.simulation_cancel_button.setText("Cancel")
         self.simulation_cancel_button.setGeometry(QtCore.QRect(100, 5, 80, 25))
-        self.connect(self.simulation_cancel_button, pyqtSignal("clicked()"),
+        self.lineedit.returnPressed.connect(self.simulation_cancel_button, pyqtSignal("clicked()"),
                      self.simulation_window_ui, QtCore.SLOT("close()"))
 
         self.simulation_window_ui_layout.addWidget(
@@ -4312,7 +4313,7 @@ class MainUI(QDialog):
         opens a window to see all attributes from the currently selected layer.
         '''
 
-        self.layer_build_ui = QtGui.QWizardPage()
+        self.layer_build_ui = QtWidgets.QWizardPage()
         self.layer_build_ui.setWindowIcon(self.teaser_icon)
         self.layer_build_ui.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.layer_build_ui.setWindowTitle("Layer Details")
@@ -4338,18 +4339,18 @@ class MainUI(QDialog):
                 self.current_layer = layer
                 break
         self.layer_general_layout = QtGui.QGridLayout()
-        self.layer_general_layout_group_box = QtGui.QGroupBox("Layer Values")
+        self.layer_general_layout_group_box = QtWidgets.QGroupBox("Layer Values")
         self.layer_general_layout_group_box.setLayout(
             self.layer_general_layout)
 
-        self.thickness_label = QtGui.QLabel("Layer Thickness")
-        self.thickness_textbox = QtGui.QLineEdit()
+        self.thickness_label = QtWidgets.QLabel("Layer Thickness")
+        self.thickness_textbox = QtWidgets.QLineEdit()
         self.thickness_textbox.setObjectName(_fromUtf8("ThicknessTextBox"))
         self.thickness_textbox.setText(str(self.current_layer.thickness))
 
-        self.material_label = QtGui.QLabel("Material")
-        self.material_combobox = QtGui.QComboBox()
-        self.connect(self.material_combobox, QtCore.pyqtSignal(
+        self.material_label = QtWidgets.QLabel("Material")
+        self.material_combobox = QtWidgets.QComboBox()
+        self.lineedit.returnPressed.connect(self.material_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_material)
         temp_list = []
         for material in self.materials:
@@ -4363,68 +4364,68 @@ class MainUI(QDialog):
             self.material_combobox.findText(self.current_layer.material.name))
         self.is_switchable = True
 
-        self.material_density_label = QtGui.QLabel("Density")
-        self.material_density_textbox = QtGui.QLineEdit()
+        self.material_density_label = QtWidgets.QLabel("Density")
+        self.material_density_textbox = QtWidgets.QLineEdit()
         self.material_density_textbox.setObjectName(
             _fromUtf8("MaterialDensityTextBox"))
         self.material_density_textbox.setText(
             str(self.current_layer.material.density))
 
-        self.material_thermal_conduc_label = QtGui.QLabel("ThermalConduc")
-        self.material_thermal_conduc_textbox = QtGui.QLineEdit()
+        self.material_thermal_conduc_label = QtWidgets.QLabel("ThermalConduc")
+        self.material_thermal_conduc_textbox = QtWidgets.QLineEdit()
         self.material_thermal_conduc_textbox.setObjectName(
             _fromUtf8("MaterialThermalConducTextBox"))
         self.material_thermal_conduc_textbox.setText(
             str(self.current_layer.material.thermal_conduc))
 
-        self.material_heat_capac_label = QtGui.QLabel("HeatCapac")
-        self.material_heat_capac_textbox = QtGui.QLineEdit()
+        self.material_heat_capac_label = QtWidgets.QLabel("HeatCapac")
+        self.material_heat_capac_textbox = QtWidgets.QLineEdit()
         self.material_heat_capac_textbox.setObjectName(
             _fromUtf8("MaterialHeatCapacTextBox"))
         self.material_heat_capac_textbox.setText(
             str(self.current_layer.material.heat_capac))
 
-        self.material_solar_absorp_label = QtGui.QLabel("SolarAbsorp")
-        self.material_solar_absorp_textbox = QtGui.QLineEdit()
+        self.material_solar_absorp_label = QtWidgets.QLabel("SolarAbsorp")
+        self.material_solar_absorp_textbox = QtWidgets.QLineEdit()
         self.material_solar_absorp_textbox.setObjectName(
             _fromUtf8("MaterialSolarAbsorpTextBox"))
         self.material_solar_absorp_textbox.setText(
             str(self.current_layer.material.solar_absorp))
 
-        self.material_ir_emissivity_label = QtGui.QLabel("IrEmissivity")
-        self.material_ir_emissivity_textbox = QtGui.QLineEdit()
+        self.material_ir_emissivity_label = QtWidgets.QLabel("IrEmissivity")
+        self.material_ir_emissivity_textbox = QtWidgets.QLineEdit()
         self.material_ir_emissivity_textbox.setObjectName(
             _fromUtf8("MaterialIrEmissivityTextBox"))
         self.material_ir_emissivity_textbox.setText(
             str(self.current_layer.material.ir_emissivity))
 
-        self.material_transmittance_label = QtGui.QLabel("Transmittance")
-        self.material_transmittance_textbox = QtGui.QLineEdit()
+        self.material_transmittance_label = QtWidgets.QLabel("Transmittance")
+        self.material_transmittance_textbox = QtWidgets.QLineEdit()
         self.material_transmittance_textbox.setObjectName(
             _fromUtf8("MaterialTransmittanceTextBox"))
         self.material_transmittance_textbox.setText(
             str(self.current_layer.material.transmittance))
 
-        self.layer_save_button = QtGui.QPushButton()
+        self.layer_save_button = QtWidgets.QPushButton()
         self.layer_save_button.setText("Save")
 
         if(sender == self.element_material_list_view):
-            self.connect(self.layer_save_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.save_changed_layer_values)
-            self.connect(self.layer_save_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.update_element_details)
         else:
-            self.connect(self.layer_save_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.save_changed_layer_values_set_all_constr)
-            self.connect(self.layer_save_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.update_set_all_construction)
 
-        self.connect(self.layer_save_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.layer_save_button, pyqtSignal(
             "clicked()"), self.layer_build_ui, QtCore.SLOT("close()"))
 
-        self.layer_cancel_button = QtGui.QPushButton()
+        self.layer_cancel_button = QtWidgets.QPushButton()
         self.layer_cancel_button.setText("Cancel")
-        self.connect(self.layer_cancel_button, pyqtSignal(
+        self.lineedit.returnPressed.connect(self.layer_cancel_button, pyqtSignal(
             "clicked()"), self.layer_build_ui, QtCore.SLOT("close()"))
 
         self.layer_general_layout.addWidget(self.thickness_label, 1, 0)
@@ -4950,9 +4951,9 @@ class MainUI(QDialog):
             self.group_box_office_architecture.setVisible(False)
             self.group_box_residential_architecture.setVisible(True)
             self.construct_type_building_button.clicked.disconnect()
-            self.connect(self.construct_type_building_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.check_inputs_typebuilding)
-            self.connect(self.construct_type_building_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.popup_window_type_building,
                 QtCore.SLOT("close()"))
         elif (self.current_type_building == "Office" or
@@ -4964,9 +4965,9 @@ class MainUI(QDialog):
             self.group_box_office_architecture.setVisible(True)
             self.group_box_residential_architecture.setVisible(False)
             self.construct_type_building_button.clicked.disconnect()
-            self.connect(self.construct_type_building_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.check_inputs_typebuilding)
-            self.connect(self.construct_type_building_button, pyqtSignal(
+            self.lineedit.returnPressed.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.popup_window_type_building,
                 QtCore.SLOT("close()"))
 
@@ -5111,9 +5112,9 @@ class MainUI(QDialog):
         message_box.setWindowTitle("Warning")
         message_box.setText("Are you really want to detele it?")
 
-        message_box.addButton(QtGui.QPushButton('Delete'),
+        message_box.addButton(QtWidgets.QPushButton('Delete'),
                               QtGui.QMessageBox.YesRole)
-        message_box.addButton(QtGui.QPushButton('Cancel'),
+        message_box.addButton(QtWidgets.QPushButton('Cancel'),
                               QtGui.QMessageBox.RejectRole)
         message_box.buttonClicked.connect(self.delete_building_message_box)
         message_box.exec_()
@@ -5739,31 +5740,31 @@ class MainUI(QDialog):
 
         key = event.key()
         if key == QtCore.Qt.Key_C and\
-                QtGui.QApplication.keyboardModifiers() == \
+                QtWidgets.QApplication.keyboardModifiers() == \
                 QtCore.Qt.ControlModifier:
             self.generate_type_building_ui("Office")
         if key == QtCore.Qt.Key_E and\
-                QtGui.QApplication.keyboardModifiers() == \
+                QtWidgets.QApplication.keyboardModifiers() == \
                 QtCore.Qt.ControlModifier:
             self.create_new_building_ui()
         if key == QtCore.Qt.Key_P and\
-                QtGui.QApplication.keyboardModifiers() == \
+                QtWidgets.QApplication.keyboardModifiers() == \
                 QtCore.Qt.ControlModifier:
             self.create_new_project_ui()
         if key == QtCore.Qt.Key_Z and\
-                QtGui.QApplication.keyboardModifiers() == \
+                QtWidgets.QApplication.keyboardModifiers() == \
                 QtCore.Qt.ControlModifier:
             self.add_thermal_zone()
         if key == QtCore.Qt.Key_D and\
-                QtGui.QApplication.keyboardModifiers() == \
+                QtWidgets.QApplication.keyboardModifiers() == \
                 QtCore.Qt.ControlModifier:
             self.delete_thermal_zone()
         if key == QtCore.Qt.Key_L and\
-                QtGui.QApplication.keyboardModifiers() == \
+                QtWidgets.QApplication.keyboardModifiers() == \
                 QtCore.Qt.ControlModifier:
             self.load_building_button()
         if key == QtCore.Qt.Key_B and\
-                QtGui.QApplication.keyboardModifiers() == \
+                QtWidgets.QApplication.keyboardModifiers() == \
                 QtCore.Qt.ControlModifier:
             self.edit_building()
 
@@ -5782,7 +5783,7 @@ class MainUI(QDialog):
         return qObject
 
 
-class WizardPage(QtGui.QWizardPage):
+class WizardPage(QtWidgets.QWizardPage):
     '''WizardPage class
     '''
 
@@ -5808,7 +5809,7 @@ class EmittingStream(QtCore.QObject):
     part of the package to display the console in the project.
     '''
 
-    textWritten = QtCore.pyqtpyqtSignal(str)
+    textWritten = QtCore.pyqtSignal(str)
 
     def write(self, text):
         self.textWritten.emit(str(text))

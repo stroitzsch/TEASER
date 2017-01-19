@@ -2,9 +2,10 @@
 # by TEASER4 Development Team
 
 
-from PyQt4 import Qt, QtGui
+from PyQt5 import Qt, QtGui
+from PyQt5.QtWidgets import QAbstractButton
 
-class PictureButton(QtGui.QAbstractButton):
+class PictureButton(QAbstractButton):
 
     def __init__(self, pixmap, parent=None):
         super(PictureButton, self).__init__(parent)
@@ -16,4 +17,3 @@ class PictureButton(QtGui.QAbstractButton):
 
     def sizeHint(self):
         return self.pixmap.size()
-

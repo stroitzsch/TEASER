@@ -1,7 +1,7 @@
 # created June 2015
 # by TEASER4 Development Team
 
-from PyQt4.QtCore import QAbstractListModel, QModelIndex, QVariant, Qt
+from PyQt5.QtCore import QAbstractListModel, QModelIndex, QVariant, Qt
 
 class ListModel(QAbstractListModel):
     '''
@@ -12,13 +12,12 @@ class ListModel(QAbstractListModel):
     def __init__(self, parent=None, *args):
         QAbstractListModel.__init__(self, parent, *args)
         self.listOfZonesForDisplay = []
-        
-        
-    def rowCount(self, parent=QModelIndex()): 
-        return len(self.listOfZonesForDisplay) 
-    def data(self, index, role): 
-        if index.isValid() and role == Qt.DisplayRole:   
-            return QVariant("test")
-        else: 
-            return QVariant("test1")
 
+
+    def rowCount(self, parent=QModelIndex()):
+        return len(self.listOfZonesForDisplay)
+    def data(self, index, role):
+        if index.isValid() and role == Qt.DisplayRole:
+            return QVariant("test")
+        else:
+            return QVariant("test1")
