@@ -4,11 +4,11 @@
 
 import sys
 import inspect
-from PyQt4 import QtCore, QtGui
-from PyQt4.Qt import QDialog, QStandardItemModel
-from PyQt4.Qt import Qt
-from PyQt4.QtCore import SIGNAL
-from PyQt4.QtGui import QStandardItem, QTabWidget, QPixmap
+from PyQt5 import QtCore, QtGui
+from PyQt5.Qt import QDialog, QStandardItemModel
+from PyQt5.Qt import Qt
+from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtGui import QStandardItem, QTabWidget, QPixmap
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as\
     FigureCanvas
 import matplotlib.pyplot as plt
@@ -749,16 +749,16 @@ class MainUI(QDialog):
         self.side_bar_buildings_combo_box.setModel(
             self.buildings_combo_box_model)
         self.side_bar_buildings_combo_box.setModelColumn(0)
-        self.connect(self.side_bar_buildings_combo_box, QtCore.SIGNAL(
+        self.connect(self.side_bar_buildings_combo_box, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_building)
         self.side_bar_id_label = QtGui.QLabel(self.side_bar_group_box)
         self.side_bar_id_label.setGeometry(QtCore.QRect(5, 60, 90, 25))
         self.side_bar_id_label.setText("Name:")
         self.side_bar_id_line_edit = QtGui.QLineEdit(self.side_bar_group_box)
         self.side_bar_id_line_edit.setGeometry(QtCore.QRect(105, 60, 90, 25))
-        self.connect(self.side_bar_id_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_id_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_id_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_id_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
         self.side_bar_street_label = QtGui.QLabel(self.side_bar_group_box)
         self.side_bar_street_label.setGeometry(QtCore.QRect(5, 95, 90, 25))
@@ -767,9 +767,9 @@ class MainUI(QDialog):
             self.side_bar_group_box)
         self.side_bar_street_line_edit.setGeometry(
             QtCore.QRect(105, 95, 90, 25))
-        self.connect(self.side_bar_street_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_street_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_street_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_street_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
         self.side_bar_location_label = QtGui.QLabel(self.side_bar_group_box)
         self.side_bar_location_label.setGeometry(QtCore.QRect(5, 130, 90, 25))
@@ -778,9 +778,9 @@ class MainUI(QDialog):
             self.side_bar_group_box)
         self.side_bar_location_line_edit.setGeometry(
             QtCore.QRect(105, 130, 90, 25))
-        self.connect(self.side_bar_location_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_location_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_location_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_location_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
         self.side_bar_construction_year_label = QtGui.QLabel(
             self.side_bar_group_box)
@@ -791,9 +791,9 @@ class MainUI(QDialog):
             self.side_bar_group_box)
         self.side_bar_construction_year_line_edit.setGeometry(
             QtCore.QRect(105, 165, 90, 25))
-        self.connect(self.side_bar_construction_year_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_construction_year_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_construction_year_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_construction_year_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
         self.side_bar_number_of_floors_label = QtGui.QLabel(
             self.side_bar_group_box)
@@ -804,9 +804,9 @@ class MainUI(QDialog):
             self.side_bar_group_box)
         self.side_bar_number_of_floors_line_edit.setGeometry(
             QtCore.QRect(105, 200, 90, 25))
-        self.connect(self.side_bar_number_of_floors_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_number_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_number_of_floors_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_number_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
         self.side_bar_height_of_floors_label = QtGui.QLabel(
             self.side_bar_group_box)
@@ -817,9 +817,9 @@ class MainUI(QDialog):
             self.side_bar_group_box)
         self.side_bar_height_of_floors_line_edit.setGeometry(
             QtCore.QRect(105, 235, 90, 25))
-        self.connect(self.side_bar_height_of_floors_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_height_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_height_of_floors_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_height_of_floors_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
         self.side_bar_net_leased_area_label = QtGui.QLabel(
             self.side_bar_group_box)
@@ -830,9 +830,9 @@ class MainUI(QDialog):
             self.side_bar_group_box)
         self.side_bar_net_leased_area_line_edit.setGeometry(
             QtCore.QRect(105, 270, 90, 25))
-        self.connect(self.side_bar_net_leased_area_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_net_leased_area_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.show_warning_window_ui)
-        self.connect(self.side_bar_net_leased_area_line_edit, QtCore.SIGNAL(
+        self.connect(self.side_bar_net_leased_area_line_edit, QtCore.pyqtSignal(
             "editingFinished()"), self.clear_focus_line_edits)
 
         """ All controls in the ribbon """
@@ -1032,14 +1032,14 @@ class MainUI(QDialog):
         self.create_new_project_clear_button = QtGui.QPushButton()
         self.create_new_project_clear_button.setText("Clear")
         self.connect(self.create_new_project_clear_button,
-                     SIGNAL("clicked()"), self.create_new_project)
+                     pyqtSignal("clicked()"), self.create_new_project)
         self.connect(self.create_new_project_clear_button,
-                     SIGNAL("clicked()"), self.create_new_project_ui_page,
+                     pyqtSignal("clicked()"), self.create_new_project_ui_page,
                      QtCore.SLOT("close()"))
         self.create_new_project_cancel_button = QtGui.QPushButton()
         self.create_new_project_cancel_button.setText("Cancel")
         self.connect(self.create_new_project_cancel_button,
-                     SIGNAL("clicked()"), self.create_new_project_ui_page,
+                     pyqtSignal("clicked()"), self.create_new_project_ui_page,
                      QtCore.SLOT("close()"))
 
         self.create_new_project_window_layout.addWidget(
@@ -1123,15 +1123,15 @@ class MainUI(QDialog):
 
         self.generate_new_building_save_button = QtGui.QPushButton()
         self.generate_new_building_save_button.setText("Save")
-        self.connect(self.generate_new_building_save_button, SIGNAL(
+        self.connect(self.generate_new_building_save_button, pyqtSignal(
             "clicked()"), self.check_new_building_inputs)
-        self.connect(self.generate_new_building_save_button, SIGNAL(
+        self.connect(self.generate_new_building_save_button, pyqtSignal(
             "clicked()"), self.generate_new_building_ui_page,
             QtCore.SLOT("close()"))
 
         self.generate_new_building_cancel_button = QtGui.QPushButton()
         self.generate_new_building_cancel_button.setText("Cancel")
-        self.connect(self.generate_new_building_cancel_button, SIGNAL(
+        self.connect(self.generate_new_building_cancel_button, pyqtSignal(
             "clicked()"), self.generate_new_building_ui_page,
             QtCore.SLOT("close()"))
 
@@ -1216,15 +1216,15 @@ class MainUI(QDialog):
 
         self.generate_new_element_save_button = QtGui.QPushButton()
         self.generate_new_element_save_button.setText("Save")
-        self.connect(self.generate_new_element_save_button, SIGNAL(
+        self.connect(self.generate_new_element_save_button, pyqtSignal(
             "clicked()"), self.check_new_element_inputs)
-        self.connect(self.generate_new_element_save_button, SIGNAL(
+        self.connect(self.generate_new_element_save_button, pyqtSignal(
             "clicked()"), self.create_new_element_ui_page,
             QtCore.SLOT("close()"))
 
         self.generate_new_element_cancel_button = QtGui.QPushButton()
         self.generate_new_element_cancel_button.setText("Cancel")
-        self.connect(self.generate_new_element_cancel_button, SIGNAL(
+        self.connect(self.generate_new_element_cancel_button, pyqtSignal(
             "clicked()"), self.create_new_element_ui_page,
             QtCore.SLOT("close()"))
 
@@ -1348,7 +1348,7 @@ class MainUI(QDialog):
         self.set_all_constr_element_add_material_button = QtGui.QPushButton()
         self.set_all_constr_element_add_material_button.setText("Add Layer")
         self.connect(self.set_all_constr_element_add_material_button,
-                     SIGNAL("clicked()"),
+                     pyqtSignal("clicked()"),
                      lambda check_window="set all construction window":
                      self.create_new_layer_ui(check_window))
 
@@ -1357,7 +1357,7 @@ class MainUI(QDialog):
         self.set_all_constr_element_delete_material_button.setText(
             "Delete Layer")
         self.connect(self.set_all_constr_element_delete_material_button,
-                     SIGNAL("clicked()"),
+                     pyqtSignal("clicked()"),
                      self.delete_selected_layer_set_all_constr)
 
         self.element_material_list_view = QtGui.QListView()
@@ -1378,18 +1378,18 @@ class MainUI(QDialog):
         self.set_all_constr_save_button = QtGui.QPushButton()
         self.set_all_constr_save_button.setText("Save")
 
-        self.connect(self.set_all_constr_save_button, SIGNAL("clicked()"),
+        self.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
                      self.save_input_values_set_all_constr)
-        self.connect(self.set_all_constr_save_button, SIGNAL("clicked()"),
+        self.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
                      self.clear_input_values_set_all_constr)
-        self.connect(self.set_all_constr_save_button, SIGNAL("clicked()"),
+        self.connect(self.set_all_constr_save_button, pyqtSignal("clicked()"),
                      self.create__envelope_ui, QtCore.SLOT("close()"))
 
         self.set_all_constr_cancel_button = QtGui.QPushButton()
         self.set_all_constr_cancel_button.setText("Cancel")
-        self.connect(self.set_all_constr_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.set_all_constr_cancel_button, pyqtSignal("clicked()"),
                      self.clear_input_values_set_all_constr)
-        self.connect(self.set_all_constr_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.set_all_constr_cancel_button, pyqtSignal("clicked()"),
                      self.create__envelope_ui, QtCore.SLOT("close()"))
 
         self.set_all_constr_element_layout.addWidget(
@@ -1539,7 +1539,7 @@ class MainUI(QDialog):
 
         self.new_layer_material_label = QtGui.QLabel("Material")
         self.new_layer_material_combobox = QtGui.QComboBox()
-        self.connect(self.new_layer_material_combobox, QtCore.SIGNAL(
+        self.connect(self.new_layer_material_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.load_material)
         temp_list = []
         for material in self.materials:
@@ -1550,24 +1550,24 @@ class MainUI(QDialog):
 
         self.new_layer_save_button = QtGui.QPushButton()
         self.new_layer_save_button.setText("Save")
-        self.connect(self.new_layer_save_button, SIGNAL(
+        self.connect(self.new_layer_save_button, pyqtSignal(
             "clicked()"), lambda check_window=check:
             self.check_new_layer_inputs(check_window))
 
         if check == "Element Details Window":
-            self.connect(self.new_layer_save_button, SIGNAL(
+            self.connect(self.new_layer_save_button, pyqtSignal(
                 "clicked()"), self.update_element_details)
 
         elif check == "set all construction window":
-            self.connect(self.new_layer_save_button, SIGNAL(
+            self.connect(self.new_layer_save_button, pyqtSignal(
                 "clicked()"), self.update_set_all_construction)
 
-        self.connect(self.new_layer_save_button, SIGNAL(
+        self.connect(self.new_layer_save_button, pyqtSignal(
             "clicked()"), self.create_layer_ui, QtCore.SLOT("close()"))
 
         self.new_layer_cancel_button = QtGui.QPushButton()
         self.new_layer_cancel_button.setText("Cancel")
-        self.connect(self.new_layer_cancel_button, SIGNAL(
+        self.connect(self.new_layer_cancel_button, pyqtSignal(
             "clicked()"), self.create_layer_ui, QtCore.SLOT("close()"))
 
         self.new_layer_general_layout.addWidget(
@@ -1654,7 +1654,7 @@ class MainUI(QDialog):
             QtCore.QRect(110, 25, 120, 25))
         for type_building in self.guiinfo.type_buildings:
             self.window_construct_building_combo_box.addItem(type_building)
-        self.connect(self.window_construct_building_combo_box, QtCore.SIGNAL(
+        self.connect(self.window_construct_building_combo_box, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_type_building)
         self.window_construct_building_name_label = QtGui.QLabel(
             self.group_box_type_building_sidecontrols)
@@ -1726,13 +1726,13 @@ class MainUI(QDialog):
         self.test_button.setText("Generate random parameters")
         self.test_button.setGeometry(QtCore.QRect(10, 345, 230, 25))
         self.connect(self.test_button,
-                     QtCore.SIGNAL("clicked()"),
+                     QtCore.pyqtSignal("clicked()"),
                      self.fill_random_parameters)
         self.fill_button = QtGui.QPushButton(
             self.group_box_type_building_sidecontrols)
         self.fill_button.setText("Fill current building Information")
         self.fill_button.setGeometry(QtCore.QRect(10, 375, 230, 25))
-        self.connect(self.fill_button, QtCore.SIGNAL("clicked()"),
+        self.connect(self.fill_button, QtCore.pyqtSignal("clicked()"),
                      self.fill_building_informations)
 
         # Differentiates between the different types of buildings from combobox
@@ -1848,18 +1848,18 @@ class MainUI(QDialog):
 
         self.update_building_button = QtGui.QPushButton()
         self.update_building_button.setText("Update current Building")
-        self.connect(self.update_building_button, SIGNAL(
+        self.connect(self.update_building_button, pyqtSignal(
             "clicked()"), self.update_building)
 
-        self.connect(self.update_building_button, SIGNAL("clicked()"),
+        self.connect(self.update_building_button, pyqtSignal("clicked()"),
                      self.popup_window_type_building, QtCore.SLOT("close()"))
 
         self.construct_type_building_button = QtGui.QPushButton(
             u"Generate " + self.current_type_building + " Building")
-        self.connect(self.construct_type_building_button, SIGNAL(
+        self.connect(self.construct_type_building_button, pyqtSignal(
             "clicked()"), self.check_inputs_typebuilding)
 
-        self.connect(self.construct_type_building_button, SIGNAL(
+        self.connect(self.construct_type_building_button, pyqtSignal(
             "clicked()"), self.popup_window_type_building,
             QtCore.SLOT("close()"))
         self.type_building_residential_layout = QtGui.QGridLayout()
@@ -2140,14 +2140,14 @@ class MainUI(QDialog):
 
         self.generate_zone_save_button = QtGui.QPushButton()
         self.generate_zone_save_button.setText("Save")
-        self.connect(self.generate_zone_save_button, SIGNAL(
+        self.connect(self.generate_zone_save_button, pyqtSignal(
             "clicked()"), self.check_inputs_new_zone)
-        self.connect(self.generate_zone_save_button, SIGNAL(
+        self.connect(self.generate_zone_save_button, pyqtSignal(
             "clicked()"), self.generate_zone_ui_page, QtCore.SLOT("close()"))
 
         self.generate_zone_cancel_button = QtGui.QPushButton()
         self.generate_zone_cancel_button.setText("Cancel")
-        self.connect(self.generate_zone_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.generate_zone_cancel_button, pyqtSignal("clicked()"),
                      self.generate_zone_ui_page, QtCore.SLOT("close()"))
 
         self.generate_zone_window_layout.addWidget(
@@ -2937,7 +2937,7 @@ class MainUI(QDialog):
         self.zone_type_combobox.setCurrentIndex(
             self.zone_type_combobox.findText(
                 str(self.current_zone.use_conditions.usage)))
-        self.connect(self.zone_type_combobox, QtCore.SIGNAL(
+        self.connect(self.zone_type_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_current_zone_type)
 
         self.zone_id_label = QtGui.QLabel("Zone Id")
@@ -2972,11 +2972,11 @@ class MainUI(QDialog):
             QtGui.QAbstractItemView.NoEditTriggers)
         self.add_element_button = QtGui.QPushButton()
         self.add_element_button.setText("Add new Element")
-        self.connect(self.add_element_button, SIGNAL(
+        self.connect(self.add_element_button, pyqtSignal(
             "clicked()"), self.create_new_element_ui)
         self.delete_element_button = QtGui.QPushButton()
         self.delete_element_button.setText("Delete Element")
-        self.connect(self.delete_element_button, SIGNAL(
+        self.connect(self.delete_element_button, pyqtSignal(
             "clicked()"), self.delete_current_element)
         self.element_values_layout.addWidget(self.add_element_button, 0, 0)
         self.element_values_layout.addWidget(self.delete_element_button, 0, 1)
@@ -3041,14 +3041,14 @@ class MainUI(QDialog):
 
         self.zone_element_save_button = QtGui.QPushButton()
         self.zone_element_save_button.setText("Save")
-        self.connect(self.zone_element_save_button, SIGNAL(
+        self.connect(self.zone_element_save_button, pyqtSignal(
             "clicked()"), self.save_changed_zone_values)
-        self.connect(self.zone_element_save_button, SIGNAL(
+        self.connect(self.zone_element_save_button, pyqtSignal(
             "clicked()"), self.zone_value_window, QtCore.SLOT("close()"))
 
         self.zone_element_cancel_button = QtGui.QPushButton()
         self.zone_element_cancel_button.setText("Cancel")
-        self.connect(self.zone_element_cancel_button, SIGNAL(
+        self.connect(self.zone_element_cancel_button, pyqtSignal(
             "clicked()"), self.zone_value_window, QtCore.SLOT("close()"))
 
         self.set_temp_heat_label_1 = QtGui.QLabel("Set Temp Heating: ")
@@ -3356,14 +3356,14 @@ class MainUI(QDialog):
         self.envelope_element_set_all_construction_button = QtGui.QPushButton()
         self.envelope_element_set_all_construction_button.setText(
             "Set all construction")
-        self.connect(self.envelope_element_save_button, SIGNAL("clicked()"),
+        self.connect(self.envelope_element_save_button, pyqtSignal("clicked()"),
                      self.save_changed_envelopes_values)
-        self.connect(self.envelope_element_save_button, SIGNAL("clicked()"),
+        self.connect(self.envelope_element_save_button, pyqtSignal("clicked()"),
                      self.envelopes_value_window, QtCore.SLOT("close()"))
-        self.connect(self.envelope_element_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.envelope_element_cancel_button, pyqtSignal("clicked()"),
                      self.envelopes_value_window, QtCore.SLOT("close()"))
         self.connect(self.envelope_element_set_all_construction_button,
-                     SIGNAL("clicked()"), self.create_new_envelope_ui)
+                     pyqtSignal("clicked()"), self.create_new_envelope_ui)
         self.save_cancel_layout.addWidget(
             self.envelope_element_save_button, 0, 0)
         self.save_cancel_layout.addWidget(
@@ -3615,20 +3615,20 @@ class MainUI(QDialog):
         self.warning_window_save_button.setText("Ok")
         self.warning_window_save_button.setGeometry(
             QtCore.QRect(0, 60, 145, 25))
-        self.connect(self.warning_window_save_button, SIGNAL("clicked()"),
+        self.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
                      self.warning_window, QtCore.SLOT("close()"))
-        self.connect(self.warning_window_save_button, SIGNAL("clicked()"),
+        self.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
                      self.click_update_building)
-        self.connect(self.warning_window_save_button, SIGNAL("clicked()"),
+        self.connect(self.warning_window_save_button, pyqtSignal("clicked()"),
                      self.display_current_building)
         self.warning_window_cancel_button = QtGui.QPushButton(
             self.warning_window)
         self.warning_window_cancel_button.setText("Cancel")
         self.warning_window_cancel_button.setGeometry(
             QtCore.QRect(155, 60, 145, 25))
-        self.connect(self.warning_window_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.warning_window_cancel_button, pyqtSignal("clicked()"),
                      self.warning_window, QtCore.SLOT("close()"))
-        self.connect(self.warning_window_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.warning_window_cancel_button, pyqtSignal("clicked()"),
                      self.display_current_building)
 
         if isinstance(self.current_building, NonResidential) or \
@@ -3643,10 +3643,10 @@ class MainUI(QDialog):
             self.warning_window_update_button.setGeometry(
                 QtCore.QRect(200, 60, 100, 25))
             self.connect(self.warning_window_update_button,
-                         SIGNAL("clicked()"),
+                         pyqtSignal("clicked()"),
                          self.warning_window, QtCore.SLOT("close()"))
             self.connect(self.warning_window_update_button,
-                         SIGNAL("clicked()"),
+                         pyqtSignal("clicked()"),
                          self.click_update_building)
 
         self.warning_window.setWindowModality(Qt.ApplicationModal)
@@ -3738,7 +3738,7 @@ class MainUI(QDialog):
             self.element_construction_type_combobox.setCurrentIndex(0)
         if self.current_element.construction_type == "light":
             self.element_construction_type_combobox.setCurrentIndex(1)
-        self.connect(self.element_construction_type_combobox, QtCore.SIGNAL(
+        self.connect(self.element_construction_type_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_constr_type)
 
         self.element_orientation_label = QtGui.QLabel("Orientation")
@@ -3855,13 +3855,13 @@ class MainUI(QDialog):
 
         self.element_add_material_button = QtGui.QPushButton()
         self.element_add_material_button.setText("Add Layer")
-        self.connect(self.element_add_material_button, SIGNAL("clicked()"),
+        self.connect(self.element_add_material_button, pyqtSignal("clicked()"),
                      lambda check_window="Element Details Window":
                      self.create_new_layer_ui(check_window))
 
         self.element_delete_material_button = QtGui.QPushButton()
         self.element_delete_material_button.setText("Delete Layer")
-        self.connect(self.element_delete_material_button, SIGNAL("clicked()"),
+        self.connect(self.element_delete_material_button, pyqtSignal("clicked()"),
                      self.delete_selected_layer)
 
         self.set_all_constr_element_material_list_view = QtGui.QListView()
@@ -3885,20 +3885,20 @@ class MainUI(QDialog):
         self.element_save_button = QtGui.QPushButton()
         self.element_save_button.setText("Save")
 
-        self.connect(self.element_save_button, SIGNAL("clicked()"),
+        self.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.load_constr_type)
-        self.connect(self.element_save_button, SIGNAL("clicked()"),
+        self.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.save_changed_element_values)
-        self.connect(self.element_save_button, SIGNAL("clicked()"),
+        self.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.update_zone_details)
-        self.connect(self.element_save_button, SIGNAL("clicked()"),
+        self.connect(self.element_save_button, pyqtSignal("clicked()"),
                      self.element_build_ui, QtCore.SLOT("close()"))
-        # self.connect(self.element_save_button, SIGNAL("clicked()"),
+        # self.connect(self.element_save_button, pyqtSignal("clicked()"),
         #              self.zone_value_window, QtCore.SLOT("update()"))
 
         self.element_cancel_button = QtGui.QPushButton()
         self.element_cancel_button.setText("Cancel")
-        self.connect(self.element_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.element_cancel_button, pyqtSignal("clicked()"),
                      self.element_build_ui, QtCore.SLOT("close()"))
 
         if type(self.current_element).__name__ == "InnerWall":
@@ -4176,7 +4176,7 @@ class MainUI(QDialog):
         self.annex_create_merge_windows_combobox.addItems(
             merging_windows_list)
 
-        self.connect(self.export_create_library_combobox, QtCore.SIGNAL(
+        self.connect(self.export_create_library_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_lib)
 
         self.export_window_ui_layout.addWidget(
@@ -4286,15 +4286,15 @@ class MainUI(QDialog):
             self.simulation_save_cancel_groupbox)
         self.simulation_save_button.setText("Save")
         self.simulation_save_button.setGeometry(QtCore.QRect(5, 5, 90, 25))
-        self.connect(self.simulation_save_button, SIGNAL("clicked()"),
+        self.connect(self.simulation_save_button, pyqtSignal("clicked()"),
                      self.save_changed_simulation_values)
-        self.connect(self.simulation_save_button, SIGNAL("clicked()"),
+        self.connect(self.simulation_save_button, pyqtSignal("clicked()"),
                      self.simulation_window_ui, QtCore.SLOT("close()"))
         self.simulation_cancel_button = QtGui.QPushButton(
             self.simulation_save_cancel_groupbox)
         self.simulation_cancel_button.setText("Cancel")
         self.simulation_cancel_button.setGeometry(QtCore.QRect(100, 5, 80, 25))
-        self.connect(self.simulation_cancel_button, SIGNAL("clicked()"),
+        self.connect(self.simulation_cancel_button, pyqtSignal("clicked()"),
                      self.simulation_window_ui, QtCore.SLOT("close()"))
 
         self.simulation_window_ui_layout.addWidget(
@@ -4349,7 +4349,7 @@ class MainUI(QDialog):
 
         self.material_label = QtGui.QLabel("Material")
         self.material_combobox = QtGui.QComboBox()
-        self.connect(self.material_combobox, QtCore.SIGNAL(
+        self.connect(self.material_combobox, QtCore.pyqtSignal(
             "currentIndexChanged(int)"), self.switch_material)
         temp_list = []
         for material in self.materials:
@@ -4409,22 +4409,22 @@ class MainUI(QDialog):
         self.layer_save_button.setText("Save")
 
         if(sender == self.element_material_list_view):
-            self.connect(self.layer_save_button, SIGNAL(
+            self.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.save_changed_layer_values)
-            self.connect(self.layer_save_button, SIGNAL(
+            self.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.update_element_details)
         else:
-            self.connect(self.layer_save_button, SIGNAL(
+            self.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.save_changed_layer_values_set_all_constr)
-            self.connect(self.layer_save_button, SIGNAL(
+            self.connect(self.layer_save_button, pyqtSignal(
                 "clicked()"), self.update_set_all_construction)
 
-        self.connect(self.layer_save_button, SIGNAL(
+        self.connect(self.layer_save_button, pyqtSignal(
             "clicked()"), self.layer_build_ui, QtCore.SLOT("close()"))
 
         self.layer_cancel_button = QtGui.QPushButton()
         self.layer_cancel_button.setText("Cancel")
-        self.connect(self.layer_cancel_button, SIGNAL(
+        self.connect(self.layer_cancel_button, pyqtSignal(
             "clicked()"), self.layer_build_ui, QtCore.SLOT("close()"))
 
         self.layer_general_layout.addWidget(self.thickness_label, 1, 0)
@@ -4950,9 +4950,9 @@ class MainUI(QDialog):
             self.group_box_office_architecture.setVisible(False)
             self.group_box_residential_architecture.setVisible(True)
             self.construct_type_building_button.clicked.disconnect()
-            self.connect(self.construct_type_building_button, SIGNAL(
+            self.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.check_inputs_typebuilding)
-            self.connect(self.construct_type_building_button, SIGNAL(
+            self.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.popup_window_type_building,
                 QtCore.SLOT("close()"))
         elif (self.current_type_building == "Office" or
@@ -4964,9 +4964,9 @@ class MainUI(QDialog):
             self.group_box_office_architecture.setVisible(True)
             self.group_box_residential_architecture.setVisible(False)
             self.construct_type_building_button.clicked.disconnect()
-            self.connect(self.construct_type_building_button, SIGNAL(
+            self.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.check_inputs_typebuilding)
-            self.connect(self.construct_type_building_button, SIGNAL(
+            self.connect(self.construct_type_building_button, pyqtSignal(
                 "clicked()"), self.popup_window_type_building,
                 QtCore.SLOT("close()"))
 
@@ -5808,7 +5808,7 @@ class EmittingStream(QtCore.QObject):
     part of the package to display the console in the project.
     '''
 
-    textWritten = QtCore.pyqtSignal(str)
+    textWritten = QtCore.pyqtpyqtSignal(str)
 
     def write(self, text):
         self.textWritten.emit(str(text))
