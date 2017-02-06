@@ -88,10 +88,10 @@ record ${bldg.name}_${zone.name} "${bldg.name}_${zone.name}"
     TNHeat = 1,
     HeaterOn = true,
     hCool = 0,
-    lCool = ${zone.cooling_load},
+    lCool = -2*${zone.heating_load},
     KRCool = 10000,
     TNCool = 1,
-    CoolerOn = false);
+    CoolerOn = true);
 end ${bldg.name}_${zone.name};
 
 ##list to string
