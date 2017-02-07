@@ -211,13 +211,16 @@ def modelica_set_temp(bldg, path = None):
     utilitis.create_path(path)
     path = path + bldg.file_set_t
 
-    t_set_heat = [0]
+    t_set = [0]
 
     for zone_count in bldg.thermal_zones:
-        t_set_heat.append(zone_count.use_conditions.set_temp_heat)
+        t_set.append(zone_count.use_conditions.set_temp_heat)
+
+    for zone_count in bldg.thermal_zones:
+        t_set.append(zone_count.use_conditions.set_temp_cool)
 
     scipy.io.savemat(path,
-                     mdict={'Tset': [t_set_heat]},
+                     mdict={'Tset': [t_set]},
                      appendmat = False,
                      format = '4')
 
