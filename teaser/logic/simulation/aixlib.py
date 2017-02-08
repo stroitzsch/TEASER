@@ -180,13 +180,15 @@ def create_timeline(bldg, duration_profile = 86400, time_step = 3600):
         time_line.append([i*time_step])
     return time_line
 
-def modelica_set_temp(bldg, path = None):
+def modelica_set_temp(bldg,
+                      time_line = None,
+                      path = None):
     '''creates .mat file for set temperatures for each zone
 
     This function creates a matfile (-v4) for set temperatures of each
     zone
 
-    !AixLib sepcific!
+    !AixLib specific!
 
     1. Row: heat set temperature of all zones
     2. Row: cool set temperature of all zones
@@ -211,13 +213,33 @@ def modelica_set_temp(bldg, path = None):
     utilitis.create_path(path)
     path = path + bldg.file_set_t
 
-    t_set = [0]
+    if time_line is None:
+        time_line = create_timeline(bldg)
 
-    for zone_count in bldg.thermal_zones:
-        t_set.append(zone_count.use_conditions.set_temp_heat)
+    for i, time in enumerate(time_line):
+        for zone_count in bldg.thermal_zones:
+            if time_line[i][0] > zone_count.use_conditions.heating_time[0]*3600 \
+                    and time_line[i][0] <= zone_count.use_conditions.heating_time[1]*3600:
+                t_set_heat = zone_count.use_conditions.set_temp_heat
+            else:
+                if zone_count.use_conditions.set_temp_heat_set_back is None:
+                    t_set_heat = zone_count.use_conditions.set_temp_heat - zone_count.use_conditions.temp_set_back
+                else:
+                    t_set_heat = zone_count.use_conditions.set_temp_heat_set_back
 
-    for zone_count in bldg.thermal_zones:
-        t_set.append(zone_count.use_conditions.set_temp_cool)
+            if time_line[i][0] > zone_count.use_conditions.cooling_time[0]*3600 \
+                    and time_line[i][0] <= zone_count.use_conditions.cooling_time[1]*3600:
+                t_set_cool = zone_count.use_conditions.set_temp_cool
+            else:
+                if zone_count.use_conditions.set_temp_cool_set_back is None:
+                    t_set_cool = zone_count.use_conditions.set_temp_cool + zone_count.use_conditions.temp_set_back
+                else:
+                    t_set_cool = zone_count.use_conditions.set_temp_cool_set_back
+
+            time.append(t_set_heat)
+            time.append(t_set_cool)
+
+    t_set = np.array(time_line)
 
     scipy.io.savemat(path,
                      mdict={'Tset': [t_set]},

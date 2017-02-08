@@ -204,8 +204,16 @@ class BoundaryConditions(UseConditions):
         reduction factor of userACH for cold weather with
         [infiltration_rate, Tmin, Tmax]
 
+    OTHERS
+
     timeline_time_step : int
         time step used in the profiles in seconds (default one hour, 3600 s)
+
+    set_temp_heat_set_back: float
+        internal set temperature heating during set back hours (e.g. night)
+
+    set_temp_cool_set_back: float
+        internal set temperature cooling during set back hours (e.g. night)
     """
 
     def __init__(self, parent=None):
@@ -278,6 +286,9 @@ class BoundaryConditions(UseConditions):
         self.winter_reduction = [0.2, 273.15, 273.15 + 10]
 
         self.timeline_time_step = 3600
+
+        self._set_temp_heat_set_back = None
+        self._set_temp_cool_set_back = None
 
     def load_use_conditions(self,
                             zone_usage,
@@ -704,3 +715,39 @@ class BoundaryConditions(UseConditions):
                                                           self.parent.parent.name +
                                                           ".mat")
         self._lighting_power = value
+
+    @property
+    def set_temp_heat_set_back(self):
+        return self._set_temp_heat_set_back
+
+    @set_temp_heat_set_back.setter
+    def set_temp_heat_set_back(self, value):
+
+        if isinstance(value, float):
+            self._set_temp_heat_set_back = value
+        elif value is None:
+            self._set_temp_heat_set_back = value
+        else:
+            try:
+                value = float(value)
+                self._set_temp_heat_set_back = value
+            except:
+                raise ValueError("Can't convert temperature to float")
+
+    @property
+    def set_temp_cool_set_back(self):
+        return self._set_temp_cool_set_back
+
+    @set_temp_cool_set_back.setter
+    def set_temp_cool_set_back(self, value):
+
+        if isinstance(value, float):
+            self._set_temp_cool_set_back = value
+        elif value is None:
+            self._set_temp_cool_set_back = value
+        else:
+            try:
+                value = float(value)
+                self._set_temp_cool_set_back = value
+            except:
+                raise ValueError("Can't convert temperature to float")
