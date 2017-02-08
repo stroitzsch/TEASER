@@ -64,6 +64,10 @@ class BuildingAHU(object):
         timeline of relative humidity requirements for AHU simulation
     profile_v_flow : [int]
         timeline of desired relative v_flow of the AHU simulation (0..1)
+    timeline_duration_profile : int
+        duration of the profiles in seconds (default one day, 86400 s)
+    timeline_time_step : int
+        time step used in the profiles in seconds (default one hour, 3600 s)
 
     """
 
@@ -90,6 +94,9 @@ class BuildingAHU(object):
         self._profile_max_relative_humidity = None
         self._profile_v_flow = None
         self._profile_temperature = None
+
+        self.timeline_duration_profile = 86400
+        self.timeline_time_step = 3600
 
     @property
     def parent(self):

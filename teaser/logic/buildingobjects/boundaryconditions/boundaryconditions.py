@@ -203,6 +203,9 @@ class BoundaryConditions(UseConditions):
     winter_reduction : list
         reduction factor of userACH for cold weather with
         [infiltration_rate, Tmin, Tmax]
+
+    timeline_time_step : int
+        time step used in the profiles in seconds (default one hour, 3600 s)
     """
 
     def __init__(self, parent=None):
@@ -273,6 +276,8 @@ class BoundaryConditions(UseConditions):
         self.max_overheating_ach = [3.0, 2.0]
         self.max_summer_ach = [1.0, 273.15 + 10, 273.15 + 17]
         self.winter_reduction = [0.2, 273.15, 273.15 + 10]
+
+        self.timeline_time_step = 3600
 
     def load_use_conditions(self,
                             zone_usage,
