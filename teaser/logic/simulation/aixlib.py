@@ -392,10 +392,11 @@ def modelica_gains_boundary(bldg,
 
     for zone_count in bldg.thermal_zones:
         if time_line is None:
-            duration= len(zone_count.use_conditions.profile_persons) * \
+            duration = len(zone_count.use_conditions.profile_persons) * \
                       zone_count.use_conditions.timeline_time_step
             time_line = create_timeline(bldg=bldg,
-                                        duration_profile = duration)
+                                        duration_profile = duration,
+                                        time_step = zone_count.use_conditions.timeline_time_step)
 
 #            zone_count.use_conditions.profile_persons.insert(0,0)
 #            zone_count.use_conditions.profile_machines.insert(0,0)
