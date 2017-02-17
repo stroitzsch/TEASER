@@ -70,6 +70,8 @@ class Building(object):
         path of internal gains Matlab file for boundary condition
     file_set_t : string
         path of temperature Matlab file for boundary condition
+    file_zone_t : string
+        path of measured zone temperature Matlab file validation
     """
 
     def __init__(self,
@@ -123,6 +125,7 @@ class Building(object):
         self.file_ahu = None
         self.file_internal_gains = None
         self.file_set_t = None
+        self.file_zone_t = None
         self.file_weather = None
 
         self.orientation_bldg = []

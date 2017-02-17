@@ -254,6 +254,18 @@ end ${bldg.name};
     "Set points for heater and cooler"
     annotation (Placement(transformation(extent={{72,-66},{56,-50}})));
 
+% if bldg.thermal_zones is not None:
+  Modelica.Blocks.Sources.CombiTimeTable tableZoneTemperature(
+    tableOnFile=true,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
+    tableName="zoneTemperatureData",
+    fileName=Modelica.Utilities.Files.loadResource(
+        "${bldg.file_zone_t}"),
+    columns=2:${(get_n(bldg.thermal_zones))+1})
+    "Measured zone temperature (validation data)"
+    annotation (Placement(transformation(extent={{-64,-60},{-48,-44}})));
+    % endif
+
 equation
   connect(weaDat.weaBus, multizone.weaBus) annotation (Line(
       points={{-62,40},{-32,40},{-32,6},{34,6}},
