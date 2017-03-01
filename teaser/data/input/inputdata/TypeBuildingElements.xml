@@ -405,46 +405,6 @@
 			</layer>
 		</Layers>
 	</OuterWall>
-	<OuterWall>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>light_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<outer_convection>20.0</outer_convection>
-		<outer_radiation>5.0</outer_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.024</thickness>
-				<material material_id="0aba7911-83ff-11e6-984d-2cd444b2e704">Aluminium</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.1</thickness>
-				<material material_id="0abaa03a-83ff-11e6-b755-2cd444b2e704">Aircavity</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.024</thickness>
-				<material material_id="0aba7915-83ff-11e6-8883-2cd444b2e704">Sandwichpaneel</material>
-			</layer>
-		</Layers>
-	</OuterWall>
-	<OuterWall>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>heavy_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<outer_convection>20.0</outer_convection>
-		<outer_radiation>5.0</outer_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.45</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
-			</layer>
-		</Layers>
-	</OuterWall>
 	<InnerWall>
 		<building_age_group>0 1918</building_age_group>
 		<construction_type>heavy</construction_type>
@@ -815,32 +775,6 @@
 				<id>3</id>
 				<thickness>0.02</thickness>
 				<material material_id="0abb8aa2-83ff-11e6-95cb-2cd444b2e704">Plaster</material>
-			</layer>
-		</Layers>
-	</InnerWall>
-	<InnerWall>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>light_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.1</thickness>
-				<material material_id="0abac72e-83ff-11e6-aba6-2cd444b2e704">Gypsumboard</material>
-			</layer>
-		</Layers>
-	</InnerWall>
-	<InnerWall>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>heavy_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.3</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
 			</layer>
 		</Layers>
 	</InnerWall>
@@ -1224,66 +1158,6 @@
 			</layer>
 		</Layers>
 	</Rooftop>
-	<Rooftop>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>light_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<outer_convection>20.0</outer_convection>
-		<outer_radiation>5.0</outer_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.025</thickness>
-				<material material_id="0abaa039-83ff-11e6-b385-2cd444b2e704">Tiledroof</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.03</thickness>
-				<material material_id="0abaa03a-83ff-11e6-b755-2cd444b2e704">Aircavity</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.1</thickness>
-				<material material_id="0abaa036-83ff-11e6-af04-2cd444b2e704">MW</material>
-			</layer>
-			<layer>
-				<id>4</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abaa037-83ff-11e6-808c-2cd444b2e704">Wood</material>
-			</layer>
-			<layer>
-				<id>5</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8aa2-83ff-11e6-95cb-2cd444b2e704">Plaster</material>
-			</layer>
-		</Layers>
-	</Rooftop>
-	<Rooftop>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>heavy_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<outer_convection>20.0</outer_convection>
-		<outer_radiation>5.0</outer_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abaa039-83ff-11e6-b385-2cd444b2e704">Tiledroof</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.03</thickness>
-				<material material_id="0abaa03a-83ff-11e6-b755-2cd444b2e704">Aircavity</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abac72e-83ff-11e6-aba6-2cd444b2e704">Gypsumboard</material>
-			</layer>
-		</Layers>
-	</Rooftop>
 	<GroundFloor>
 		<building_age_group>0 1918</building_age_group>
 		<construction_type>heavy</construction_type>
@@ -1637,57 +1511,6 @@
 	<GroundFloor>
 		<building_age_group>0 2016</building_age_group>
 		<construction_type>heavy_annex</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8a9b-83ff-11e6-b02d-2cd444b2e704">Tiles</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.05</thickness>
-				<material material_id="0abb8aa0-83ff-11e6-9a00-2cd444b2e704">Screed</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.12</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
-			</layer>
-		</Layers>
-	</GroundFloor>
-	<GroundFloor>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>light_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8a9b-83ff-11e6-b02d-2cd444b2e704">Tiles</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.06</thickness>
-				<material material_id="0abb8aa0-83ff-11e6-9a00-2cd444b2e704">Screed</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.05</thickness>
-				<material material_id="0abaee4a-83ff-11e6-ae56-2cd444b2e704">XPS</material>
-			</layer>
-			<layer>
-				<id>4</id>
-				<thickness>0.2</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
-			</layer>
-		</Layers>
-	</GroundFloor>
-	<GroundFloor>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>heavy_CREATE</construction_type>
 		<inner_convection>2.7</inner_convection>
 		<inner_radiation>5.0</inner_radiation>
 		<Layers>
@@ -2069,44 +1892,6 @@
 			</layer>
 		</Layers>
 	</Window>
-	<Window>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>light_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<outer_convection>20.0</outer_convection>
-		<outer_radiation>5.0</outer_radiation>
-		<g_value>0.2</g_value>
-		<a_conv>0.07</a_conv>
-		<shading_g_total>1.0</shading_g_total>
-		<shading_max_irr>100.0</shading_max_irr>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.024</thickness>
-				<material material_id="0abbb1a3-83ff-11e6-b878-2cd444b2e704">Glas0_2016light_annex</material>
-			</layer>
-		</Layers>
-	</Window>
-	<Window>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>heavy_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<outer_convection>20.0</outer_convection>
-		<outer_radiation>5.0</outer_radiation>
-		<g_value>0.2</g_value>
-		<a_conv>0.07</a_conv>
-		<shading_g_total>1.0</shading_g_total>
-		<shading_max_irr>100.0</shading_max_irr>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.024</thickness>
-				<material material_id="0abbb1a4-83ff-11e6-96ae-2cd444b2e704">Glas0_2016heavy_annex</material>
-			</layer>
-		</Layers>
-	</Window>
 	<Ceiling>
 		<building_age_group>0 1918</building_age_group>
 		<construction_type>heavy</construction_type>
@@ -2460,62 +2245,6 @@
 	<Ceiling>
 		<building_age_group>0 2016</building_age_group>
 		<construction_type>heavy_annex</construction_type>
-		<inner_convection>20.0</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8aa2-83ff-11e6-95cb-2cd444b2e704">Plaster</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.2</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.08</thickness>
-				<material material_id="0abb8aa0-83ff-11e6-9a00-2cd444b2e704">Screed</material>
-			</layer>
-			<layer>
-				<id>4</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8a9f-83ff-11e6-abd8-2cd444b2e704">Woodenfloor</material>
-			</layer>
-		</Layers>
-	</Ceiling>
-	<Ceiling>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>light_CREATE</construction_type>
-		<inner_convection>20.0</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8aa2-83ff-11e6-95cb-2cd444b2e704">Plaster</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.2</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.06</thickness>
-				<material material_id="0abb8aa0-83ff-11e6-9a00-2cd444b2e704">Screed</material>
-			</layer>
-			<layer>
-				<id>4</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8a9b-83ff-11e6-b02d-2cd444b2e704">Tiles</material>
-			</layer>
-		</Layers>
-	</Ceiling>
-	<Ceiling>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>heavy_CREATE</construction_type>
 		<inner_convection>20.0</inner_convection>
 		<inner_radiation>5.0</inner_radiation>
 		<Layers>
@@ -2894,62 +2623,6 @@
 	<Floor>
 		<building_age_group>0 2016</building_age_group>
 		<construction_type>heavy_annex</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8a9f-83ff-11e6-abd8-2cd444b2e704">Woodenfloor</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.08</thickness>
-				<material material_id="0abb8aa0-83ff-11e6-9a00-2cd444b2e704">Screed</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.2</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
-			</layer>
-			<layer>
-				<id>4</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8aa2-83ff-11e6-95cb-2cd444b2e704">Plaster</material>
-			</layer>
-		</Layers>
-	</Floor>
-	<Floor>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>light_CREATE</construction_type>
-		<inner_convection>2.7</inner_convection>
-		<inner_radiation>5.0</inner_radiation>
-		<Layers>
-			<layer>
-				<id>1</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8a9b-83ff-11e6-b02d-2cd444b2e704">Tiles</material>
-			</layer>
-			<layer>
-				<id>2</id>
-				<thickness>0.06</thickness>
-				<material material_id="0abb8aa0-83ff-11e6-9a00-2cd444b2e704">Screed</material>
-			</layer>
-			<layer>
-				<id>3</id>
-				<thickness>0.2</thickness>
-				<material material_id="0abb8aa1-83ff-11e6-b405-2cd444b2e704">Concrete</material>
-			</layer>
-			<layer>
-				<id>4</id>
-				<thickness>0.02</thickness>
-				<material material_id="0abb8aa2-83ff-11e6-95cb-2cd444b2e704">Plaster</material>
-			</layer>
-		</Layers>
-	</Floor>
-	<Floor>
-		<building_age_group>0 2016</building_age_group>
-		<construction_type>heavy_CREATE</construction_type>
 		<inner_convection>2.7</inner_convection>
 		<inner_radiation>5.0</inner_radiation>
 		<Layers>
