@@ -298,19 +298,19 @@ def modelica_AHU_boundary(bldg,
     utilitis.create_path(path)
     path = path + bldg.file_ahu
 
-    if time_line is None:
-        time_line = create_timeline(bldg,
-                                    duration_profile = bldg.central_ahu.timeline_duration_profile,
-                                    time_step = bldg.central_ahu.timeline_time_step)
     if bldg.with_ahu is True:
+        if time_line is None:
+            time_line = create_timeline(bldg,
+                                        duration_profile = bldg.central_ahu.timeline_duration_profile,
+                                        time_step = bldg.central_ahu.timeline_time_step)
         profile_temperature = \
-                    bldg.central_ahu.profile_temperature
+            bldg.central_ahu.profile_temperature
         profile_min_relative_humidity = \
-                    bldg.central_ahu.profile_min_relative_humidity
+            bldg.central_ahu.profile_min_relative_humidity
         profile_max_relative_humidity = \
-                    bldg.central_ahu.profile_max_relative_humidity
+            bldg.central_ahu.profile_max_relative_humidity
         profile_v_flow = \
-                    bldg.central_ahu.profile_v_flow
+            bldg.central_ahu.profile_v_flow
     else:
         #Dummy values for Input Table (based on discussion with pme)
         time_line = [[0],[3600]]
@@ -323,13 +323,13 @@ def modelica_AHU_boundary(bldg,
     ass_error_1 = "time line and input have to have the same length"
 
     assert len(time_line) == len(profile_temperature), \
-                        (ass_error_1 + ",profile_temperature_AHU")
+        (ass_error_1 + ",profile_temperature_AHU")
     assert len(time_line) == len(profile_min_relative_humidity), \
-                        (ass_error_1 + ",profile_min_relative_humidity")
+        (ass_error_1 + ",profile_min_relative_humidity")
     assert len(time_line) == len(profile_max_relative_humidity), \
-                        (ass_error_1 + ",profile_max_relative_humidity")
+        (ass_error_1 + ",profile_max_relative_humidity")
     assert len(time_line) == len(profile_v_flow), \
-                        (ass_error_1 + ",profile_status_AHU")
+        (ass_error_1 + ",profile_status_AHU")
 
 
     for i, time in enumerate(time_line):
