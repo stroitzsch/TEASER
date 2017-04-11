@@ -346,6 +346,90 @@ def modelica_AHU_boundary(bldg,
                      appendmat = False,
                      format = '4')
 
+def modelica_AHU_boundary_zonal(bldg,
+                          time_line = None,
+                          path = None):
+    '''creates .mat file for AHU boundary conditions (supply temperature and volume flow per zone)
+
+    This function creates a matfile (-v4) for building AHU boundary
+    conditions
+
+    !AixLib sepcific!
+
+    Known limitation:
+
+    1. Column : time step
+    2,4,6... Column : AHU profile supply temperature per zone
+    3,5,7... Column : AHU volume flow profile per zone
+
+
+    Parameters
+    ----------
+    time_line :[[int]]
+        list of time steps
+    path : str
+        optional path, when matfile is exported seperately
+
+    Attributes
+    ----------
+    profile_temperature : [float]
+        timeline of temperatures requirements for AHU simulation
+    profile_v_flow : [float]
+        timeline of desired relative v_flow of the AHU simulation
+
+    '''
+
+    if bldg.file_ahu is None:
+        bldg.file_ahu = "/AHU_"+bldg.name+".mat"
+    else:
+        pass
+
+    if path is None:
+        path = utilitis.get_default_path()
+    else:
+        pass
+
+    utilitis.create_path(path)
+    path = path + bldg.file_ahu
+
+    if bldg.with_ahu is True:
+        if time_line is None:
+            time_line = create_timeline(bldg,
+                                        duration_profile = bldg.central_ahu.timeline_duration_profile,
+                                        time_step = bldg.central_ahu.timeline_time_step)
+        profile_temperature = \
+            bldg.central_ahu.profile_temperature
+        profile_v_flow = \
+            bldg.central_ahu.profile_v_flow
+
+        assert len(profile_v_flow) == len(profile_temperature), \
+            ("inputs have to have the same length")
+
+        for j, profile in enumerate (profile_v_flow):
+            ass_error_1 = "time line and input have to have the same length"
+
+            assert len(time_line) == len(profile_temperature[j]), \
+                (ass_error_1 + ",profile_temperature_AHU")
+
+            for i, time in enumerate(time_line):
+                time.append(profile_temperature[j][i])
+
+        for j, profile in enumerate (profile_v_flow):
+            ass_error_1 = "time line and input have to have the same length"
+
+            assert len(time_line) == len(profile_v_flow[j]), \
+                (ass_error_1 + ",profile_status_AHU")
+
+            for i, time in enumerate(time_line):
+                time.append(profile_v_flow[j][i])
+
+        ahu_boundary = np.array(time_line)
+
+        scipy.io.savemat(path,
+                         mdict={'AHU': ahu_boundary},
+                         appendmat = False,
+                         format = '4')
+
 def modelica_gains_boundary(bldg,
                             time_line = None,
                             path = None):

@@ -87,7 +87,12 @@ def export_aixlib(prj,
             utilitis.create_path(utilitis.get_full_path
                                (bldg_path + bldg.name + "_DataBase"))
             aixlib.modelica_set_temp(bldg=bldg, path=path + "/" + bldg.name)
-            aixlib.modelica_AHU_boundary(bldg=bldg, path=path + "/" + bldg.name)
+
+            if building_model == "Multizone":  # workaround for zonal AHU volume flow control
+                aixlib.modelica_AHU_boundary_zonal(bldg=bldg, path=path + "/" + bldg.name)
+            else:
+                aixlib.modelica_AHU_boundary(bldg=bldg, path=path + "/" + bldg.name)
+
             aixlib.modelica_gains_boundary(bldg=bldg, path=path + "/" + bldg.name)
 
             _help_package(bldg_path, bldg.name, within=prj.name)
