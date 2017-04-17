@@ -68,9 +68,9 @@ model ${bldg.name}
   tableOnFile=true,
   extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
   tableName="AHU",
-  columns=2:5,
+  columns=2:${get_n(bldg.thermal_zones)*2+1},
   fileName=Modelica.Utilities.Files.loadResource(
-      "modelica://CreateCampus20170411142601/CreateTower//AHU_CreateTower.mat"))
+      "modelica://${mod_prj}/${bldg.name}/${bldg.file_ahu}"))
   "Boundary conditions for air handling unit"
   annotation (Placement(transformation(extent={{-64,-6},{-48,10}})));
 % else:
